@@ -15,8 +15,11 @@ import Kingfisher
 
 class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var lbNomeLogin: UILabel!
     
-    @IBOutlet weak var tableViewContato: UITableView!
+    
+    @IBOutlet weak var imgFotoContato: UIImageView!
+    
     
     var auth:  ContatoService!
     var contact: [ContatoView] = []
@@ -24,11 +27,25 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     var loginAuth: AuthenticationService!
     
     
-    
     @IBOutlet weak var nomeHeaderContatos: UILabel!
     @IBOutlet weak var imagemContatos: UIImageView!
     
     @IBOutlet weak var tableViewContatos: UITableView!
+    
+    
+    //criando o carregamento de atualizacao...
+    let myRefreshControll: UIRefreshControl = {
+        let refreshcontroll = UIRefreshControl()
+        refreshcontroll.addTarget(self, action: #selector(ViewControllerContato.refresh), for: .valueChanged)
+        return refreshcontroll
+    }()
+    
+    
+    @objc private func refresh(){
+        self.auth.listarContato()
+    }
+    
+    
     
     
     override func viewDidLoad() {
@@ -40,22 +57,29 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         
         let imageView = UIImageView()
         imageView.kf.setImage(with: URL(string: ""))
+      //  imageView.kf.setImage(with: URL(string: ""))
+        
+        //lbNomeLogin.text = nomeFoto.name
+        
+//        self.tableViewContato.refreshControl = self.refreshControl
+        
+       
+        /*Criando a parte do view do Header*/
+        var nomeHeader = SessionControll.shared.usuario.name
+        var fotoHeader = SessionControll.shared.usuario.photoUrl
+        
+        nomeHeaderContatos.text = nomeHeader
+        imgFotoContato.kf.setImage(with:fotoHeader)
+        
+        
+        self.tableViewContatos.refreshControl = myRefreshControll
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
+        super.viewWillAppear(true)
         
         //imagemContatos.kf.setImage(with: )
-        
-        super.viewWillAppear(true)
         self.auth.listarContato()
-        
-        let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true, block: { timer in
-            super.viewWillAppear(true)
-            self.auth.listarContato()
-            
-        })
-        
     }
     
     
@@ -77,16 +101,16 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     }
     
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let telaDetalhes = StoryboardScene.Detalhes.detalhesViewController.instantiate()
         telaDetalhes.contact = contact[indexPath.row]
         present(telaDetalhes, animated: true)
-        
-        var id = contact[indexPath.row].id
-        
-        
+
     }
+    
+    
     
     
     @IBAction func bntContatoAtualizar(_ sender: Any) {
@@ -120,10 +144,11 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         
         tableViewContatos.reloadData()
         
+        self.myRefreshControll.endRefreshing()
     }
     
     func failure(type: ResponsetYPE, error: String) {
-        
+        self.myRefreshControll.endRefreshing()
     }
     
 }

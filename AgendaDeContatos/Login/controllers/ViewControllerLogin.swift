@@ -42,6 +42,8 @@ class ViewControllerLogin: UIViewController, ServiceDelegate{
         if let localLogin = self.txtLogin.text, let localSenha = self.txtSenha.text {
             self.auth.login(email: localLogin, senha: localSenha)
         }
+        
+        let telaContatos = StoryboardScene.Contato.viewControllerContato.instantiate()
     }
     
     @IBAction func bntVoltar(_ sender: Any) {

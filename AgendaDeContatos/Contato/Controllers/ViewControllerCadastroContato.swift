@@ -18,7 +18,6 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     @IBOutlet weak var telefoneTxt: UITextField!
     @IBOutlet weak var fotoTxt: UITextField!
     
-    //Criando as telas de aviso
     
     
     
