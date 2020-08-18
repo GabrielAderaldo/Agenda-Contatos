@@ -18,7 +18,6 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     @IBOutlet weak var telefoneTxt: UITextField!
     @IBOutlet weak var fotoTxt: UITextField!
     
-    //Criando as telas de aviso
     
     
     
@@ -43,6 +42,11 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     
     @IBAction func bntSalvarContato(_ sender: Any) {
     
+        
+        
+        
+        
+        
         if let localNome = self.nomeTxt.text, let localEmail = self.emailTxt.text,
             let localTelefone = self.telefoneTxt.text, let localFoto = self.fotoTxt.text{
             

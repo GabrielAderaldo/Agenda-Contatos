@@ -26,7 +26,7 @@ struct UsuarioView{
 
 class UsuarioViewModel {
     
-   
+  
     
     static func save(_ usuario: Usuario){
         self.removeUser()

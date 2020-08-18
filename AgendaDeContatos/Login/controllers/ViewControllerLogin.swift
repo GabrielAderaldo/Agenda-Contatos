@@ -37,6 +37,11 @@ class ViewControllerLogin: UIViewController, ServiceDelegate{
             self.auth.login(email: localLogin, senha: localSenha)
         }
         
+        let telaContatos = StoryboardScene.Contato.viewControllerContato.instantiate()
+        
+        
+        
+        
         
     }
     
