@@ -9,4 +9,12 @@ Básicamente um aplicativo de agenda de contatos, feio na linguagem Swift. Esse 
 <li>Listar todos os contatos</li>
 <li>Alterar um contato</li>
 </ul>
+<p>Feito por Gabriel Aderaldo...</p>
+<p>Ajuda: Jobson Mathes: https://github.com/JobsonMateusAlves</p>
+<p>API utilizada para o back-end desse projeto foi: https://github.com/JobsonMateusAlves/Contacts-Api</p>
 </P>
+
+<p class="priemiraExplicacao">
+  
+</P>
+
