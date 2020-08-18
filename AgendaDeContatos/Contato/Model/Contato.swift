@@ -10,10 +10,9 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-//FIXME: Remover Excesso de espaços vazios
+//DFIXME: Remover Excesso de espaços vazios
 
 class Contato: Object,Mappable{
-    
     
     @objc dynamic var id: String?
     @objc dynamic var nome: String?
@@ -21,20 +20,13 @@ class Contato: Object,Mappable{
     @objc dynamic var email: String?
     @objc dynamic var fone: String?
     
-    
-    
-    
     required convenience init(map: Map) {
         self.init()
     }
     
-    
-    
     override class func primaryKey() -> String? {
         return "id"
     }
-    
-    
     
     func mapping(map: Map) {
         

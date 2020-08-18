@@ -15,7 +15,7 @@ internal enum StoryboardScene {
   internal enum Cadastro: StoryboardType {
     internal static let storyboardName = "Cadastro"
 
-    internal static let viewControllerCadastro = SceneType<AgendaDeContatos.ViewControllerCadastro>(storyboard: Cadastro.self, identifier: "ViewControllerCadastro")
+    internal static let viewControllerCadastro = SceneType<AgendaDeContatos.CadastroViewController>(storyboard: Cadastro.self, identifier: "ViewControllerCadastro")
   }
   internal enum CadastroContato: StoryboardType {
     internal static let storyboardName = "CadastroContato"
@@ -35,7 +35,7 @@ internal enum StoryboardScene {
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"
 
-    internal static let viewControllerLogin = SceneType<AgendaDeContatos.ViewControllerLogin>(storyboard: Login.self, identifier: "ViewControllerLogin")
+    internal static let viewControllerLogin = SceneType<AgendaDeContatos.LoginViewController>(storyboard: Login.self, identifier: "ViewControllerLogin")
   }
   internal enum Main: StoryboardType {
     internal static let storyboardName = "Main"

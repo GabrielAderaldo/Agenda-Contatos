@@ -59,7 +59,7 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     
     
     
-    func success(type: ResponsetYPE) {
+    func success(type: ResponseType) {
         let telaAvisoSucessoContato = UIAlertController(title: "Sucesso!", message: "Seu contato foi cadastrado com sucesso!", preferredStyle: .alert)
         telaAvisoSucessoContato.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaAvisoSucessoContato, animated: true)
@@ -68,7 +68,7 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     }
     
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         let telaAvisoFalhaContato = UIAlertController(title: "Falha", message: "Infelismente ocorreu um erro na execucao, tente novamente", preferredStyle: .alert)
         telaAvisoFalhaContato.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaAvisoFalhaContato, animated: true)

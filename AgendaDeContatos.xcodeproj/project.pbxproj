@@ -10,7 +10,7 @@
 		320230C024E48E88000A2B83 /* CadastroContato.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 320230BF24E48E88000A2B83 /* CadastroContato.storyboard */; };
 		320230C224E48F29000A2B83 /* ViewControllerCadastroContato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320230C124E48F29000A2B83 /* ViewControllerCadastroContato.swift */; };
 		32202A4D24E1B2A200CCB245 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */; };
-		32202A5324E1D0FC00CCB245 /* ViewControllerLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5124E1D0FC00CCB245 /* ViewControllerLogin.swift */; };
+		32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5124E1D0FC00CCB245 /* LoginViewController.swift */; };
 		32202A5624E1D7C400CCB245 /* StoryboardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5524E1D7C400CCB245 /* StoryboardsScene.swift */; };
 		3272976724E71D5A00E6AED3 /* detalhes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3272976624E71D5A00E6AED3 /* detalhes.storyboard */; };
 		3272976924E71DBC00E6AED3 /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272976824E71DBC00E6AED3 /* DetalhesViewController.swift */; };
@@ -34,7 +34,7 @@
 		32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */; };
 		32C8013624E471A600E338D9 /* ContatosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013524E471A600E338D9 /* ContatosService.swift */; };
 		32E0605024E2FD2400DB7E9B /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */; };
-		32E0605224E2FD5100DB7E9B /* ViewControllerCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605124E2FD5100DB7E9B /* ViewControllerCadastro.swift */; };
+		32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */; };
 		32E0605424E30D8700DB7E9B /* RequestFactoryCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605324E30D8700DB7E9B /* RequestFactoryCadastro.swift */; };
 		32E0605624E30D9800DB7E9B /* ServiceCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605524E30D9800DB7E9B /* ServiceCadastro.swift */; };
 		32E0605D24E332EB00DB7E9B /* Contato.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0605C24E332EB00DB7E9B /* Contato.storyboard */; };
@@ -43,6 +43,7 @@
 		32E70AFF24E5B40900D28B9B /* atualizar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E70AFE24E5B40900D28B9B /* atualizar.storyboard */; };
 		32E70B0324E5B52700D28B9B /* ViewControllerAtualizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E70B0224E5B52700D28B9B /* ViewControllerAtualizar.swift */; };
 		32E8571F24E1D96B009FADC4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E8571E24E1D96B009FADC4 /* Login.storyboard */; };
+		32EA5A3B24EC75E0002FFD1A /* SessionControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */; };
 		7593C1EE6658717A328F2295 /* Pods_AgendaDeContatos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F0CE2050BC26139852B254 /* Pods_AgendaDeContatos.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,7 +53,7 @@
 		320230BF24E48E88000A2B83 /* CadastroContato.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CadastroContato.storyboard; sourceTree = "<group>"; };
 		320230C124E48F29000A2B83 /* ViewControllerCadastroContato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCadastroContato.swift; sourceTree = "<group>"; };
 		32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
-		32202A5124E1D0FC00CCB245 /* ViewControllerLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerLogin.swift; sourceTree = "<group>"; };
+		32202A5124E1D0FC00CCB245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		32202A5524E1D7C400CCB245 /* StoryboardsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsScene.swift; sourceTree = "<group>"; };
 		3272976624E71D5A00E6AED3 /* detalhes.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = detalhes.storyboard; sourceTree = "<group>"; };
 		3272976824E71DBC00E6AED3 /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +80,7 @@
 		32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosRequestFactory.swift; sourceTree = "<group>"; };
 		32C8013524E471A600E338D9 /* ContatosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosService.swift; sourceTree = "<group>"; };
 		32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
-		32E0605124E2FD5100DB7E9B /* ViewControllerCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCadastro.swift; sourceTree = "<group>"; };
+		32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		32E0605324E30D8700DB7E9B /* RequestFactoryCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryCadastro.swift; sourceTree = "<group>"; };
 		32E0605524E30D9800DB7E9B /* ServiceCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCadastro.swift; sourceTree = "<group>"; };
 		32E0605C24E332EB00DB7E9B /* Contato.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contato.storyboard; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		32E70AFE24E5B40900D28B9B /* atualizar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = atualizar.storyboard; sourceTree = "<group>"; };
 		32E70B0224E5B52700D28B9B /* ViewControllerAtualizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAtualizar.swift; sourceTree = "<group>"; };
 		32E8571E24E1D96B009FADC4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControll.swift; sourceTree = "<group>"; };
 		F6FC0834E1F07C2C74A16362 /* Pods-AgendaDeContatos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgendaDeContatos.debug.xcconfig"; path = "Target Support Files/Pods-AgendaDeContatos/Pods-AgendaDeContatos.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,7 +108,7 @@
 		32202A4E24E1C48A00CCB245 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32202A5124E1D0FC00CCB245 /* ViewControllerLogin.swift */,
+				32202A5124E1D0FC00CCB245 /* LoginViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -148,6 +150,7 @@
 		32C05DFD24DDCAB800D2F3A5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */,
 				32C05E1824DDD7CA00D2F3A5 /* ResponseType.swift */,
 				32C05DE824DDC9E400D2F3A5 /* AppDelegate.swift */,
 				32C05DEA24DDC9E400D2F3A5 /* SceneDelegate.swift */,
@@ -246,7 +249,7 @@
 		32E0604B24E2FCB600DB7E9B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32E0605124E2FD5100DB7E9B /* ViewControllerCadastro.swift */,
+				32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -476,10 +479,11 @@
 				32C05DED24DDC9E400D2F3A5 /* ViewController.swift in Sources */,
 				32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */,
 				32C05E1924DDD7CA00D2F3A5 /* ResponseType.swift in Sources */,
-				32202A5324E1D0FC00CCB245 /* ViewControllerLogin.swift in Sources */,
+				32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */,
+				32EA5A3B24EC75E0002FFD1A /* SessionControll.swift in Sources */,
 				32C05E2624DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift in Sources */,
 				32E0606324E33C0C00DB7E9B /* Contato.swift in Sources */,
-				32E0605224E2FD5100DB7E9B /* ViewControllerCadastro.swift in Sources */,
+				32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */,
 				32E0605424E30D8700DB7E9B /* RequestFactoryCadastro.swift in Sources */,
 				32C05DE924DDC9E400D2F3A5 /* AppDelegate.swift in Sources */,
 				3272976924E71DBC00E6AED3 /* DetalhesViewController.swift in Sources */,

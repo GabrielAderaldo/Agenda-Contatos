@@ -31,7 +31,7 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     let telaFracasso = UIAlertController(title: "Fracasso", message: "Falha, tente novamente", preferredStyle: .alert)
     
     var auth: ContatoService!
-    
+    var contact: ContatoView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,6 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
     @IBAction func bntVoltar(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
-        
-    
     }
     
     
@@ -60,31 +58,26 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
     
     @IBAction func bntAtualizar(_ sender: Any) {
-        
-        if let localIdtxt = self.idTxt.text, let localNome = self.idNome.text, let localEmail = self.idEmail.text, let localTelefone = self.idTelefone.text, let localFoto = self.idFoto.text{
-            self.auth.atualizarContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone, id: localIdtxt)
+      
+       if let localNome = self.idNome.text, let localEmail = self.idEmail.text, let localTelefone = self.idTelefone.text,let localFoto = self.idFoto.text, let localId = contact?.id{
+                  self.auth.atualizarContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone, id:localId)
         }
-        
-        
-    }
-    
-    
-    @IBAction func bntDeletar(_ sender: Any) {
-        
-        if let localid = self.idTxt.text{
-            self.auth.deletarContato(id: localid)
-        }
+        self.dismiss(animated: true)
         
     }
     
     
     
-    func success(type: ResponsetYPE) {
+    
+    
+    func success(type: ResponseType) {
         telaSucesso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaSucesso, animated: true)
+       
+        
     }
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         telaFracasso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     }
     

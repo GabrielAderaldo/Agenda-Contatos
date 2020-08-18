@@ -24,7 +24,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     var auth:  ContatoService!
     var contact: [ContatoView] = []
     var usuario: UsuarioViewModel!
-    var loginAuth: AuthenticationService!
+
     
     
     @IBOutlet weak var nomeHeaderContatos: UILabel!
@@ -137,7 +137,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         
     }
     
-    func success(type: ResponsetYPE) {
+    func success(type: ResponseType) {
         
         self.contact = ContatoViewModel.getViews()
         
@@ -147,7 +147,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         self.myRefreshControll.endRefreshing()
     }
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         self.myRefreshControll.endRefreshing()
     }
     

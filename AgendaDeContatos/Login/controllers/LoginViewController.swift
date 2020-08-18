@@ -8,7 +8,7 @@
 
 import UIKit
 
-//FIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
+//DFIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
 // - OBS:
 // - Fazer isso com as outras Controllers tambem. (ViewControllerCadastro, ViewControllerContato, ViewControllerCadastroContato, ViewControllerAtualizar)
 // - Como renomear uma classe ou variavel?
@@ -17,13 +17,12 @@ import UIKit
 // 3. Selecione a opção "Rename".
 // 4. Escreva o novo nome da classe ou variável.
 // 5. Clique na opção "Rename".
+//Feito...
 
-class ViewControllerLogin: UIViewController, ServiceDelegate{
+class LoginViewController: UIViewController, ServiceDelegate{
 
     var auth: AuthenticationService!
-    
-    var passarFoto: [UsuarioViewModel] = [] //FIXME: Sempre tentar lembrar de apagar variáveis e funções que não estão sendo utilizadas.
-    
+
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtSenha: UITextField!
     
@@ -50,15 +49,17 @@ class ViewControllerLogin: UIViewController, ServiceDelegate{
         self.dismiss(animated: true)
     }
 
-    func success(type: ResponsetYPE) {
+    func success(type: ResponseType) {
 
         let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telaContato.modalPresentationStyle = .fullScreen
         
-        self.present(telaContato, animated: true)
+        
+        self.present(telaContato, animated: true,completion:nil)
+        
     }
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         //Criar um alerta de erro
         
         //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte

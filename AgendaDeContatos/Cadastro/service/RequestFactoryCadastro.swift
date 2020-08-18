@@ -11,7 +11,7 @@ import Alamofire
 
 
 class AuthenticationRequestFactoryCadastro{
-    
+    /*
     static func cadastro(nome: String, foto: String, email: String, senha: String) -> DataRequest {
         
         let params:Parameters = ["name": nome,
@@ -24,4 +24,5 @@ class AuthenticationRequestFactoryCadastro{
                                  parameters: params,
                                  encoding: JSONEncoding.default)
     }
+ */
 }

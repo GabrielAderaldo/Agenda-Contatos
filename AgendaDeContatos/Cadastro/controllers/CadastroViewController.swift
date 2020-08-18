@@ -7,16 +7,11 @@
 //
 
 import UIKit
-//FIXME: Migrar esta tela
-//FIXME: Lembrar de remover excesso de espaços em branco, tentar deixar no maximo 1 linha de espaço entre as linhas de codigo.
-class ViewControllerCadastro: UIViewController ,ServiceDelegate{
+//DFIXME: Migrar esta tela
+//DFIXME: Lembrar de remover excesso de espaços em branco, tentar deixar no maximo 1 linha de espaço entre as linhas de codigo.
+class CadastroViewController: UIViewController ,ServiceDelegate{
     
-    //FIXME: Os Alertas podem ser utilizados como variáveis locais da função onde são chamados. Geralmente utiliza-se como atributo da classe apenas as variáveis que serão reutilizadas em varios métodos da classe.
-    let avisoValidacaoEmail = UIAlertController(title: "Verificar dados...", message: "Confira o Email digitado", preferredStyle: .alert)
-    
-    let avisoValidacaoSenha = UIAlertController(title: "Verificar dados...", message: "Confira a Senha digitada", preferredStyle: .alert)
-    
-     let avisoCadastroSucesso = UIAlertController(title: "Sucesso!", message: "Seu cadastro foi efetuado com Sucesso!", preferredStyle: .alert)
+    //DFIXME: Os Alertas podem ser utilizados como variáveis locais da função onde são chamados. Geralmente utiliza-se como atributo da classe apenas as variáveis que serão reutilizadas em varios métodos da classe.
     
     
     @IBOutlet weak var nomeTxt: UITextField!
@@ -25,20 +20,28 @@ class ViewControllerCadastro: UIViewController ,ServiceDelegate{
     @IBOutlet weak var senhaTxt: UITextField!
     @IBOutlet weak var confirmacaoSenhaTxt: UITextField!
     
-    //FIXME: Se essas duas variaveis forem ser utilizadas apenas dentro da funcao "bntCadastrar", você pode intanciá-las apenas la dentro da função.
-    var senhaValida:Bool!
-    var emailValida:Bool!
-    
-    var auth: AuthenticationServiceCadastro!
+    //DFIXME: Se essas duas variaveis forem ser utilizadas apenas dentro da funcao "bntCadastrar", você pode intanciá-las apenas la dentro da função.
+
+    var auth: AuthenticationService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.auth = AuthenticationServiceCadastro(delegate: self)
+        self.auth = AuthenticationService(delegate: self)
     }
     
     
     @IBAction func bntCadastrar(_ sender: Any) {
+      let avisoValidacaoEmail = UIAlertController(title: "Verificar dados...", message: "Confira o Email digitado", preferredStyle: .alert)
+      
+      
+      
+       let avisoCadastroSucesso = UIAlertController(title: "Sucesso!", message: "Seu cadastro foi efetuado com Sucesso!", preferredStyle: .alert)
+      
+        
+        
+        var senhaValida:Bool!
+        var emailValida:Bool!
         
         //Fazendo as validacoes, do front...
     /*
@@ -104,16 +107,26 @@ class ViewControllerCadastro: UIViewController ,ServiceDelegate{
         self.dismiss(animated: true)
     }
     
-    func success(type: ResponsetYPE) {
+    func success(type: ResponseType) {
+       
+       /*
+         Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
         avisoCadastroSucesso.addAction(UIAlertAction(title:"OK",style:.default,handler:nil))
         self.present(avisoCadastroSucesso,animated: true)
         
-        //FIXME: O serviço de cadastro já retorna um usuario com troken valido. Então, você pode trocar para a tela de contatos logo após o sucesso do request de cadastrar.
+        */
+        let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
+        telaContato.modalPresentationStyle = .fullScreen
+        present(telaContato, animated: true)
+        
+        
+        //DFIXME: O serviço de cadastro já retorna um usuario com troken valido. Então, você pode trocar para a tela de contatos logo após o sucesso do request de cadastrar.
     }
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         
-        print(error)
+        let avisoValidacaoSenha = UIAlertController(title: "Verificar dados...", message: "Confira a Senha digitada", preferredStyle: .alert)
+        
         avisoValidacaoSenha.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
         self.present(avisoValidacaoSenha,animated: true)
             

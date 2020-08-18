@@ -10,33 +10,7 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
-//FIXME: Criar um arquivo exclusivo para a classe SessionControl na pasta Application.
-
-class SessionControll {
-    
-    static var shared = SessionControll()
-    
-    var headers: HTTPHeaders = ["token":""]
-    
-    var usuario: UsuarioView{
-        return UsuarioViewModel.getUsuarioView()
-    }
-    
-    var estaAtivo: Bool {
-        return UsuarioViewModel.getUsuario() != nil
-    }
-    
-    init(){}
-    
-    func setupInvalidheader() {
-        self.headers["token"] = "hghdhjdhjgdjghs"
-    }
-    
-    func setupHeaders() {
-        self.headers["token"] = self.usuario.token
-    }
-}
-
+//DFIXME: Criar um arquivo exclusivo para a classe SessionControl na pasta Application.
 
 class AuthenticationService {
     
@@ -49,12 +23,13 @@ class AuthenticationService {
         self.delegate = delegate
     }
     
-    //FIXME: Colocar o codigo "self.loginRequest?.cancel()" em outra linha para manter o codigo mais legivel.
-    func login(email:String,senha:String) {self.loginRequest?.cancel()//Resposta caso exista multiplas conecxoes...
+    //DFIXME: Colocar o codigo "self.loginRequest?.cancel()" em outra linha para manter o codigo mais legivel.
+    func login(email:String,senha:String) {
+        
+        self.loginRequest?.cancel()//Resposta caso exista multiplas conecxoes...
         
         self.loginRequest = AuthenticationRequestFactory.login(email: email, senha: senha).validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
-            //FIXME: Após terminar de desenvolver a funcionalidade remover a os prints de teste.
-            print("A coneccao foi um sucesso") 
+            //DFIXME: Após terminar de desenvolver a funcionalidade remover a os prints de teste.
             
             switch response.result {
             case .success:
@@ -65,6 +40,8 @@ class AuthenticationService {
                     
                     SessionControll.shared.setupHeaders()
                 }
+                
+                
                 //FIXME: O comentário abaixo serve para trocar a tela após o login.
                 //Sugestão: Criar uma classe ScreenManager para fazer esses tratamentos de tela.
                 //                UIApplication.shared.windows.first?.rootViewController = ViewController()
@@ -83,8 +60,7 @@ class AuthenticationService {
         self.contactRequest?.cancel()
         self.contactRequest = AuthenticationRequestFactory.logout().validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
             
-            //FIXME: Após terminar de desenvolver a funcionalidade remover a os prints de teste.
-            print("Conectado com sucesso! esse é para o logout")
+            //DFIXME: Após terminar de desenvolver a funcionalidade remover a os prints de teste.
             
             switch response.result{
             case .success:
@@ -105,6 +81,38 @@ class AuthenticationService {
         })
         
     }
+    
+    func cadastro(nome:String,foto:String,email:String,senha:String){
+         
+         
+         self.loginRequest?.cancel()
+         
+         self.loginRequest = AuthenticationRequestFactory.cadastro(nome: nome, foto: foto, email: email, senha: senha).validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
+             print("A coneccao foi um sucesso")
+             
+             switch response.result {
+             case .success:
+                 
+                 if let usuario = response.value {
+                     
+                     UsuarioViewModel.save(usuario)
+                     
+                     SessionControll.shared.setupHeaders()
+                 }
+                 
+                 self.delegate?.success(type: .cadastro)
+                 
+             case .failure(let error):
+                 
+                 self.delegate?.failure(type: .cadastro, error: error.localizedDescription)
+             }
+         })
+         
+         
+         
+     }
+    
+    
 }
 
 

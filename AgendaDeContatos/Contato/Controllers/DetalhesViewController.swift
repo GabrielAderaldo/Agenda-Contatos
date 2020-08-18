@@ -104,15 +104,17 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         self.dismiss(animated: true)
     }
     @IBAction func bntAtualizar(_ sender: Any) {
-        if let localNome = self.txtNome.text, let localEmail = self.txtEmail.text, let localTelefone = self.txtTelefone.text,let localFoto = self.txtFoto.text, let localId = contact?.id{
-            self.auth.atualizarContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone, id:localId)
-        }
+        let telaAtualizar = StoryboardScene.Atualizar.viewControllerAtualizar.instantiate()
+        
+        telaAtualizar.contact = self.contact
+
+        present(telaAtualizar, animated: true)
+        
     }
     
     
     
     @IBAction func bntDelete(_ sender: Any) {
-        //  avisoDeletar()
         
         if let localId = contact?.id{
             self.auth.deletarContato(id: localId)
@@ -126,11 +128,10 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     
     
     
-    func success(type: ResponsetYPE) {
+    func success(type: ResponseType) {
         
         switch type {
         case .deleteContato:
-            let tela = StoryboardScene.Detalhes.detalhesViewController.instantiate()
             
             let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram deletados com sucesso!", preferredStyle: .alert)
             
@@ -160,7 +161,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
     }
     
-    func failure(type: ResponsetYPE, error: String) {
+    func failure(type: ResponseType, error: String) {
         switch type{
         case .deleteContato:
             

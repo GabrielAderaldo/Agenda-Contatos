@@ -8,8 +8,8 @@
 
 import Foundation
 protocol ServiceDelegate{
-    func success(type: ResponsetYPE) //Nao coloquei ResponseType, por que quando coloquei deu funcao nao `achada...
-    func failure(type:ResponsetYPE, error: String)
+    func success(type: ResponseType) //Nao coloquei ResponseType, por que quando coloquei deu funcao nao `achada...
+    func failure(type:ResponseType, error: String)
 }
 
 
