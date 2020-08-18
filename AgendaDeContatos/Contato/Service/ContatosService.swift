@@ -11,7 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 
-
+//FIXME: Deletar esse outro sessionControll. O SessionControl pode ser apenas um para todo o projeto
 class SessionControllContato{
     
     static var shared = SessionControllContato()
@@ -52,8 +52,7 @@ class ContatoService {
         self.delegate = delegate
     }
     
-    
-    //funcao de cadastro...
+    //FIMXE: Sugestão para evitar muitos parametros. Me chamar quando for fazer essa parte que eu ensino.
     func cadastroContato(nome:String,foto:String,email:String,fone:String){
         
         self.contatoRequest?.cancel()
@@ -63,7 +62,7 @@ class ContatoService {
             print("A conecxao foi um sucesso! :) ")
             
             switch response.result {
-             
+                
             case .success:
                 if let contato = response.value{
                     ContatoViewModel.save(contato)
@@ -75,108 +74,90 @@ class ContatoService {
                 
             case.failure(let error):
                 self.delegate?.failure(type: .cadastroContato, error: error.localizedDescription)
-                
-                //final do case
             }
         })
-}
-  
-    //criando a funcao listar...
-      func listarContato(){
-          
-          self.contatoRequest?.cancel()
-                 
-                 self.contatoRequest = AuthenticationRequestFactoryContatos.listar().validate().responseArray(completionHandler: { (response: DataResponse<[Contato]>) in
-                     
-                     print("A conecxao foi um sucesso! :) ")
-                     
-                     switch response.result {
-                      
-                     case .success:
-                         
-                        if let contato = response.value{
-                            
-                             ContatoViewModel.save(contato)
-                         }
-                         
-                         self.delegate?.success(type: .listagemContato)
-                         
-                     case.failure(let error):
-                         self.delegate?.failure(type: .listagemContato, error: error.localizedDescription)
-                         
-                         //final do case
-                     }
-                 })
-          
-          
-          //final da funcao
-      }
+    }
     
+    //FIMXE: Sugestão para evitar muitos parametros. Me chamar quando for fazer essa parte que eu ensino.
+    func listarContato() {
+        
+        self.contatoRequest?.cancel()
+        
+        self.contatoRequest = AuthenticationRequestFactoryContatos.listar().validate().responseArray(completionHandler: { (response: DataResponse<[Contato]>) in
+            
+            print("A conecxao foi um sucesso! :) ")
+            
+            switch response.result {
+                
+            case .success:
+                
+                if let contato = response.value{
+                    
+                    ContatoViewModel.save(contato)
+                }
+                
+                self.delegate?.success(type: .listagemContato)
+                
+            case.failure(let error):
+                
+                self.delegate?.failure(type: .listagemContato, error: error.localizedDescription)
+            }
+        })
+    }
     
     //criando a funcao atualizar...
     func atualizarContato(nome:String,foto:String,email:String,fone:String,id:String){
-            
-            self.contatoRequest?.cancel()
-            
-        self.contatoRequest = AuthenticationRequestFactoryContatos.atualizar(nome: nome, foto: foto, email: email, fone: fone, id:id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
-                
-                print("A conecxao foi um sucesso! :) ")
-                
-                switch response.result {
-                 
-                case .success:
-                    if let contato = response.value{
-                        ContatoViewModel.save(contato)
-                        
-                        SessionControllContato.shared.setupHeaders()
-                    }
-                    
-                    self.delegate?.success(type: .atualizarContato)
-                    
-                case.failure(let error):
-                    self.delegate?.failure(type: .atualizarContato, error: error.localizedDescription)
-                    
-                    //final do case
-                }
-            })
-        //final da funcao
-    }
-    
-    
-    
-    
-    
-    func deletarContato(id:String){
+        
         self.contatoRequest?.cancel()
         
-        
-        
-        self.contatoRequest =
-            AuthenticationRequestFactoryContatos.delete(id: id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+        self.contatoRequest = AuthenticationRequestFactoryContatos.atualizar(nome: nome, foto: foto, email: email, fone: fone, id:id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+            
+            print("A conecxao foi um sucesso! :) ")
+            
+            switch response.result {
                 
-                print("A conecxao foi um sucesso! :) ")
-                
-                switch response.result {
-                 
-                case .success:
-                    if let contato = response.value{
-                        ContatoViewModel.save(contato)
-                        
-                        SessionControllContato.shared.setupHeaders()
-                    }
+            case .success:
+                if let contato = response.value{
+                    ContatoViewModel.save(contato)
                     
-                    self.delegate?.success(type: .deleteContato)
-                    
-                case.failure(let error):
-                    self.delegate?.failure(type: .deleteContato, error: error.localizedDescription)
-                    
-                    //final do case
+                    SessionControllContato.shared.setupHeaders()
                 }
-            })
+                
+                self.delegate?.success(type: .atualizarContato)
+                
+            case.failure(let error):
+                self.delegate?.failure(type: .atualizarContato, error: error.localizedDescription)
+            }
+        })
     }
-
-
+    
+    func deletarContato(id:String){
+        
+        self.contatoRequest?.cancel()
+        
+        self.contatoRequest = AuthenticationRequestFactoryContatos.delete(id: id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+                
+            print("A conecxao foi um sucesso! :) ")
+            
+            switch response.result {
+                
+            case .success:
+                if let contato = response.value{
+                    ContatoViewModel.save(contato)
+                    
+                    SessionControllContato.shared.setupHeaders()
+                }
+                
+                self.delegate?.success(type: .deleteContato)
+                
+            case.failure(let error):
+                self.delegate?.failure(type: .deleteContato, error: error.localizedDescription)
+            }
+        })
+    }
+    //FIXME: Mover para authenticationService
     func logout(){
+        
         self.contatoRequest?.cancel()
         
         self.contatoRequest = AuthenticationRequestFactoryContatos.logout().validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
@@ -184,21 +165,22 @@ class ContatoService {
             
             switch response.result{
             case .success:
+                
                 if let _ = response.value {
+                    
                     UsuarioViewModel.removeAll()
                     SessionControllContato.shared.setupHeadersInvalid()
                 }
+                
                 self.delegate?.success(type: .logout)
                 
             case .failure(let error):
+                
                 self.delegate?.failure(type: .logout, error: error.localizedDescription)
             }
         })
-        
     }
-        //Final da classe
-
-    }
+}
 
 
 

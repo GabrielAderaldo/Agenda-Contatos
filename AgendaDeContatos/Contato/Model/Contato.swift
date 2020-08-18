@@ -10,6 +10,8 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
+//FIXME: Remover Excesso de espaços vazios
+
 class Contato: Object,Mappable{
     
     

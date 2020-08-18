@@ -10,6 +10,7 @@ import Foundation
 
 
 struct UsuarioView{
+    
     var id: String = " "
     var name: String = " "
     var photo: String = " "
@@ -19,19 +20,17 @@ struct UsuarioView{
     var photoUrl: URL? {
         return URL(string: self.photo)
     }
-
 }
 
-
+//FIXME: Evitar muitos espaços dentro das funções ou entre elas.
 
 class UsuarioViewModel {
     
-   
-    
     static func save(_ usuario: Usuario){
+        
         self.removeUser()
         
-        try? uiRealm.write{
+        try? uiRealm.write {
             uiRealm.add(usuario,update: .modified)
         }
     }
@@ -39,8 +38,10 @@ class UsuarioViewModel {
     
     
     static func removeUser(){
+        
         let objects = uiRealm.objects(Usuario.self)
-        try? uiRealm.write{
+        
+        try? uiRealm.write {
             uiRealm.delete(objects)
         }
     }

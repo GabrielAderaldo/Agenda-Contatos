@@ -9,6 +9,14 @@
 import UIKit
 import RealmSwift
 
+//FIXME: Sugestões gerais para todo o projeto
+// 1. Tentar evitar excesso de espaços vazios entre linhas de codigo. No maximo 1 linha de espaço vazio.
+// 2. Remover prints após terminar de desenvolver a funcionalidade funcionalidade.
+// 3. Não é necessário criar uma storyboard para cada tela. Basta uma para cada funcionalidade. (Ex: 1 storyboard para autenticacao (Login, Cadastro)/ 1 storyboard para os contatos (Create, Read, Detail, Updade, Delete))
+// 4. Da uma olhada em como arredonadar uma imagem também.
+// 5. Depois vou ensinar a utilizar NavigationController. utiliza esse recurso pode ajudar bastante.
+// 6. Depois vou ensinar constraints também. Percebi que esqueci de colocar constraints na trilha de estudos.
+// 7. Sugestão de funcionalidade: Tentar separar contatos em uma matriz por Letra inicial e na tableView separa-los em sections.
 
 var uiRealm: Realm!
 
@@ -44,3 +52,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+//Design - sugestões:
+//FIXME: Seria bom uma tela diferente para detalhar e para editar. Dessa forma a tela não fica muito poluida. Para isso você pode abrir uma nova tela quando clicar no botão atualizar e após atualizar voltar para a tela de detalhe.

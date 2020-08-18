@@ -8,7 +8,7 @@
 
 import Foundation
 
-
+//FIXME: Remover Excesso de espaços vazios
 
 struct ContatoView{
     
@@ -23,7 +23,6 @@ struct ContatoView{
     var fotoUrl: URL? {
         return URL(string: self.foto)
     }
-
 }
 
 
@@ -125,7 +124,6 @@ class ContatoViewModel{
     
     
     
-    //Fim da classe
 }
 
 

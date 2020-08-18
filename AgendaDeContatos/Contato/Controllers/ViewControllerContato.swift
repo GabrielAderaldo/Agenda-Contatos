@@ -9,6 +9,10 @@
 import UIKit
 import Kingfisher
 
+//FIXME: É recomendado utilizar uma celular costumizada. Depois posso te ensinar isso tambem.
+//FIXME: utilizar funções da tableView comoo heightForRow, heightForHeader, heightForFooter para costumiza-la melhor
+
+
 class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -29,12 +33,12 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-            self.auth = ContatoService(delegate: self)
-            self.tableViewContatos.delegate = self
-            self.tableViewContatos.dataSource = self
         
-       let imageView = UIImageView()
+        self.auth = ContatoService(delegate: self)
+        self.tableViewContatos.delegate = self
+        self.tableViewContatos.dataSource = self
+        
+        let imageView = UIImageView()
         imageView.kf.setImage(with: URL(string: ""))
     }
     
@@ -47,11 +51,11 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         self.auth.listarContato()
         
         let timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: true, block: { timer in
-         super.viewWillAppear(true)
-         self.auth.listarContato()
-         
+            super.viewWillAppear(true)
+            self.auth.listarContato()
+            
         })
-           
+        
     }
     
     
@@ -90,10 +94,10 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         let Main = StoryboardScene.Main.initialScene.instantiate()
         
         func deslogar(){
-          Main.modalPresentationStyle = .fullScreen
+            Main.modalPresentationStyle = .fullScreen
             present(Main, animated: true)
         }
-         
+        
         let telacontato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telacontato.dismiss(animated: true,completion: deslogar)
         
@@ -110,7 +114,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     }
     
     func success(type: ResponsetYPE) {
-   
+        
         self.contact = ContatoViewModel.getViews()
         
         

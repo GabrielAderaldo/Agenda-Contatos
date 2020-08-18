@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
-
+    
     var auth: ContatoService!
     
     
@@ -22,37 +22,37 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
     
     
     
-   
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.auth = ContatoService(delegate: self)
-    
-    
+        
+        
     }
     
     @IBAction func bntDoisCadastroVoltar(_ sender: Any) {
         
         self.dismiss(animated: true)
-    
+        
     }
     
     
     
     @IBAction func bntSalvarContato(_ sender: Any) {
-    
+        
         if let localNome = self.nomeTxt.text, let localEmail = self.emailTxt.text,
             let localTelefone = self.telefoneTxt.text, let localFoto = self.fotoTxt.text{
             
             self.auth.cadastroContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone)
             
         }
-    
-    }
-
         
+    }
+    
+    
     
     
     
@@ -64,6 +64,8 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
         let telaAvisoSucessoContato = UIAlertController(title: "Sucesso!", message: "Seu contato foi cadastrado com sucesso!", preferredStyle: .alert)
         telaAvisoSucessoContato.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaAvisoSucessoContato, animated: true)
+        
+        //FIXME: Você pode usar o dismiss pra fechar a tela logo após o usuário apertar no botão ok. Para isso vocÊ pode utilizar o handler do UIAlertAction.
     }
     
     
@@ -72,6 +74,6 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
         telaAvisoFalhaContato.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaAvisoFalhaContato, animated: true)
     }
-           
+    
     
 }

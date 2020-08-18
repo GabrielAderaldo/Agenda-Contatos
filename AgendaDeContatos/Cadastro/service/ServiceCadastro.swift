@@ -11,6 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 
+//FIXME: Deletar esse outro sessionControll. O SessionControl pode ser apenas um para todo o projeto
 
 class SessionControllCadastro{
     
@@ -31,12 +32,10 @@ class SessionControllCadastro{
     init() {}
     
     func setupHeaders(){self.headers["token"] = self.usuario.token}
-    
-    
 }
 
 
-
+//FIXME: Migrar esta requisição para a classe AuthenticationService. 
 class AuthenticationServiceCadastro{
     
     var cadastroRequest: Request?
@@ -57,7 +56,7 @@ class AuthenticationServiceCadastro{
         
         self.cadastroRequest = AuthenticationRequestFactoryCadastro.cadastro(nome: nome, foto: foto, email: email, senha: senha).validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
             print("A coneccao foi um sucesso")
-                
+            
             switch response.result {
             case .success:
                 
@@ -69,7 +68,7 @@ class AuthenticationServiceCadastro{
                 }
                 
                 self.delegate?.success(type: .cadastro)
-                    
+                
             case .failure(let error):
                 
                 self.delegate?.failure(type: .cadastro, error: error.localizedDescription)

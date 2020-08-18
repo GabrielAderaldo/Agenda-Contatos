@@ -4,10 +4,11 @@
 //
 //  Created by Gabriel Aderaldo on 14/08/20.
 //  Copyright © 2020 Gabriel Aderaldo. All rights reserved.
- 
+
 
 import UIKit
- import Kingfisher
+import Kingfisher
+
 
 class DetalhesViewController: UIViewController, ServiceDelegate{
     
@@ -40,8 +41,9 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     
     
     //Tela de confimacao de delete...
+    //TODO: Vou te explicar como resolver esse problema aqui
     func avisoDeletar(){
-       let telaAvisoDelte = UIAlertController(title: "AVISO!", message: "Deseja realmente deletar esse contato?", preferredStyle: .alert)
+        let telaAvisoDelte = UIAlertController(title: "AVISO!", message: "Deseja realmente deletar esse contato?", preferredStyle: .alert)
         telaAvisoDelte.addAction(UIAlertAction(title: "Sim", style: .default))
         telaAvisoDelte.addAction(UIAlertAction(title: "Nao", style: .cancel))
         present(telaAvisoDelte, animated: true, completion: sucessoDelete)
@@ -54,7 +56,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         telaSucesso.addAction(UIAlertAction(title: "OK", style: .default))
         present(telaSucesso, animated: true)
     }
-
+    
     
     @IBOutlet weak var tabelaDetalhes: UITableView!
     
@@ -70,14 +72,15 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-            
+        super.viewWillAppear(true)
+        
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
         
         
         
         
         
-        super.viewWillAppear(true)
+        //FIXMe: Em vez do listar contato voce pode utilizar o 
         self.auth.listarContato()
         
         
@@ -88,7 +91,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         
         
-           
+        
     }
     
     
@@ -109,7 +112,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     
     
     @IBAction func bntDelete(_ sender: Any) {
-      //  avisoDeletar()
+        //  avisoDeletar()
         
         if let localId = contact?.id{
             self.auth.deletarContato(id: localId)
@@ -117,23 +120,23 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         
         
-       
+        
     }
     
     
     
-        
+    
     func success(type: ResponsetYPE) {
-       
+        
         switch type {
         case .deleteContato:
-            let Tela = StoryboardScene.Detalhes.detalhesViewController.instantiate()
+            let tela = StoryboardScene.Detalhes.detalhesViewController.instantiate()
             
-               let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram deletados com sucesso!", preferredStyle: .alert)
-                    
-                    telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                    present(telaAvisoSucesso, animated: true)
-              
+            let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram deletados com sucesso!", preferredStyle: .alert)
+            
+            telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(telaAvisoSucesso, animated: true)
+            
             print("Contato deletado com sucesso!")
         case .atualizarContato:
             
@@ -144,20 +147,20 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
             
             telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(telaAvisoSucesso, animated: true, completion: nil)
-                
+            
             
             
             
             
         default:
-
+            
             print("Algo aconteceu...")
         }
         
         
-     }
-     
-     func failure(type: ResponsetYPE, error: String) {
+    }
+    
+    func failure(type: ResponsetYPE, error: String) {
         switch type{
         case .deleteContato:
             
@@ -184,8 +187,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         default:
             print("Algo deu errado...")
         }
-     }
-     
-
-
+    }
+    
+    
+    
 }

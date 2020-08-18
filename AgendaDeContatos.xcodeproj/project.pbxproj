@@ -132,14 +132,10 @@
 		32C05DE724DDC9E400D2F3A5 /* AgendaDeContatos */ = {
 			isa = PBXGroup;
 			children = (
-				32E0605724E3325400DB7E9B /* Contato */,
 				32C05DFD24DDCAB800D2F3A5 /* Application */,
 				32C05E0324DDCB7D00D2F3A5 /* Login */,
 				32E0604A24E2FC7200DB7E9B /* Cadastro */,
-				32C05E0424DDCB9000D2F3A5 /* Model */,
-				32C05E0524DDCBAF00D2F3A5 /* ViewModel */,
-				32C05E0624DDCBCE00D2F3A5 /* Service */,
-				32C05E0724DDCBE400D2F3A5 /* Controllers */,
+				32E0605724E3325400DB7E9B /* Contato */,
 				32C05DEC24DDC9E400D2F3A5 /* ViewController.swift */,
 				32C05DEE24DDC9E400D2F3A5 /* Main.storyboard */,
 				32C05DF324DDC9E500D2F3A5 /* LaunchScreen.storyboard */,
@@ -212,34 +208,6 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		32C05E0424DDCB9000D2F3A5 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		32C05E0524DDCBAF00D2F3A5 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		32C05E0624DDCBCE00D2F3A5 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		32C05E0724DDCBE400D2F3A5 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		32C05E1E24DDD97D00D2F3A5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,8 +236,6 @@
 		32E0604A24E2FC7200DB7E9B /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
-				32E0604E24E2FCD300DB7E9B /* Model */,
-				32E0604D24E2FCCB00DB7E9B /* viewModel */,
 				32E0604C24E2FCC200DB7E9B /* service */,
 				32E0604B24E2FCB600DB7E9B /* controllers */,
 				32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */,
@@ -294,27 +260,13 @@
 			path = service;
 			sourceTree = "<group>";
 		};
-		32E0604D24E2FCCB00DB7E9B /* viewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = viewModel;
-			sourceTree = "<group>";
-		};
-		32E0604E24E2FCD300DB7E9B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		32E0605724E3325400DB7E9B /* Contato */ = {
 			isa = PBXGroup;
 			children = (
-				32E0605B24E332BF00DB7E9B /* Controllers */,
-				32E0605A24E332B400DB7E9B /* Service */,
-				32E0605924E332AB00DB7E9B /* ViewModel */,
 				32E0605824E332A400DB7E9B /* Model */,
+				32E0605924E332AB00DB7E9B /* ViewModel */,
+				32E0605A24E332B400DB7E9B /* Service */,
+				32E0605B24E332BF00DB7E9B /* Controllers */,
 				32E0605C24E332EB00DB7E9B /* Contato.storyboard */,
 				320230BF24E48E88000A2B83 /* CadastroContato.storyboard */,
 				3272976624E71D5A00E6AED3 /* detalhes.storyboard */,

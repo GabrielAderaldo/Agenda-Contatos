@@ -27,9 +27,6 @@ class ViewController: UIViewController {
         
         cadastroStance.modalPresentationStyle = .fullScreen
         self.present(cadastroStance, animated: true)
-        
-           
-    
     }
     
     

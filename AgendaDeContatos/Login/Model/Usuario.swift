@@ -27,7 +27,6 @@ class Usuario: Object, Mappable {
         return "id"
     }
     
-    
     func mapping(map: Map){
         self.id <- map["user._id"]
         self.name <- map["user.name"]
