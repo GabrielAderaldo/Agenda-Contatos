@@ -8,7 +8,7 @@
 
 import UIKit
 
-//FIXME: Voltar a utilizar essa tela.
+//DFIXME: Voltar a utilizar essa tela.
 class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
     
@@ -22,9 +22,9 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     @IBOutlet weak var idTelefone: UITextField!
     
     @IBOutlet weak var idFoto: UITextField!
+
+    @IBOutlet weak var UIVimgHeader: UIImageView!
     
-    
-    @IBOutlet weak var imgHeader: UIImageView!
     
     let telaAvisoConfirmacao = UIAlertController(title: "Aviso", message: "Tem certeza que deseja deletar o contato?", preferredStyle: .alert)
     let telaSucesso = UIAlertController(title: "SUCESSO!", message: "Seus dados foram atualizados com sucesso!", preferredStyle: .alert)
@@ -35,13 +35,13 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
-        ERR: erro ta aqui!
-        var fotoHeader = contact?.fotoUrl
+        
+       
         self.auth = ContatoService(delegate: self)
-        print("A url da foto tá aqui: " , fotoHeader)
-        imgHeader.kf.setImage(with:fotoHeader)
-        */
+        UIVimgHeader.kf.setImage(with: contact.fotoUrl)
+        
+       
+        
         
     }
     

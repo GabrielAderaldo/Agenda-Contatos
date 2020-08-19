@@ -64,7 +64,7 @@ class ViewControllerCadastroContato: UIViewController, ServiceDelegate {
         telaAvisoSucessoContato.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         present(telaAvisoSucessoContato, animated: true)
         
-        //FIXME: Você pode usar o dismiss pra fechar a tela logo após o usuário apertar no botão ok. Para isso vocÊ pode utilizar o handler do UIAlertAction.
+        //DFIXME: Você pode usar o dismiss pra fechar a tela logo após o usuário apertar no botão ok. Para isso vocÊ pode utilizar o handler do UIAlertAction.
     }
     
     

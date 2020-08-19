@@ -22,6 +22,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     
     
     var auth:  ContatoService!
+    var autorizacaoLogin: AuthenticationService!
     var contact: [ContatoView] = []
     var usuario: UsuarioViewModel!
 
@@ -50,7 +51,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.autorizacaoLogin = AuthenticationService(delegate: self)
         self.auth = ContatoService(delegate: self)
         self.tableViewContatos.delegate = self
         self.tableViewContatos.dataSource = self
@@ -119,18 +120,25 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     
     
     @IBAction func bntContatoAtualizar(_ sender: Any) {
+      
+        self.autorizacaoLogin.logout()//Utilzando o logout certo agr...
+        /*
         self.auth.logout()
-        let Main = StoryboardScene.Main.initialScene.instantiate()
+      */
         
+        
+        let Main = StoryboardScene.Main.initialScene.instantiate()
+     
         func deslogar(){
             Main.modalPresentationStyle = .fullScreen
             present(Main, animated: true)
         }
-        
+     
         let telacontato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telacontato.dismiss(animated: true,completion: deslogar)
         
-    }
+    
+ }
     
     
     @IBAction func bntContatoCadastrar(_ sender: Any) {

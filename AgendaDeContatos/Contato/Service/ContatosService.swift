@@ -11,36 +11,7 @@ import Alamofire
 import AlamofireObjectMapper
 
 
-//FIXME: Deletar esse outro sessionControll. O SessionControl pode ser apenas um para todo o projeto
-class SessionControllContato{
-    
-    static var shared = SessionControllContato()
-    
-    var headers: HTTPHeaders = ["token":""]
-    
-    var contato: ContatoView{
-        return ContatoViewModel.getContatoView()
-    }
-    
-    
-    var estaticoAtivo: Bool{
-        return ContatoViewModel.getContato() != nil
-    }
-    
-    
-    init() {}
-    
-    
-    
-    
-    func setupHeaders(){self.headers["token"] = self.contato.token}
-    
-    func setupHeadersInvalid(){self.headers["token"] = ""}
-    
-}
-
-
-
+//DFIXME: Deletar esse outro sessionControll. O SessionControl pode ser apenas um para todo o projeto
 class ContatoService {
     
     var contatoRequest: Request?
@@ -67,7 +38,7 @@ class ContatoService {
                 if let contato = response.value{
                     ContatoViewModel.save(contato)
                     
-                    SessionControllContato.shared.setupHeaders()
+                    SessionControll.shared.setupHeaders()
                 }
                 
                 self.delegate?.success(type: .cadastroContato)
@@ -120,7 +91,7 @@ class ContatoService {
                 if let contato = response.value{
                     ContatoViewModel.save(contato)
                     
-                    SessionControllContato.shared.setupHeaders()
+                    SessionControll.shared.setupHeaders()
                 }
                 
                 self.delegate?.success(type: .atualizarContato)
@@ -145,7 +116,7 @@ class ContatoService {
                 if let contato = response.value{
                     ContatoViewModel.save(contato)
                     
-                    SessionControllContato.shared.setupHeaders()
+                    SessionControll.shared.setupHeaders()
                 }
                 
                 self.delegate?.success(type: .deleteContato)
@@ -155,7 +126,8 @@ class ContatoService {
             }
         })
     }
-    //FIXME: Mover para authenticationService
+    //DFIXME: Mover para authenticationService
+   /*
     func logout(){
         
         self.contatoRequest?.cancel()
@@ -180,6 +152,8 @@ class ContatoService {
             }
         })
     }
+    */
+    //fim da classe
 }
 
 

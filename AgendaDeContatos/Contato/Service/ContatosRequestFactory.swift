@@ -56,11 +56,13 @@ class AuthenticationRequestFactoryContatos{
         
     }
     
-    //FIXME: Mover para authenticationRequestFactory
+    //DFIXME: Mover para authenticationRequestFactory
+    /*
     static func logout() -> DataRequest{
         return Alamofire.request("http://contatosapi.herokuapp.com/api/logout",
                                  method: .delete,
                                  encoding: JSONEncoding.default,
                                  headers: SessionControll.shared.headers)
     }
+ */
 }
