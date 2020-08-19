@@ -20,6 +20,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     @IBOutlet weak var senhaTxt: UITextField!
     @IBOutlet weak var confirmacaoSenhaTxt: UITextField!
     
+    @IBOutlet weak var imgCadastro: UITextField!
     //DFIXME: Se essas duas variaveis forem ser utilizadas apenas dentro da funcao "bntCadastrar", você pode intanciá-las apenas la dentro da função.
 
     var auth: AuthenticationService!
@@ -58,9 +59,14 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
            let localEmail = self.emailTxt.text,
            let confirmaEmailLocal = self.confirmacaoEmailTxt.text,
            let localSenha = self.senhaTxt.text,
-           let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text {
+           let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
+            let localfotoUrl = imgCadastro.text{
             
             //Fazendo as validacoes...
+            
+            let validacaoArroba = localEmail.hasPrefix("@")
+            
+            
             //FIXME: Sugestões:
             //emailValida = localEmail == confirmaEmailLocal
             //senhaValida = localSenha == confirmaSenhaLocal
@@ -73,8 +79,21 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
                 
             }else if localSenha != confirmaSenhaLocal{
                 senhaValida = false
-            }else{
-                self.auth.cadastro(nome: localNome, foto: "padrao", email: localEmail, senha: localSenha)
+            }else/* if validacaoArroba != true{
+                let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "seu email, não é um email Valido: EX: chocolate@xxxx.com", preferredStyle: .alert)
+                telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(telaAvisoEmailvalidacao, animated: true)
+                
+                
+            }else/* if validacaoSenhaArroba != true {
+                let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "Sua senha não é forte o bastante,Use uma senha forte... EX: Gabriel@987", preferredStyle: .alert)
+                               telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
+                               present(telaAvisoEmailvalidacao, animated: true)
+                               
+                
+                
+                }else*/*/{
+                self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)
             }
             
         }
@@ -110,7 +129,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     func success(type: ResponseType) {
        
        /*
-         Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
+            Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
         avisoCadastroSucesso.addAction(UIAlertAction(title:"OK",style:.default,handler:nil))
         self.present(avisoCadastroSucesso,animated: true)
         

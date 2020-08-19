@@ -84,15 +84,10 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         //DFIXMe: Em vez do listar contato voce pode utilizar o 
         //self.auth.listarContato()
         
-        
         lbNome.text = contact?.nome
         lbEmail.text = contact?.email
         lbTelefone.text = contact?.fone
-        
-        
-        
-        
-        
+ 
     }
     
     
