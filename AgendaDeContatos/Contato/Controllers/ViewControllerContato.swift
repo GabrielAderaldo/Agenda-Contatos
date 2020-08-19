@@ -68,6 +68,11 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         var nomeHeader = SessionControll.shared.usuario.name
         var fotoHeader = SessionControll.shared.usuario.photoUrl
         
+        imgFotoContato.layer.cornerRadius = 60
+        imgFotoContato.clipsToBounds = true
+       // imgFotoContato.layer.borderWidth = 2
+       // imgFotoContato.layer.borderColor = UIColor.lightGray.cgColor
+        
         nomeHeaderContatos.text = nomeHeader
         imgFotoContato.kf.setImage(with:fotoHeader)
         

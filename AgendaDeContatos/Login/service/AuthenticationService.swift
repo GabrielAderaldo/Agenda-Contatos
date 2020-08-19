@@ -37,8 +37,13 @@ class AuthenticationService {
                 if let usuario = response.value {
                     
                     UsuarioViewModel.save(usuario)
-                    
+
                     SessionControll.shared.setupHeaders()
+                    
+                    
+                    
+                    
+                    
                 }
                 
                 

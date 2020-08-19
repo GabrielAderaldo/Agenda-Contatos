@@ -35,8 +35,13 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        /*
+        ERR: erro ta aqui!
+        var fotoHeader = contact?.fotoUrl
         self.auth = ContatoService(delegate: self)
+        print("A url da foto tá aqui: " , fotoHeader)
+        imgHeader.kf.setImage(with:fotoHeader)
+        */
         
     }
     

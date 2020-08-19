@@ -76,12 +76,13 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
         
-        
+        imagemDetalhes.layer.cornerRadius = 75
+        imagemDetalhes.clipsToBounds = true
         
         
         
         //FIXMe: Em vez do listar contato voce pode utilizar o 
-        self.auth.listarContato()
+        //self.auth.listarContato()
         
         
         lbNome.text = contact?.nome
