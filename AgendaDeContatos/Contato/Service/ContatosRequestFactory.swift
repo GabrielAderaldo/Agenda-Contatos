@@ -10,13 +10,13 @@ import Foundation
 import Alamofire
 
 class AuthenticationRequestFactoryContatos{
-    static func cadastro(nome:String,foto:String,email:String,fone:String) -> DataRequest{
+    static func cadastro(contato: Contato) -> DataRequest{
         
-        let parameters: Parameters = ["name":nome,"photo":foto,"email":email,"phone":fone];
+        
         
         return Alamofire.request("http://contatosapi.herokuapp.com/api/contacts",
                                  method: .post,
-                                 parameters: parameters,
+                                 parameters: contato.toJSON(),
                                  encoding: JSONEncoding.default,
                                  headers: SessionControll.shared.headers)
     }
@@ -55,14 +55,4 @@ class AuthenticationRequestFactoryContatos{
                                  headers:SessionControll.shared.headers)
         
     }
-    
-    //DFIXME: Mover para authenticationRequestFactory
-    /*
-    static func logout() -> DataRequest{
-        return Alamofire.request("http://contatosapi.herokuapp.com/api/logout",
-                                 method: .delete,
-                                 encoding: JSONEncoding.default,
-                                 headers: SessionControll.shared.headers)
-    }
- */
 }

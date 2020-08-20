@@ -11,7 +11,6 @@ import Alamofire
 import AlamofireObjectMapper
 
 
-//DFIXME: Deletar esse outro sessionControll. O SessionControl pode ser apenas um para todo o projeto
 class ContatoService {
     
     var contatoRequest: Request?
@@ -24,11 +23,11 @@ class ContatoService {
     }
     
     //FIMXE: Sugestão para evitar muitos parametros. Me chamar quando for fazer essa parte que eu ensino.
-    func cadastroContato(nome:String,foto:String,email:String,fone:String){
+    func cadastroContato(contato: Contato){
         
         self.contatoRequest?.cancel()
         
-        self.contatoRequest = AuthenticationRequestFactoryContatos.cadastro(nome: nome, foto: foto, email: email, fone: fone).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+        self.contatoRequest = AuthenticationRequestFactoryContatos.cadastro(contato: contato).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
             
             print("A conecxao foi um sucesso! :) ")
             
@@ -126,34 +125,6 @@ class ContatoService {
             }
         })
     }
-    //DFIXME: Mover para authenticationService
-   /*
-    func logout(){
-        
-        self.contatoRequest?.cancel()
-        
-        self.contatoRequest = AuthenticationRequestFactoryContatos.logout().validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
-            print("A coneccao do logout deu bom")
-            
-            switch response.result{
-            case .success:
-                
-                if let _ = response.value {
-                    
-                    UsuarioViewModel.removeAll()
-                    SessionControllContato.shared.setupHeadersInvalid()
-                }
-                
-                self.delegate?.success(type: .logout)
-                
-            case .failure(let error):
-                
-                self.delegate?.failure(type: .logout, error: error.localizedDescription)
-            }
-        })
-    }
-    */
-    //fim da classe
 }
 
 

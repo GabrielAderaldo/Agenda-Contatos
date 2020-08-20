@@ -17,8 +17,6 @@ struct ContatoView{
     var foto: String = " "
     var email: String = " "
     var fone: String = " "
-    var token:String = " "
-
 
     var fotoUrl: URL? {
         return URL(string: self.foto)
@@ -34,10 +32,6 @@ class ContatoViewModel{
         try? uiRealm.write{
             uiRealm.add(contato,update: .modified)
         }
-        
-        
-        
-        
     }
     
     
@@ -60,6 +54,18 @@ class ContatoViewModel{
         }
     }
     
+    static func getAsModel(_ contatoView: ContatoView) -> Contato {
+        
+        let contato = Contato()
+        
+        contato.id = nil
+        contato.nome = contatoView.nome
+        contato.foto = contatoView.foto
+        contato.email = contatoView.email
+        contato.fone = contatoView.fone
+        
+        return contato
+    }
     
     static func getAsView(_ contato:Contato?) -> ContatoView {
         guard let contato = contato else { return ContatoView() }

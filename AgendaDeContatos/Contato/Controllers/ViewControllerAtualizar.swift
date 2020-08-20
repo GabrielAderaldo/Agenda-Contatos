@@ -8,11 +8,8 @@
 
 import UIKit
 
-//DFIXME: Voltar a utilizar essa tela.
 class ViewControllerAtualizar: UIViewController,ServiceDelegate {
     
-    
-
     @IBOutlet weak var idTxt: UITextField!
     
     @IBOutlet weak var idNome: UITextField!
@@ -39,6 +36,12 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
        
         self.auth = ContatoService(delegate: self)
         UIVimgHeader.kf.setImage(with: contact.fotoUrl)
+        
+        
+        
+        //arrendondando a imagem...
+        UIVimgHeader.layer.cornerRadius = 100
+        UIVimgHeader.clipsToBounds = true
         
        //Iniciando já os valores anteriores...
         idNome.text = contact?.nome

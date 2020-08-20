@@ -30,13 +30,12 @@
 		32C05E2024DDD99500D2F3A5 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C05E1F24DDD99500D2F3A5 /* Usuario.swift */; };
 		32C05E2324DDDCCD00D2F3A5 /* UsuarioViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C05E2224DDDCCD00D2F3A5 /* UsuarioViewModel.swift */; };
 		32C05E2624DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C05E2524DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift */; };
+		32C40B4224EEEDC600BC9A81 /* ScreenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C40B4124EEEDC600BC9A81 /* ScreenManager.swift */; };
 		32C8013024E44DDB00E338D9 /* ContatoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8012F24E44DDB00E338D9 /* ContatoViewModel.swift */; };
 		32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */; };
 		32C8013624E471A600E338D9 /* ContatosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013524E471A600E338D9 /* ContatosService.swift */; };
 		32E0605024E2FD2400DB7E9B /* Cadastro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */; };
 		32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */; };
-		32E0605424E30D8700DB7E9B /* RequestFactoryCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605324E30D8700DB7E9B /* RequestFactoryCadastro.swift */; };
-		32E0605624E30D9800DB7E9B /* ServiceCadastro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605524E30D9800DB7E9B /* ServiceCadastro.swift */; };
 		32E0605D24E332EB00DB7E9B /* Contato.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0605C24E332EB00DB7E9B /* Contato.storyboard */; };
 		32E0605F24E3396B00DB7E9B /* ViewControllerContato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605E24E3396B00DB7E9B /* ViewControllerContato.swift */; };
 		32E0606324E33C0C00DB7E9B /* Contato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0606224E33C0C00DB7E9B /* Contato.swift */; };
@@ -76,13 +75,12 @@
 		32C05E1F24DDD99500D2F3A5 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		32C05E2224DDDCCD00D2F3A5 /* UsuarioViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsuarioViewModel.swift; sourceTree = "<group>"; };
 		32C05E2524DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequestFactory.swift; sourceTree = "<group>"; };
+		32C40B4124EEEDC600BC9A81 /* ScreenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenManager.swift; sourceTree = "<group>"; };
 		32C8012F24E44DDB00E338D9 /* ContatoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoViewModel.swift; sourceTree = "<group>"; };
 		32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosRequestFactory.swift; sourceTree = "<group>"; };
 		32C8013524E471A600E338D9 /* ContatosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosService.swift; sourceTree = "<group>"; };
 		32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Cadastro.storyboard; sourceTree = "<group>"; };
 		32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
-		32E0605324E30D8700DB7E9B /* RequestFactoryCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryCadastro.swift; sourceTree = "<group>"; };
-		32E0605524E30D9800DB7E9B /* ServiceCadastro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCadastro.swift; sourceTree = "<group>"; };
 		32E0605C24E332EB00DB7E9B /* Contato.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contato.storyboard; sourceTree = "<group>"; };
 		32E0605E24E3396B00DB7E9B /* ViewControllerContato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerContato.swift; sourceTree = "<group>"; };
 		32E0606224E33C0C00DB7E9B /* Contato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contato.swift; sourceTree = "<group>"; };
@@ -150,10 +148,10 @@
 		32C05DFD24DDCAB800D2F3A5 /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */,
-				32C05E1824DDD7CA00D2F3A5 /* ResponseType.swift */,
 				32C05DE824DDC9E400D2F3A5 /* AppDelegate.swift */,
 				32C05DEA24DDC9E400D2F3A5 /* SceneDelegate.swift */,
+				32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */,
+				32C05E1824DDD7CA00D2F3A5 /* ResponseType.swift */,
 				32C05E0824DDCC7200D2F3A5 /* BaseService.swift */,
 				32C05E0224DDCB4E00D2F3A5 /* Managers */,
 				32C05DFE24DDCAE100D2F3A5 /* Supporting Files */,
@@ -195,6 +193,7 @@
 		32C05E0224DDCB4E00D2F3A5 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				32C40B4124EEEDC600BC9A81 /* ScreenManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -239,7 +238,6 @@
 		32E0604A24E2FC7200DB7E9B /* Cadastro */ = {
 			isa = PBXGroup;
 			children = (
-				32E0604C24E2FCC200DB7E9B /* service */,
 				32E0604B24E2FCB600DB7E9B /* controllers */,
 				32E0604F24E2FD2400DB7E9B /* Cadastro.storyboard */,
 			);
@@ -252,15 +250,6 @@
 				32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */,
 			);
 			path = controllers;
-			sourceTree = "<group>";
-		};
-		32E0604C24E2FCC200DB7E9B /* service */ = {
-			isa = PBXGroup;
-			children = (
-				32E0605324E30D8700DB7E9B /* RequestFactoryCadastro.swift */,
-				32E0605524E30D9800DB7E9B /* ServiceCadastro.swift */,
-			);
-			path = service;
 			sourceTree = "<group>";
 		};
 		32E0605724E3325400DB7E9B /* Contato */ = {
@@ -476,6 +465,7 @@
 				32E70B0324E5B52700D28B9B /* ViewControllerAtualizar.swift in Sources */,
 				32C05E1724DDD2DB00D2F3A5 /* StoryboardsSegue.swift in Sources */,
 				32E0605F24E3396B00DB7E9B /* ViewControllerContato.swift in Sources */,
+				32C40B4224EEEDC600BC9A81 /* ScreenManager.swift in Sources */,
 				32C05DED24DDC9E400D2F3A5 /* ViewController.swift in Sources */,
 				32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */,
 				32C05E1924DDD7CA00D2F3A5 /* ResponseType.swift in Sources */,
@@ -484,10 +474,8 @@
 				32C05E2624DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift in Sources */,
 				32E0606324E33C0C00DB7E9B /* Contato.swift in Sources */,
 				32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */,
-				32E0605424E30D8700DB7E9B /* RequestFactoryCadastro.swift in Sources */,
 				32C05DE924DDC9E400D2F3A5 /* AppDelegate.swift in Sources */,
 				3272976924E71DBC00E6AED3 /* DetalhesViewController.swift in Sources */,
-				32E0605624E30D9800DB7E9B /* ServiceCadastro.swift in Sources */,
 				320230C224E48F29000A2B83 /* ViewControllerCadastroContato.swift in Sources */,
 				32C05E1324DDD2DB00D2F3A5 /* Assets.swift in Sources */,
 				32C8013624E471A600E338D9 /* ContatosService.swift in Sources */,

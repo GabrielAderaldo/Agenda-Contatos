@@ -7,12 +7,8 @@
 //
 
 import UIKit
-//DFIXME: Migrar esta tela
 //DFIXME: Lembrar de remover excesso de espaços em branco, tentar deixar no maximo 1 linha de espaço entre as linhas de codigo.
 class CadastroViewController: UIViewController ,ServiceDelegate{
-    
-    //DFIXME: Os Alertas podem ser utilizados como variáveis locais da função onde são chamados. Geralmente utiliza-se como atributo da classe apenas as variáveis que serão reutilizadas em varios métodos da classe.
-    
     
     @IBOutlet weak var nomeTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
@@ -21,7 +17,6 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     @IBOutlet weak var confirmacaoSenhaTxt: UITextField!
     
     @IBOutlet weak var imgCadastro: UITextField!
-    //DFIXME: Se essas duas variaveis forem ser utilizadas apenas dentro da funcao "bntCadastrar", você pode intanciá-las apenas la dentro da função.
 
     var auth: AuthenticationService!
     
@@ -62,9 +57,40 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
            let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
             let localfotoUrl = imgCadastro.text{
             
-            //Fazendo as validacoes...
             
-            let validacaoArroba = localEmail.hasPrefix("@")
+            
+            //Fazendo as validacoes...
+            //Validacao email...
+            var resultadoEmail = localEmail.contains("@")
+            var resultadoEmail2 = localEmail.contains(".")
+            var controleValidaEmail:String = "defalt"
+            //validacao da senha
+            var resultadoSenhaArroba = localSenha.contains("@")
+            var resultadoSenhaEsclama = localSenha.contains("!")
+            var resultadoSenhaJogo = localSenha.contains("#")
+            var resultadoSenhaSif = localSenha.contains("$")
+            var resultadoSenhaPor = localSenha.contains("%")
+            var resultadoSenhaElev = localSenha.contains("ˆ")
+            var resultadoSenhaEcome = localSenha.contains("&")
+            var resultadoSenhaCoisinha = localSenha.contains("*")
+            var controleValidaSenha:String = "defaut"
+            var controleNumero = localEmail.count
+
+            
+            if resultadoSenhaCoisinha || resultadoSenhaPor || resultadoSenhaEcome || resultadoSenhaSif || resultadoSenhaJogo || resultadoSenhaArroba || resultadoSenhaEsclama || resultadoSenhaElev == true{
+                controleValidaSenha = "true"
+            }else{
+                controleValidaSenha = "false"
+            }
+            
+           
+            if resultadoEmail && resultadoEmail2 == true{
+                controleValidaEmail = "true"
+            }else{
+                controleValidaEmail = "false"
+            }
+            
+            //criando as variaveis para fazer as verificacoes...
             
             
             //DFIXME: Sugestões:
@@ -73,26 +99,25 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             // if emailValida && senhaValida {
             //     self.auth.cadastro...
             // }
-            
+            print(controleNumero)
             if localEmail != confirmaEmailLocal {
                 emailValida = false
                 
             }else if localSenha != confirmaSenhaLocal{
                 senhaValida = false
-            }else/* if validacaoArroba != true{
+            }else if controleValidaEmail != "true"{
                 let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "seu email, não é um email Valido: EX: chocolate@xxxx.com", preferredStyle: .alert)
                 telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
                 present(telaAvisoEmailvalidacao, animated: true)
                 
-                
-            }else/* if validacaoSenhaArroba != true {
+            }else if controleValidaSenha != "true" /*&&  controleNumero  > 5*/{
                 let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "Sua senha não é forte o bastante,Use uma senha forte... EX: Gabriel@987", preferredStyle: .alert)
                                telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
                                present(telaAvisoEmailvalidacao, animated: true)
                                
                 
                 
-                }else*/*/{
+                }else{
                 self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)
             }
             
@@ -137,9 +162,6 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telaContato.modalPresentationStyle = .fullScreen
         present(telaContato, animated: true)
-        
-        
-        //DFIXME: O serviço de cadastro já retorna um usuario com troken valido. Então, você pode trocar para a tela de contatos logo após o sucesso do request de cadastrar.
     }
     
     func failure(type: ResponseType, error: String) {

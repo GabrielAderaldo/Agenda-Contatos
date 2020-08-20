@@ -16,12 +16,16 @@ class SessionControll {
     
     var headers: HTTPHeaders = ["token":""]
     
-    var usuario: UsuarioView{
+    var usuario: UsuarioView {
         return UsuarioViewModel.getUsuarioView()
     }
     
+    var usuarioModel: Usuario? {
+        return UsuarioViewModel.getUsuario()
+    }
+    
     var estaAtivo: Bool {
-        return UsuarioViewModel.getUsuario() != nil
+        return usuarioModel != nil
     }
     
     init(){}
@@ -31,6 +35,8 @@ class SessionControll {
     }
     
     func setupHeaders() {
-        self.headers["token"] = self.usuario.token
+        if let token = self.usuarioModel?.token {
+            self.headers["token"] = token
+        }
     }
 }

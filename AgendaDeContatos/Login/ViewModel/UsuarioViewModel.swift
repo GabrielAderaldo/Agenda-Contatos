@@ -53,13 +53,11 @@ class UsuarioViewModel {
         
         var usuarioView = UsuarioView()
         
-        
         usuarioView.id = usuario.id ?? ""
         usuarioView.name = usuario.name ?? ""
         usuarioView.photo = usuario.photo ?? ""
         usuarioView.email = usuario.email ?? ""
         usuarioView.token = usuario.token ?? ""
-        
         
         return usuarioView
 

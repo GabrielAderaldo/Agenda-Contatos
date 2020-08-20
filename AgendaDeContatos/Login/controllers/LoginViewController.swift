@@ -62,7 +62,7 @@ class LoginViewController: UIViewController, ServiceDelegate{
     func failure(type: ResponseType, error: String) {
         //Criar um alerta de erro
         
-        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+        //DFIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
         // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
         // - OBS:
         // - Como acessar?

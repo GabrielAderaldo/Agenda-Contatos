@@ -127,15 +127,15 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
       */
         
         
-        let Main = StoryboardScene.Main.initialScene.instantiate()
-     
-        func deslogar(){
-            Main.modalPresentationStyle = .fullScreen
-            present(Main, animated: true)
-        }
-     
-        let telacontato = StoryboardScene.Contato.viewControllerContato.instantiate()
-        telacontato.dismiss(animated: true,completion: deslogar)
+//        let Main = StoryboardScene.Main.initialScene.instantiate()
+//
+//        func deslogar(){
+//            Main.modalPresentationStyle = .fullScreen
+//            present(Main, animated: true)
+//        }
+//
+//        let telacontato = StoryboardScene.Contato.viewControllerContato.instantiate()
+//        telacontato.dismiss(animated: true,completion: deslogar)
         
     
  }
@@ -145,22 +145,40 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         
         
         let TelaCadastroContato = StoryboardScene.CadastroContato.viewControllerCadastroContato.instantiate()
-        
+        TelaCadastroContato.modalPresentationStyle = .fullScreen
         present(TelaCadastroContato, animated: true)
         
     }
     
     func success(type: ResponseType) {
         
-        self.contact = ContatoViewModel.getViews()
+        switch type {
+        case .logout:
+            
+            ScreenManager.setupInitialViewController()
+            
+        case .listagemContato:
+            
+            self.contact = ContatoViewModel.getViews()
+            
+            tableViewContatos.reloadData()
+            
+        default:
+            break
+        }
         
-        
-        tableViewContatos.reloadData()
         
         self.myRefreshControll.endRefreshing()
     }
     
     func failure(type: ResponseType, error: String) {
+        
+        switch type {
+        case .logout:
+            ScreenManager.setupInitialViewController()
+        default:
+            break
+        }
         self.myRefreshControll.endRefreshing()
     }
     

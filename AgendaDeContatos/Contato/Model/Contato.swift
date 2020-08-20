@@ -10,8 +10,6 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
-//DFIXME: Remover Excesso de espaços vazios
-
 class Contato: Object,Mappable{
     
     @objc dynamic var id: String?

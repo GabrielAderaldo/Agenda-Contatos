@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("\nDOCUMENTS >> \(url)")
         }
         
-        
+        SessionControll.shared.setupHeaders()
         
 
         return true
@@ -51,6 +51,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-
-//Design - sugestões:
-//DFIXME: Seria bom uma tela diferente para detalhar e para editar. Dessa forma a tela não fica muito poluida. Para isso você pode abrir uma nova tela quando clicar no botão atualizar e após atualizar voltar para a tela de detalhe.
