@@ -67,7 +67,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             let validacaoArroba = localEmail.hasPrefix("@")
             
             
-            //FIXME: Sugestões:
+            //DFIXME: Sugestões:
             //emailValida = localEmail == confirmaEmailLocal
             //senhaValida = localSenha == confirmaSenhaLocal
             // if emailValida && senhaValida {

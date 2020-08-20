@@ -40,7 +40,10 @@ class ViewControllerAtualizar: UIViewController,ServiceDelegate {
         self.auth = ContatoService(delegate: self)
         UIVimgHeader.kf.setImage(with: contact.fotoUrl)
         
-       
+       //Iniciando já os valores anteriores...
+        idNome.text = contact?.nome
+        idTelefone.text = contact?.fone
+        idEmail.text = contact?.email
         
         
     }
