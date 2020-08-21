@@ -11,9 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var bntEntrar: UIButton!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,7 +21,7 @@ class ViewController: UIViewController {
     
     @IBAction func bntCadastrar(_ sender: Any) {
     
-        let cadastroStance = StoryboardScene.Cadastro.viewControllerCadastro.instantiate()
+        let cadastroStance = StoryboardScene.Login.viewControllerCadastro.instantiate()
         
         cadastroStance.modalPresentationStyle = .fullScreen
         self.present(cadastroStance, animated: true)

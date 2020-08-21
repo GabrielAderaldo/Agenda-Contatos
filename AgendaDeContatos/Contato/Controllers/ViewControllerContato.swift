@@ -110,7 +110,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let telaDetalhes = StoryboardScene.Detalhes.detalhesViewController.instantiate()
+        let telaDetalhes = StoryboardScene.Contato.detalhesViewController.instantiate()
         telaDetalhes.contact = contact[indexPath.row]
         present(telaDetalhes, animated: true)
 
@@ -144,7 +144,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     @IBAction func bntContatoCadastrar(_ sender: Any) {
         
         
-        let TelaCadastroContato = StoryboardScene.CadastroContato.viewControllerCadastroContato.instantiate()
+        let TelaCadastroContato = StoryboardScene.Contato.viewControllerCadastroContato.instantiate()
         TelaCadastroContato.modalPresentationStyle = .fullScreen
         present(TelaCadastroContato, animated: true)
         

@@ -14,8 +14,6 @@ import UIKit
 internal enum StoryboardScene {
   internal enum Cadastro: StoryboardType {
     internal static let storyboardName = "Cadastro"
-
-    internal static let viewControllerCadastro = SceneType<AgendaDeContatos.CadastroViewController>(storyboard: Cadastro.self, identifier: "ViewControllerCadastro")
   }
   internal enum CadastroContato: StoryboardType {
     internal static let storyboardName = "CadastroContato"
@@ -24,6 +22,12 @@ internal enum StoryboardScene {
   }
   internal enum Contato: StoryboardType {
     internal static let storyboardName = "Contato"
+
+    internal static let detalhesViewController = SceneType<AgendaDeContatos.DetalhesViewController>(storyboard: Contato.self, identifier: "DetalhesViewController")
+
+    internal static let viewControllerAtualizar = SceneType<AgendaDeContatos.ViewControllerAtualizar>(storyboard: Contato.self, identifier: "ViewControllerAtualizar")
+
+    internal static let viewControllerCadastroContato = SceneType<AgendaDeContatos.ViewControllerCadastroContato>(storyboard: Contato.self, identifier: "ViewControllerCadastroContato")
 
     internal static let viewControllerContato = SceneType<AgendaDeContatos.ViewControllerContato>(storyboard: Contato.self, identifier: "ViewControllerContato")
   }
@@ -34,6 +38,8 @@ internal enum StoryboardScene {
   }
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"
+
+    internal static let viewControllerCadastro = SceneType<AgendaDeContatos.CadastroViewController>(storyboard: Login.self, identifier: "ViewControllerCadastro")
 
     internal static let viewControllerLogin = SceneType<AgendaDeContatos.LoginViewController>(storyboard: Login.self, identifier: "ViewControllerLogin")
   }

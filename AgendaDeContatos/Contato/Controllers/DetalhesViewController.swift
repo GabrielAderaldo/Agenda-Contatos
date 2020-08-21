@@ -96,7 +96,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         self.dismiss(animated: true)
     }
     @IBAction func bntAtualizar(_ sender: Any) {
-        let telaAtualizar = StoryboardScene.Atualizar.viewControllerAtualizar.instantiate()
+        let telaAtualizar = StoryboardScene.Contato.viewControllerAtualizar.instantiate()
         
         telaAtualizar.contact = self.contact
 

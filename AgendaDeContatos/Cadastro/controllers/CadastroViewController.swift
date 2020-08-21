@@ -39,6 +39,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         var senhaValida:Bool!
         var emailValida:Bool!
         
+        
         //Fazendo as validacoes, do front...
     /*
         var localNome:String? = ""
@@ -64,7 +65,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             var resultadoEmail = localEmail.contains("@")
             var resultadoEmail2 = localEmail.contains(".")
             var controleValidaEmail:String = "defalt"
-            //validacao da senha
+            //validacao da senha manual...
             var resultadoSenhaArroba = localSenha.contains("@")
             var resultadoSenhaEsclama = localSenha.contains("!")
             var resultadoSenhaJogo = localSenha.contains("#")
@@ -83,12 +84,19 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
                 controleValidaSenha = "false"
             }
             
+            
+            
+            
            
             if resultadoEmail && resultadoEmail2 == true{
                 controleValidaEmail = "true"
             }else{
                 controleValidaEmail = "false"
+            
             }
+            
+            
+            //Ultilizando uma validacao mais simples...
             
             //criando as variaveis para fazer as verificacoes...
             

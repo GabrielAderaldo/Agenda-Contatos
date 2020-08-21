@@ -46,7 +46,9 @@ class LoginViewController: UIViewController, ServiceDelegate{
     }
     
     @IBAction func bntVoltar(_ sender: Any) {
-        self.dismiss(animated: true)
+        let telaCadastro = StoryboardScene.Login.viewControllerCadastro.instantiate()
+        telaCadastro.modalPresentationStyle = .fullScreen
+        present(telaCadastro,animated: true)
     }
 
     func success(type: ResponseType) {
