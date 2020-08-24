@@ -1,7 +1,7 @@
 # APK de agenda de contatos
 
 <p class="apresentacao">
-Básicamente um aplicativo de agenda de contatos, feio na linguagem Swift. Esse aplicativo contem:
+Básicamente um aplicativo de agenda de contatos, feito na linguagem Swift. Esse aplicativo contem:
 <ul class="listaAPK">
 <li>Login/Logout</li>
 <li>Adicionar um contato</li>
