@@ -51,6 +51,12 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
          */
         
         
+        //criando a funcao de validacao de email
+            
+           
+        
+        
+        
         if let localNome = self.nomeTxt.text,
             let localEmail = self.emailTxt.text,
             let confirmaEmailLocal = self.confirmacaoEmailTxt.text,
@@ -58,6 +64,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
             let localfotoUrl = imgCadastro.text{
             
+           
             
             //FIXME: Acho que deve ter opções melhores pra fazer essas validações, mas deixa isso um pouco de lado, faz as outras coisas e ai se sobrar tempo a gente ve essas validacoes.
             //FIXME: Copia esse codigo de validação e guarda em um outro arquivo e tenta dar uma organizada nessa classe
@@ -119,22 +126,29 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             if localEmail != confirmaEmailLocal {
                 emailValida = false
                 
+                
+                
             }else if localSenha != confirmaSenhaLocal{
                 senhaValida = false
+                
+                let password = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
+                var senhaValida:Bool? = password.evaluate(with:localSenha)
+                
             }else if controleValidaEmail != "true"{
                 let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "seu email, não é um email Valido: EX: chocolate@xxxx.com", preferredStyle: .alert)
                 telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
                 present(telaAvisoEmailvalidacao, animated: true)
                 
-            }else if controleValidaSenha != "true" /*&&  controleNumero  > 5*/{
+            }else if senhaValida != true /*controleValidaSenha != "true" /*&&  controleNumero  > 5*/*/{
+               print("A senha é: ",senhaValida)
                 let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "Sua senha não é forte o bastante,Use uma senha forte... EX: Gabriel@987", preferredStyle: .alert)
                 telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
                 present(telaAvisoEmailvalidacao, animated: true)
                 
                 
-                
-            }else{
-                self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)
+                }else{
+               print("A senha é: ",senhaValida)
+                /*self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)*/
             }
             
         }
