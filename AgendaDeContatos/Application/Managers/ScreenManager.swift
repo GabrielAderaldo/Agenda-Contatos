@@ -18,6 +18,5 @@ class ScreenManager {
         } else {
             UIApplication.shared.windows.first?.rootViewController = StoryboardScene.Login.viewControllerLogin.instantiate()
         }
-        
     }
 }

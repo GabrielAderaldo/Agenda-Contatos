@@ -8,8 +8,6 @@
 
 import Foundation
 
-//DFIXME: Remover Excesso de espaços vazios
-
 struct ContatoView{
     
     var id: String = " "
@@ -17,15 +15,13 @@ struct ContatoView{
     var foto: String = " "
     var email: String = " "
     var fone: String = " "
-
+    
     var fotoUrl: URL? {
         return URL(string: self.foto)
     }
 }
 
-
 class ContatoViewModel{
-    
     
     static func save(_ contato:Contato){
         
@@ -33,7 +29,6 @@ class ContatoViewModel{
             uiRealm.add(contato,update: .modified)
         }
     }
-    
     
     static func save(_ contatos:[Contato]){
         self.removeContatos()
@@ -43,12 +38,9 @@ class ContatoViewModel{
         }
     }
     
-    
-    
-    
-    
     static func removeContatos() {
         let objects = uiRealm.objects(Contato.self)
+        
         try? uiRealm.write{
             uiRealm.delete(objects)
         }
@@ -72,17 +64,14 @@ class ContatoViewModel{
         
         var contatoView = ContatoView()
         
-        
         contatoView.id = contato.id ?? " "
         contatoView.nome = contato.nome ?? " "
         contatoView.foto = contato.foto ?? " "
         contatoView.email = contato.email ?? " "
         contatoView.fone = contato.fone ?? " "
         
-        
         return contatoView
     }
-    
     
     static func getAsView(sequence: [Contato]) -> [ContatoView] {
         
@@ -93,14 +82,10 @@ class ContatoViewModel{
         }
         
         return contatos
-        
-        
     }
     
-  
     static func get() -> [Contato] {
         let results = uiRealm.objects(Contato.self)
-        
         
         var contatos: [Contato] = []
         contatos.append(contentsOf: results)
@@ -108,28 +93,20 @@ class ContatoViewModel{
         return contatos
     }
     
-   
-    
     static func getViews() -> [ContatoView] {
         
         return self.getAsView(sequence: self.get())
-        
     }
     
-    
     static func getContato() -> Contato? {
+        
         return uiRealm.objects(Contato.self).first
     }
     
-    
     static func getContatoView() -> ContatoView {
+        
         return self.getAsView(self.getContato())
     }
-    
-    
-    
-    
-    
 }
 
 

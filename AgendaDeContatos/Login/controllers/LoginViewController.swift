@@ -8,29 +8,15 @@
 
 import UIKit
 
-//DFIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
-// - OBS:
-// - Fazer isso com as outras Controllers tambem. (ViewControllerCadastro, ViewControllerContato, ViewControllerCadastroContato, ViewControllerAtualizar)
-// - Como renomear uma classe ou variavel?
-// 1. Segure o botão "command".
-// 2. Clique no nome da classe ou variavel.
-// 3. Selecione a opção "Rename".
-// 4. Escreva o novo nome da classe ou variável.
-// 5. Clique na opção "Rename".
-//Feito...
-
 class LoginViewController: UIViewController, ServiceDelegate{
-
-    var auth: AuthenticationService!
 
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtSenha: UITextField!
     
+    var auth: AuthenticationService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    
-//        self.dismiss(animated: true)
         
         self.auth = AuthenticationService(delegate: self)
     }
@@ -42,12 +28,13 @@ class LoginViewController: UIViewController, ServiceDelegate{
             self.auth.login(email: localLogin, senha: localSenha)
         }
         
-        let telaContatos = StoryboardScene.Contato.viewControllerContato.instantiate()
+        let telaContatos = StoryboardScene.Contato.viewControllerContato.instantiate() //FIXME: Sempre remover variaveis ou constantes nao utilizadas.
     }
     
-    @IBAction func bntVoltar(_ sender: Any) {
+    @IBAction func bntVoltar(_ sender: Any) { //FIXME Renomear action para nova funcao que ela vai exercer (no caso que é de abrir tela de cadastro)
         let telaCadastro = StoryboardScene.Login.viewControllerCadastro.instantiate()
         telaCadastro.modalPresentationStyle = .fullScreen
+        
         present(telaCadastro,animated: true)
     }
 
@@ -56,7 +43,6 @@ class LoginViewController: UIViewController, ServiceDelegate{
         let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telaContato.modalPresentationStyle = .fullScreen
         
-        
         self.present(telaContato, animated: true,completion:nil)
         
     }
@@ -64,7 +50,8 @@ class LoginViewController: UIViewController, ServiceDelegate{
     func failure(type: ResponseType, error: String) {
         //Criar um alerta de erro
         
-        //DFIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+        //FIXME: Faltou esse
+        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
         // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
         // - OBS:
         // - Como acessar?

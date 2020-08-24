@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 struct UsuarioView{
     
     var id: String = " "
@@ -22,8 +21,6 @@ struct UsuarioView{
     }
 }
 
-//DFIXME: Evitar muitos espaços dentro das funções ou entre elas.
-
 class UsuarioViewModel {
     
     static func save(_ usuario: Usuario){
@@ -35,8 +32,6 @@ class UsuarioViewModel {
         }
     }
     
-    
-    
     static func removeUser(){
         
         let objects = uiRealm.objects(Usuario.self)
@@ -45,7 +40,6 @@ class UsuarioViewModel {
             uiRealm.delete(objects)
         }
     }
-    
     
     static func getAsView(_ usuario: Usuario?) -> UsuarioView{
         
@@ -60,9 +54,7 @@ class UsuarioViewModel {
         usuarioView.token = usuario.token ?? ""
         
         return usuarioView
-
     }
-    
     
     static func getAsView(sequence: [Usuario]) ->[UsuarioView] {
         var usuarios: [UsuarioView] = []
@@ -89,12 +81,10 @@ class UsuarioViewModel {
         return self.getAsView(sequence: self.get())
     }
     
-    //Mexido
     static func getUsuario() -> Usuario? {
         return uiRealm.objects(Usuario.self).first
     }
     
-    //Mexido...
     static func getUsuarioView() -> UsuarioView {
         
         return self.getAsView(self.getUsuario())
@@ -106,8 +96,6 @@ class UsuarioViewModel {
             uiRealm.deleteAll()
         }
     }
-    
-//Fim da classe...
 }
 
 

@@ -17,7 +17,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     @IBOutlet weak var confirmacaoSenhaTxt: UITextField!
     
     @IBOutlet weak var imgCadastro: UITextField!
-
+    
     var auth: AuthenticationService!
     
     override func viewDidLoad() {
@@ -28,12 +28,12 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     
     
     @IBAction func bntCadastrar(_ sender: Any) {
-      let avisoValidacaoEmail = UIAlertController(title: "Verificar dados...", message: "Confira o Email digitado", preferredStyle: .alert)
-      
-      
-      
-       let avisoCadastroSucesso = UIAlertController(title: "Sucesso!", message: "Seu cadastro foi efetuado com Sucesso!", preferredStyle: .alert)
-      
+        let avisoValidacaoEmail = UIAlertController(title: "Verificar dados...", message: "Confira o Email digitado", preferredStyle: .alert)
+        
+        
+        
+        let avisoCadastroSucesso = UIAlertController(title: "Sucesso!", message: "Seu cadastro foi efetuado com Sucesso!", preferredStyle: .alert)
+        
         
         
         var senhaValida:Bool!
@@ -41,25 +41,26 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         
         
         //Fazendo as validacoes, do front...
-    /*
-        var localNome:String? = ""
-        var localEmail:String? = ""
-        var confirmaEmailLocal:String? = ""
-        var localSenha:String? = ""
-        var confirmaSenhaLocal:String? = ""
-        
-      */
+        /*
+         var localNome:String? = ""
+         var localEmail:String? = ""
+         var confirmaEmailLocal:String? = ""
+         var localSenha:String? = ""
+         var confirmaSenhaLocal:String? = ""
+         
+         */
         
         
         if let localNome = self.nomeTxt.text,
-           let localEmail = self.emailTxt.text,
-           let confirmaEmailLocal = self.confirmacaoEmailTxt.text,
-           let localSenha = self.senhaTxt.text,
-           let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
+            let localEmail = self.emailTxt.text,
+            let confirmaEmailLocal = self.confirmacaoEmailTxt.text,
+            let localSenha = self.senhaTxt.text,
+            let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
             let localfotoUrl = imgCadastro.text{
             
             
-            
+            //FIXME: Acho que deve ter opções melhores pra fazer essas validações, mas deixa isso um pouco de lado, faz as outras coisas e ai se sobrar tempo a gente ve essas validacoes.
+            //FIXME: Copia esse codigo de validação e guarda em um outro arquivo e tenta dar uma organizada nessa classe
             //Fazendo as validacoes...
             //Validacao email...
             var resultadoEmail = localEmail.contains("@")
@@ -74,9 +75,9 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             var resultadoSenhaElev = localSenha.contains("ˆ")
             var resultadoSenhaEcome = localSenha.contains("&")
             var resultadoSenhaCoisinha = localSenha.contains("*")
-            var controleValidaSenha:String = "defaut"
+            var controleValidaSenha:String = "defaut" //FIXME: Em vez de utilizar string voce pode utilizar (Bool?) com optional sendo o nil o default ou criar um enum com para esse tratamento
             var controleNumero = localEmail.count
-
+            
             
             if resultadoSenhaCoisinha || resultadoSenhaPor || resultadoSenhaEcome || resultadoSenhaSif || resultadoSenhaJogo || resultadoSenhaArroba || resultadoSenhaEsclama || resultadoSenhaElev == true{
                 controleValidaSenha = "true"
@@ -87,12 +88,12 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             
             
             
-           
+            
             if resultadoEmail && resultadoEmail2 == true{
                 controleValidaEmail = "true"
             }else{
                 controleValidaEmail = "false"
-            
+                
             }
             
             
@@ -108,6 +109,13 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             //     self.auth.cadastro...
             // }
             print(controleNumero)
+            
+            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+            // - OBS:
+            // - Como acessar?
+            // - Ex: L10n.Common.ok
+            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
             if localEmail != confirmaEmailLocal {
                 emailValida = false
                 
@@ -120,33 +128,33 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
                 
             }else if controleValidaSenha != "true" /*&&  controleNumero  > 5*/{
                 let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "Sua senha não é forte o bastante,Use uma senha forte... EX: Gabriel@987", preferredStyle: .alert)
-                               telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
-                               present(telaAvisoEmailvalidacao, animated: true)
-                               
+                telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
+                present(telaAvisoEmailvalidacao, animated: true)
                 
                 
-                }else{
+                
+            }else{
                 self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)
             }
             
         }
         
-    
+        
         
         
         /*
-        localNome = nomeTxt.text
-        localEmail = emailTxt.text
-        confirmaEmailLocal = confirmacaoEmailTxt.text
-        localSenha = senhaTxt.text
-        confirmaSenhaLocal = confirmacaoSenhaTxt.text
-        */
+         localNome = nomeTxt.text
+         localEmail = emailTxt.text
+         confirmaEmailLocal = confirmacaoEmailTxt.text
+         localSenha = senhaTxt.text
+         confirmaSenhaLocal = confirmacaoSenhaTxt.text
+         */
         
         
         
         
         
-     
+        
         
         
     }
@@ -154,19 +162,19 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     
     
     
-
+    
     @IBAction func bntVoltarCadastro(_ sender: Any) {
         self.dismiss(animated: true)
     }
     
     func success(type: ResponseType) {
-       
-       /*
-            Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
-        avisoCadastroSucesso.addAction(UIAlertAction(title:"OK",style:.default,handler:nil))
-        self.present(avisoCadastroSucesso,animated: true)
         
-        */
+        /*
+         Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
+         avisoCadastroSucesso.addAction(UIAlertAction(title:"OK",style:.default,handler:nil))
+         self.present(avisoCadastroSucesso,animated: true)
+         
+         */
         let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
         telaContato.modalPresentationStyle = .fullScreen
         present(telaContato, animated: true)
@@ -178,8 +186,6 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         
         avisoValidacaoSenha.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
         self.present(avisoValidacaoSenha,animated: true)
-            
-    }
         
-
     }
+}

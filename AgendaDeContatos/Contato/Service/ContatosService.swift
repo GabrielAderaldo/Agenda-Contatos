@@ -22,7 +22,7 @@ class ContatoService {
         self.delegate = delegate
     }
     
-    //FIMXE: Sugestão para evitar muitos parametros. Me chamar quando for fazer essa parte que eu ensino.
+    
     func cadastroContato(contato: Contato){
         
         self.contatoRequest?.cancel()
@@ -48,7 +48,7 @@ class ContatoService {
         })
     }
     
-    //FIMXE: Sugestão para evitar muitos parametros. Me chamar quando for fazer essa parte que eu ensino.
+    
     func listarContato() {
         
         self.contatoRequest?.cancel()
@@ -75,7 +75,7 @@ class ContatoService {
         })
     }
     
-    //criando a funcao atualizar...
+    //FIMXE: Fazer aquela mesma correcao feita na funcao cadastroContato() enviando o contato em vez de cada atributo dele separado.
     func atualizarContato(nome:String,foto:String,email:String,fone:String,id:String){
         
         self.contatoRequest?.cancel()

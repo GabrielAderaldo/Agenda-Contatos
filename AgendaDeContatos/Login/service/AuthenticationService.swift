@@ -34,7 +34,7 @@ class AuthenticationService {
                 if let usuario = response.value {
                     
                     UsuarioViewModel.save(usuario)
-
+                    
                     SessionControll.shared.setupHeaders()
                 }
                 
@@ -71,40 +71,32 @@ class AuthenticationService {
                 self.delegate?.failure(type: .logout, error: "erro")
             }
         })
-        
     }
     
     func cadastro(nome:String,foto:String,email:String,senha:String){
-         
-         
-         self.loginRequest?.cancel()
-         
-         self.loginRequest = AuthenticationRequestFactory.cadastro(nome: nome, foto: foto, email: email, senha: senha).validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
-             print("A coneccao foi um sucesso")
-             
-             switch response.result {
-             case .success:
-                 
-                 if let usuario = response.value {
-                     
-                     UsuarioViewModel.save(usuario)
-                     
-                     SessionControll.shared.setupHeaders()
-                 }
-                 
-                 self.delegate?.success(type: .cadastro)
-                 
-             case .failure(let error):
-                 
-                 self.delegate?.failure(type: .cadastro, error: error.localizedDescription)
-             }
-         })
-         
-         
-         
-     }
-    
-    
+        
+        self.loginRequest?.cancel()
+        
+        self.loginRequest = AuthenticationRequestFactory.cadastro(nome: nome, foto: foto, email: email, senha: senha).validate().responseObject(completionHandler: { (response: DataResponse<Usuario>) in
+            
+            switch response.result {
+            case .success:
+                
+                if let usuario = response.value {
+                    
+                    UsuarioViewModel.save(usuario)
+                    
+                    SessionControll.shared.setupHeaders()
+                }
+                
+                self.delegate?.success(type: .cadastro)
+                
+            case .failure(let error):
+                
+                self.delegate?.failure(type: .cadastro, error: error.localizedDescription)
+            }
+        })
+    }
 }
 
 

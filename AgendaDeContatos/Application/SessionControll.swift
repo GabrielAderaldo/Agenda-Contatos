@@ -31,7 +31,7 @@ class SessionControll {
     init(){}
     
     func setupInvalidheader() {
-        self.headers["token"] = "hghdhjdhjgdjghs"
+        self.headers["token"] = ""
     }
     
     func setupHeaders() {

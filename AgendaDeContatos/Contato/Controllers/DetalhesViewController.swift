@@ -13,110 +13,92 @@ import Kingfisher
 class DetalhesViewController: UIViewController, ServiceDelegate{
     
     @IBOutlet weak var lbNome: UILabel!
-    
     @IBOutlet weak var lbEmail: UILabel!
-    
     @IBOutlet weak var lbTelefone: UILabel!
-    
     @IBOutlet weak var imagemDetalhes: UIImageView!
     
+    //FIXME: Remover variaveis nao utilizadas.
+    @IBOutlet weak var tabelaDetalhes: UITableView!
     @IBOutlet weak var txtNome: UITextField!
-    
     @IBOutlet weak var txtEmail: UITextField!
-    
-    
     @IBOutlet weak var txtTelefone: UITextField!
-    
     @IBOutlet weak var txtFoto: UITextField!
     
-    
-    
-    var auth:  ContatoService!
+    var auth:  ContatoService! //FIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
     var contact: ContatoView?
-    
-    
-    /*
-     criando as telas de aviso...
-     */
-    
-    
-    //Tela de confimacao de delete...
-    //TODO: Vou te explicar como resolver esse problema aqui
-    func avisoDeletar(){
-        let telaAvisoDelte = UIAlertController(title: "AVISO!", message: "Deseja realmente deletar esse contato?", preferredStyle: .alert)
-        telaAvisoDelte.addAction(UIAlertAction(title: "Sim", style: .default))
-        telaAvisoDelte.addAction(UIAlertAction(title: "Nao", style: .cancel))
-        present(telaAvisoDelte, animated: true, completion: sucessoDelete)
-        
-    }
-    
-    
-    func sucessoDelete(){
-        let telaSucesso = UIAlertController(title: "Sucesso", message: "O usuario foi deltado com sucesso", preferredStyle: .alert)
-        telaSucesso.addAction(UIAlertAction(title: "OK", style: .default))
-        present(telaSucesso, animated: true)
-    }
-    
-    
-    @IBOutlet weak var tabelaDetalhes: UITableView!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.auth = ContatoService(delegate: self)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
+        //FIXME: Atualizar tela com as informacoes atualizadas.
+        
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
         
         imagemDetalhes.layer.cornerRadius = 100
         imagemDetalhes.clipsToBounds = true
-
         
         lbNome.text = contact?.nome
         lbEmail.text = contact?.email
         lbTelefone.text = contact?.fone
- 
     }
-    
-    
-    
-    
     
     
     //Botoes ficam aquii
     @IBAction func bntVoltar(_ sender: Any) {
+        
         self.dismiss(animated: true)
     }
+    
     @IBAction func bntAtualizar(_ sender: Any) {
-        let telaAtualizar = StoryboardScene.Contato.viewControllerAtualizar.instantiate()
         
+        let telaAtualizar = StoryboardScene.Contato.viewControllerAtualizar.instantiate()
         telaAtualizar.contact = self.contact
 
-        present(telaAtualizar, animated: true)
-        
+        self.present(telaAtualizar, animated: true)
     }
     
     
     
     @IBAction func bntDelete(_ sender: Any) {
         
-        if let localId = contact?.id{
+        if let localId = contact?.id {
             self.auth.deletarContato(id: localId)
         }
-        
-        
-        
-        
     }
     
+    //Tela de confimacao de delete...
+    //TODO: Vou te explicar como resolver esse problema aqui
+    func avisoDeletar(){
+        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+        // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+        // - OBS:
+        // - Como acessar?
+        // - Ex: L10n.Common.ok
+        // - O codigo do exemplo acima irá retornar a string que você colocar no valor
+        let telaAvisoDelte = UIAlertController(title: "AVISO!", message: "Deseja realmente deletar esse contato?", preferredStyle: .alert)
+        telaAvisoDelte.addAction(UIAlertAction(title: "Sim", style: .default))
+        telaAvisoDelte.addAction(UIAlertAction(title: "Nao", style: .cancel))
+        present(telaAvisoDelte, animated: true, completion: sucessoDelete)
+    }
+    
+    
+    func sucessoDelete(){
+        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+        // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+        // - OBS:
+        // - Como acessar?
+        // - Ex: L10n.Common.ok
+        // - O codigo do exemplo acima irá retornar a string que você colocar no valor
+        let telaSucesso = UIAlertController(title: "Sucesso", message: "O usuario foi deltado com sucesso", preferredStyle: .alert)
+        telaSucesso.addAction(UIAlertAction(title: "OK", style: .default))
+        present(telaSucesso, animated: true)
+    }
     
     
     
@@ -124,17 +106,21 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         switch type {
         case .deleteContato:
-            
+            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+            // - OBS:
+            // - Como acessar?
+            // - Ex: L10n.Common.ok
+            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
             let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram deletados com sucesso!", preferredStyle: .alert)
             
             telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(telaAvisoSucesso, animated: true)
             
+            //FIXME: Fechar tela após deletar
+            
             print("Contato deletado com sucesso!")
         case .atualizarContato:
-            
-            
-            
             
             let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram atualizados com sucesso!", preferredStyle: .alert)
             
@@ -142,7 +128,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
             present(telaAvisoSucesso, animated: true, completion: nil)
             
             
-            
+            //FIXME: Esse case nao eh necessario pois o servico de atualizar nao esta sendo chamado nessa tela
             
             
         default:
@@ -156,25 +142,43 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     func failure(type: ResponseType, error: String) {
         switch type{
         case .deleteContato:
-            
+            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+            // - OBS:
+            // - Como acessar?
+            // - Ex: L10n.Common.ok
+            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
             let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao deletar o contato... tente novamente mais tarde", preferredStyle: .alert)
             telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(telaAviso, animated: true)
             
             print("Ocorreu um erro ao deletar o Contato")
         case .atualizarContato:
-            
+            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+            // - OBS:
+            // - Como acessar?
+            // - Ex: L10n.Common.ok
+            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
             let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao Atualizar o contato... tente novamente mais tarde", preferredStyle: .alert)
             telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(telaAviso, animated: true)
             
+            //FIXME: Esse case nao eh necessario pois o servico de atualizar nao esta sendo chamado nessa tela
+            
             print("Ocorreu um erro ao atualizar o Contato")
         case .listagemContato:
-            
+            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
+            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
+            // - OBS:
+            // - Como acessar?
+            // - Ex: L10n.Common.ok
+            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
             let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao listar os contato... tente novamente mais tarde", preferredStyle: .alert)
             telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(telaAviso, animated: true)
             
+            //FIXME: Esse case nao eh necessario pois o servico de listar nao esta sendo chamado nessa tela
             
             print("A listagem falhou...")
         default:
