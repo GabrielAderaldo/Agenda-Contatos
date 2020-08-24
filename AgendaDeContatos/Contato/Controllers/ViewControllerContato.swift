@@ -9,8 +9,8 @@
 import UIKit
 import Kingfisher
 
-//FIXME: É recomendado utilizar uma celular costumizada. Depois posso te ensinar isso tambem.
-//FIXME: utilizar funções da tableView comoo heightForRow, heightForHeader, heightForFooter para costumiza-la melhor
+//DFIXME: É recomendado utilizar uma celular costumizada. Depois posso te ensinar isso tambem.
+//DFIXME: utilizar funções da tableView comoo heightForRow, heightForHeader, heightForFooter para costumiza-la melhor
 
 
 class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {

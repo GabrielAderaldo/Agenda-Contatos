@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-//FIXME: Sugestões gerais para todo o projeto
+//DFIXME: Sugestões gerais para todo o projeto
 // 1. Tentar evitar excesso de espaços vazios entre linhas de codigo. No maximo 1 linha de espaço vazio.
 // 2. Remover prints após terminar de desenvolver a funcionalidade funcionalidade.
 // 3. Não é necessário criar uma storyboard para cada tela. Basta uma para cada funcionalidade. (Ex: 1 storyboard para autenticacao (Login, Cadastro)/ 1 storyboard para os contatos (Create, Read, Detail, Updade, Delete))
