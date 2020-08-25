@@ -1,4 +1,27 @@
 "Title" = "aplicacao";
 "Common.ok" = "Sim";
+"Msg.OK" = "OK!";
 //Criando as strings para as telas de aviso...
+"f" = "fechar";
+//criando os avisos para telas storyLogin:
+//Login
+"Msg.sucesso" = "SUCESSO!";
+"Msg.fracasso" = "FALHA!";
+"Msg.sucesso.login" = "Sucesso ao logar";
+"Msg.fracasso.login" = "Falha ao logar: Verifique seu email ou sua senha e repita o processo!";
+//Cadastro
+"Msg.sucesso.cadastro" = "Usuario cadastrado com sucesso!";
+"Msg.fracasso.cadastro" = "Falha ao cadastrar um usuario!";
+"Msg.fracasso.cadastro.email" = "Email não confere!";
+"Msg.fracasso.cadastro.senha" = "Senha não confere!";
+"Msg.fracasso.cadastro.emailInvalido" = "Email invalido!";
+"Msg.fracasso.cadastro.senhaInvalido" = "Sua senha não contem todos os requesitos: Minimo 8 caracteres(Uma maiuscula e um caractere especial Ex: Gabriel@987)";
 
+//Contato
+
+"Msg.sucesso.contato.cadastro" = "Contato criado com sucesso!";
+"Msg.fracasso.contato.cadastro" = "Falha ao criar um contato, por favor repetir mais tarde";
+"Msg.sucesso.contato.atualizar" = " Sucesso ao atualizar o contato!";
+"Msg.fracasso.contato.atualizar" = "Falha ao atualizar um contato, por favor repetir mais tarde";
+"Msg.sucesso.contato.deletar" = "Sucesso ao deletar o contato";
+"Msg.fracasso.contato.deletar" = "Falha a deletar esse contato, por favor repetir mais tarde";

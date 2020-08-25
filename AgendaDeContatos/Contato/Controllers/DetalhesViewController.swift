@@ -56,11 +56,10 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     }
     
     @IBAction func bntAtualizar(_ sender: Any) {
+        let telaAtualizar = StoryboardScene.Contato.atualizarViewController.instantiate()
+        telaAtualizar.contact = contact
+        present(telaAtualizar, animated: true)
         
-        let telaAtualizar = StoryboardScene.Contato.viewControllerAtualizar.instantiate()
-        telaAtualizar.contact = self.contact
-
-        self.present(telaAtualizar, animated: true)
     }
     
     
@@ -72,66 +71,18 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         }
     }
     
-    //Tela de confimacao de delete...
-    //TODO: Vou te explicar como resolver esse problema aqui
-    func avisoDeletar(){
-        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-        // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-        // - OBS:
-        // - Como acessar?
-        // - Ex: L10n.Common.ok
-        // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-        let telaAvisoDelte = UIAlertController(title: "AVISO!", message: "Deseja realmente deletar esse contato?", preferredStyle: .alert)
-        telaAvisoDelte.addAction(UIAlertAction(title: "Sim", style: .default))
-        telaAvisoDelte.addAction(UIAlertAction(title: "Nao", style: .cancel))
-        present(telaAvisoDelte, animated: true, completion: sucessoDelete)
-    }
-    
-    
-    func sucessoDelete(){
-        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-        // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-        // - OBS:
-        // - Como acessar?
-        // - Ex: L10n.Common.ok
-        // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-        let telaSucesso = UIAlertController(title: "Sucesso", message: "O usuario foi deltado com sucesso", preferredStyle: .alert)
-        telaSucesso.addAction(UIAlertAction(title: "OK", style: .default))
-        present(telaSucesso, animated: true)
-    }
-    
-    
-    
     func success(type: ResponseType) {
         
         switch type {
         case .deleteContato:
-            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-            // - OBS:
-            // - Como acessar?
-            // - Ex: L10n.Common.ok
-            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-            let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram deletados com sucesso!", preferredStyle: .alert)
+           
+            let telaAvisoSucesso = UIAlertController(title: L10n.Msg.sucesso, message: L10n.Msg.Sucesso.Contato.deletar, preferredStyle: .alert)
             
-            telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            telaAvisoSucesso.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: { (_) in
+                self.dismiss(animated: true)
+            }))
             present(telaAvisoSucesso, animated: true)
-            
-            //FIXME: Fechar tela após deletar
-            
-            print("Contato deletado com sucesso!")
-        case .atualizarContato:
-            
-            let telaAvisoSucesso = UIAlertController(title: "SUCESSO!", message: "Os dados foram atualizados com sucesso!", preferredStyle: .alert)
-            
-            telaAvisoSucesso.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            present(telaAvisoSucesso, animated: true, completion: nil)
-            
-            
-            //FIXME: Esse case nao eh necessario pois o servico de atualizar nao esta sendo chamado nessa tela
-            
-            
-        default:
+            default:
             
             print("Algo aconteceu...")
         }
@@ -142,45 +93,11 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     func failure(type: ResponseType, error: String) {
         switch type{
         case .deleteContato:
-            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-            // - OBS:
-            // - Como acessar?
-            // - Ex: L10n.Common.ok
-            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-            let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao deletar o contato... tente novamente mais tarde", preferredStyle: .alert)
-            telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            
+            let telaAviso  = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Contato.deletar, preferredStyle: .alert)
+            telaAviso.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: nil))
             present(telaAviso, animated: true)
             
-            print("Ocorreu um erro ao deletar o Contato")
-        case .atualizarContato:
-            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-            // - OBS:
-            // - Como acessar?
-            // - Ex: L10n.Common.ok
-            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-            let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao Atualizar o contato... tente novamente mais tarde", preferredStyle: .alert)
-            telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            present(telaAviso, animated: true)
-            
-            //FIXME: Esse case nao eh necessario pois o servico de atualizar nao esta sendo chamado nessa tela
-            
-            print("Ocorreu um erro ao atualizar o Contato")
-        case .listagemContato:
-            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-            // - OBS:
-            // - Como acessar?
-            // - Ex: L10n.Common.ok
-            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-            let telaAviso  = UIAlertController(title: "FALHA!", message: "Ocorreu uma falha ao listar os contato... tente novamente mais tarde", preferredStyle: .alert)
-            telaAviso.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            present(telaAviso, animated: true)
-            
-            //FIXME: Esse case nao eh necessario pois o servico de listar nao esta sendo chamado nessa tela
-            
-            print("A listagem falhou...")
         default:
             print("Algo deu errado...")
         }

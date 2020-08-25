@@ -107,6 +107,29 @@ class ContatoViewModel{
         
         return self.getAsView(self.getContato())
     }
+    
+    static func getAsMatriz() -> [[ContatoView]] {
+        
+        var matriz: [[ContatoView]] = []
+        let contatos = self.getViews().sorted(by: { return $0.nome < $1.nome})
+        var letra: Character = Character(" ")
+        var j = -1
+        for i in 0..<contatos.count {
+            if letra != contatos[i].nome.first {
+                
+                j += 1
+                matriz.append([])
+                
+                letra = contatos[i].nome.first ?? Character(" ")
+                
+                matriz[j].append(contatos[i])
+            } else {
+                matriz[j].append(contatos[i])
+            }
+        }
+        
+        return matriz
+    }
 }
 
 

@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		320230C224E48F29000A2B83 /* ViewControllerCadastroContato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320230C124E48F29000A2B83 /* ViewControllerCadastroContato.swift */; };
+		320230C224E48F29000A2B83 /* CadastroContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */; };
 		32202A4D24E1B2A200CCB245 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */; };
 		32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5124E1D0FC00CCB245 /* LoginViewController.swift */; };
-		32202A5624E1D7C400CCB245 /* StoryboardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5524E1D7C400CCB245 /* StoryboardsScene.swift */; };
 		3272976924E71DBC00E6AED3 /* DetalhesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3272976824E71DBC00E6AED3 /* DetalhesViewController.swift */; };
 		32C05DE924DDC9E400D2F3A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C05DE824DDC9E400D2F3A5 /* AppDelegate.swift */; };
 		32C05DEB24DDC9E400D2F3A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C05DEA24DDC9E400D2F3A5 /* SceneDelegate.swift */; };
@@ -32,11 +31,12 @@
 		32C8013024E44DDB00E338D9 /* ContatoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8012F24E44DDB00E338D9 /* ContatoViewModel.swift */; };
 		32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */; };
 		32C8013624E471A600E338D9 /* ContatosService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C8013524E471A600E338D9 /* ContatosService.swift */; };
+		32DF0FA624F5814300D1F547 /* StoryboardsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DF0FA524F5814300D1F547 /* StoryboardsScene.swift */; };
 		32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */; };
 		32E0605D24E332EB00DB7E9B /* Contato.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E0605C24E332EB00DB7E9B /* Contato.storyboard */; };
-		32E0605F24E3396B00DB7E9B /* ViewControllerContato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605E24E3396B00DB7E9B /* ViewControllerContato.swift */; };
+		32E0605F24E3396B00DB7E9B /* ContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0605E24E3396B00DB7E9B /* ContatoViewController.swift */; };
 		32E0606324E33C0C00DB7E9B /* Contato.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E0606224E33C0C00DB7E9B /* Contato.swift */; };
-		32E70B0324E5B52700D28B9B /* ViewControllerAtualizar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E70B0224E5B52700D28B9B /* ViewControllerAtualizar.swift */; };
+		32E70B0324E5B52700D28B9B /* AtualizarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E70B0224E5B52700D28B9B /* AtualizarViewController.swift */; };
 		32E8571F24E1D96B009FADC4 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32E8571E24E1D96B009FADC4 /* Login.storyboard */; };
 		32EA5A3B24EC75E0002FFD1A /* SessionControll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */; };
 		7593C1EE6658717A328F2295 /* Pods_AgendaDeContatos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24F0CE2050BC26139852B254 /* Pods_AgendaDeContatos.framework */; };
@@ -45,10 +45,9 @@
 /* Begin PBXFileReference section */
 		1AA0A3AD6716F3BEB253D02A /* Pods-AgendaDeContatos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgendaDeContatos.release.xcconfig"; path = "Target Support Files/Pods-AgendaDeContatos/Pods-AgendaDeContatos.release.xcconfig"; sourceTree = "<group>"; };
 		24F0CE2050BC26139852B254 /* Pods_AgendaDeContatos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AgendaDeContatos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		320230C124E48F29000A2B83 /* ViewControllerCadastroContato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCadastroContato.swift; sourceTree = "<group>"; };
+		320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroContatoViewController.swift; sourceTree = "<group>"; };
 		32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		32202A5124E1D0FC00CCB245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		32202A5524E1D7C400CCB245 /* StoryboardsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsScene.swift; sourceTree = "<group>"; };
 		3272976824E71DBC00E6AED3 /* DetalhesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetalhesViewController.swift; sourceTree = "<group>"; };
 		32C05DE524DDC9E400D2F3A5 /* AgendaDeContatos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AgendaDeContatos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C05DE824DDC9E400D2F3A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,11 +72,12 @@
 		32C8012F24E44DDB00E338D9 /* ContatoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoViewModel.swift; sourceTree = "<group>"; };
 		32C8013124E462E600E338D9 /* ContatosRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosRequestFactory.swift; sourceTree = "<group>"; };
 		32C8013524E471A600E338D9 /* ContatosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatosService.swift; sourceTree = "<group>"; };
+		32DF0FA524F5814300D1F547 /* StoryboardsScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryboardsScene.swift; sourceTree = "<group>"; };
 		32E0605124E2FD5100DB7E9B /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		32E0605C24E332EB00DB7E9B /* Contato.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Contato.storyboard; sourceTree = "<group>"; };
-		32E0605E24E3396B00DB7E9B /* ViewControllerContato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerContato.swift; sourceTree = "<group>"; };
+		32E0605E24E3396B00DB7E9B /* ContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoViewController.swift; sourceTree = "<group>"; };
 		32E0606224E33C0C00DB7E9B /* Contato.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contato.swift; sourceTree = "<group>"; };
-		32E70B0224E5B52700D28B9B /* ViewControllerAtualizar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAtualizar.swift; sourceTree = "<group>"; };
+		32E70B0224E5B52700D28B9B /* AtualizarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtualizarViewController.swift; sourceTree = "<group>"; };
 		32E8571E24E1D96B009FADC4 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		32EA5A3A24EC75E0002FFD1A /* SessionControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionControll.swift; sourceTree = "<group>"; };
 		F6FC0834E1F07C2C74A16362 /* Pods-AgendaDeContatos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AgendaDeContatos.debug.xcconfig"; path = "Target Support Files/Pods-AgendaDeContatos/Pods-AgendaDeContatos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -173,7 +173,7 @@
 		32C05E0024DDCB2500D2F3A5 /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				32202A5524E1D7C400CCB245 /* StoryboardsScene.swift */,
+				32DF0FA524F5814300D1F547 /* StoryboardsScene.swift */,
 				32C05E0E24DDD2DB00D2F3A5 /* Assets.swift */,
 				32C05E1124DDD2DB00D2F3A5 /* Colors.swift */,
 				32C05E0F24DDD2DB00D2F3A5 /* Localizable.swift */,
@@ -283,9 +283,9 @@
 		32E0605B24E332BF00DB7E9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				32E0605E24E3396B00DB7E9B /* ViewControllerContato.swift */,
-				320230C124E48F29000A2B83 /* ViewControllerCadastroContato.swift */,
-				32E70B0224E5B52700D28B9B /* ViewControllerAtualizar.swift */,
+				32E0605E24E3396B00DB7E9B /* ContatoViewController.swift */,
+				320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */,
+				32E70B0224E5B52700D28B9B /* AtualizarViewController.swift */,
 				3272976824E71DBC00E6AED3 /* DetalhesViewController.swift */,
 			);
 			path = Controllers;
@@ -446,9 +446,9 @@
 			files = (
 				32C05E0924DDCC7200D2F3A5 /* BaseService.swift in Sources */,
 				32C05E1624DDD2DB00D2F3A5 /* Colors.swift in Sources */,
-				32E70B0324E5B52700D28B9B /* ViewControllerAtualizar.swift in Sources */,
+				32E70B0324E5B52700D28B9B /* AtualizarViewController.swift in Sources */,
 				32C05E1724DDD2DB00D2F3A5 /* StoryboardsSegue.swift in Sources */,
-				32E0605F24E3396B00DB7E9B /* ViewControllerContato.swift in Sources */,
+				32E0605F24E3396B00DB7E9B /* ContatoViewController.swift in Sources */,
 				32C40B4224EEEDC600BC9A81 /* ScreenManager.swift in Sources */,
 				32C05DED24DDC9E400D2F3A5 /* ViewController.swift in Sources */,
 				32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */,
@@ -460,16 +460,16 @@
 				32E0605224E2FD5100DB7E9B /* CadastroViewController.swift in Sources */,
 				32C05DE924DDC9E400D2F3A5 /* AppDelegate.swift in Sources */,
 				3272976924E71DBC00E6AED3 /* DetalhesViewController.swift in Sources */,
-				320230C224E48F29000A2B83 /* ViewControllerCadastroContato.swift in Sources */,
+				320230C224E48F29000A2B83 /* CadastroContatoViewController.swift in Sources */,
 				32C05E1324DDD2DB00D2F3A5 /* Assets.swift in Sources */,
 				32C8013624E471A600E338D9 /* ContatosService.swift in Sources */,
 				32C05E1424DDD2DB00D2F3A5 /* Localizable.swift in Sources */,
 				32C05DEB24DDC9E400D2F3A5 /* SceneDelegate.swift in Sources */,
 				32C05E2324DDDCCD00D2F3A5 /* UsuarioViewModel.swift in Sources */,
 				32C05E2024DDD99500D2F3A5 /* Usuario.swift in Sources */,
+				32DF0FA624F5814300D1F547 /* StoryboardsScene.swift in Sources */,
 				32202A4D24E1B2A200CCB245 /* AuthenticationService.swift in Sources */,
 				32C8013024E44DDB00E338D9 /* ContatoViewModel.swift in Sources */,
-				32202A5624E1D7C400CCB245 /* StoryboardsScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,7 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Nobre.AgendaDeContatos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -641,7 +641,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Nobre.AgendaDeContatos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

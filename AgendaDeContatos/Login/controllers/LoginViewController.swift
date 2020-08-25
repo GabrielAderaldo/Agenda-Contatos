@@ -28,38 +28,28 @@ class LoginViewController: UIViewController, ServiceDelegate{
             self.auth.login(email: localLogin, senha: localSenha)
         }
         
-        let telaContatos = StoryboardScene.Contato.viewControllerContato.instantiate() //FIXME: Sempre remover variaveis ou constantes nao utilizadas.
+       
     }
     
-    @IBAction func bntVoltar(_ sender: Any) { //FIXME Renomear action para nova funcao que ela vai exercer (no caso que é de abrir tela de cadastro)
+    @IBAction func bntCadastro(_ sender: Any) {
         let telaCadastro = StoryboardScene.Login.viewControllerCadastro.instantiate()
-        telaCadastro.modalPresentationStyle = .fullScreen
+        present(telaCadastro, animated: true)
         
-        present(telaCadastro,animated: true)
+       
     }
 
     func success(type: ResponseType) {
 
-        let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
+        let telaContato = StoryboardScene.Contato.contatoViewController.instantiate()
         telaContato.modalPresentationStyle = .fullScreen
-        
-        self.present(telaContato, animated: true,completion:nil)
-        
+        present(telaContato, animated: true)
     }
     
     func failure(type: ResponseType, error: String) {
-        //Criar um alerta de erro
+ 
+        let erroLogin = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.login, preferredStyle: .alert)
         
-        //FIXME: Faltou esse
-        //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-        // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-        // - OBS:
-        // - Como acessar?
-        // - Ex: L10n.Common.ok
-        // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-        let erroLogin = UIAlertController(title: "Erro ao logar", message: "Verifique seu Email e sua senha...", preferredStyle: .alert)
-        
-        erroLogin.addAction(UIAlertAction(title: "fechar", style: .default, handler: nil))
+        erroLogin.addAction(UIAlertAction(title: L10n.f, style: .default, handler: nil))
         
         self.present(erroLogin, animated: true)
         

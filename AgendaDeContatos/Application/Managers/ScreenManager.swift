@@ -14,7 +14,7 @@ class ScreenManager {
     static func setupInitialViewController() {
         
         if SessionControll.shared.estaAtivo {
-            UIApplication.shared.windows.first?.rootViewController = StoryboardScene.Contato.viewControllerContato.instantiate()
+            UIApplication.shared.windows.first?.rootViewController = StoryboardScene.Contato.contatoViewController.instantiate()
         } else {
             UIApplication.shared.windows.first?.rootViewController = StoryboardScene.Login.viewControllerLogin.instantiate()
         }

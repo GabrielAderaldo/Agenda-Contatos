@@ -22,7 +22,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="183" height="30"/>
                                         <state key="normal" title="Cadastrar"/>
                                         <connections>
-                                            <action selector="bntVoltar:" destination="iTg-0P-oyU" eventType="touchUpInside" id="kPK-Ke-elT"/>
+                                            <action selector="bntCadastro:" destination="iTg-0P-oyU" eventType="touchUpInside" id="kPK-Ke-elT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dc6-yP-kgG">

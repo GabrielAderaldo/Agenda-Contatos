@@ -13,7 +13,7 @@ import Kingfisher
 //DFIXME: utilizar funções da tableView comoo heightForRow, heightForHeader, heightForFooter para costumiza-la melhor
 
 
-class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
+class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var lbNomeLogin: UILabel!
     @IBOutlet weak var imgFotoContato: UIImageView!
@@ -21,27 +21,27 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     @IBOutlet weak var imagemContatos: UIImageView!
     @IBOutlet weak var tableViewContatos: UITableView!
     
-    var auth:  ContatoService! //FIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
+    var authContatos:  ContatoService! //DFIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
     var autorizacaoLogin: AuthenticationService!
     
-    var contact: [ContatoView] = []
-    var usuario: UsuarioViewModel! //FIXME: remover variaveis que nao estao sendo utilizadas.
+    var contact: [[ContatoView]] = []
+    var usuario: UsuarioViewModel! //DFIXME: remover variaveis que nao estao sendo utilizadas.
     
     let myRefreshControll: UIRefreshControl = {
         let refreshcontroll = UIRefreshControl()
-        refreshcontroll.addTarget(self, action: #selector(ViewControllerContato.refresh), for: .valueChanged)
+        refreshcontroll.addTarget(self, action: #selector(ContatoViewController.refresh), for: .valueChanged)
         return refreshcontroll
     }()
     
     @objc private func refresh(){
-        self.auth.listarContato()
+        self.authContatos.listarContato()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.autorizacaoLogin = AuthenticationService(delegate: self)
-        self.auth = ContatoService(delegate: self)
+        self.authContatos = ContatoService(delegate: self)
         
         self.tableViewContatos.delegate = self
         self.tableViewContatos.dataSource = self
@@ -61,23 +61,36 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        self.auth.listarContato()
+        self.authContatos.listarContato()
+    }
+
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.text = "\(self.contact[section].first?.nome.first ?? Character(" "))"
+        label.backgroundColor = UIColor.white
+        label.adjustsFontForContentSizeCategory = true
+        return label
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return contact.count
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return contact.count
+        return contact[section].count
     }
+    
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //TODO: Fazer celular personalizada. Me chamar.
         let celulat = UITableViewCell(style: .default, reuseIdentifier: nil)
         
-        celulat.textLabel?.text = contact[indexPath.row].nome
-        celulat.imageView?.kf.setImage(with: contact[indexPath.row].fotoUrl)
-        
+        celulat.textLabel?.text = contact[indexPath.section][indexPath.row].nome
+        celulat.imageView?.kf.setImage(with: contact[indexPath.section][indexPath.row].fotoUrl)
         return celulat
     }
     
@@ -85,22 +98,21 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
         
         let telaDetalhes = StoryboardScene.Contato.detalhesViewController.instantiate()
         telaDetalhes.modalPresentationStyle = .fullScreen
-        telaDetalhes.contact = contact[indexPath.row]
+        telaDetalhes.contact = contact[indexPath.section][indexPath.row]
         
         self.present(telaDetalhes, animated: true)
     }
      
-    @IBAction func bntContatoAtualizar(_ sender: Any) { //FIXME: Renomear action para a nova funcao que ela vai exercer que é de deslogar.
+    @IBAction func bntLogout(_ sender: Any) {
         
         self.autorizacaoLogin.logout()
     }
     
     @IBAction func bntContatoCadastrar(_ sender: Any) {
         
-        let TelaCadastroContato = StoryboardScene.Contato.viewControllerCadastroContato.instantiate()
-        TelaCadastroContato.modalPresentationStyle = .fullScreen
+        let telaCadastro = StoryboardScene.Contato.cadastroContatoViewController.instantiate()
+        present(telaCadastro, animated: true)
         
-        self.present(TelaCadastroContato, animated: true)
     }
     
     func success(type: ResponseType) {
@@ -112,7 +124,7 @@ class ViewControllerContato: UIViewController, ServiceDelegate, UITableViewDataS
             
         case .listagemContato:
             
-            self.contact = ContatoViewModel.getViews()
+            self.contact = ContatoViewModel.getAsMatriz()
             
             tableViewContatos.reloadData()
             

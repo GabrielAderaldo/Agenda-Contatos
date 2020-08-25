@@ -12,24 +12,16 @@ import UIKit
 
 // swiftlint:disable explicit_type_interface identifier_name line_length type_body_length type_name
 internal enum StoryboardScene {
-  internal enum Cadastro: StoryboardType {
-    internal static let storyboardName = "Cadastro"
-  }
-  internal enum CadastroContato: StoryboardType {
-    internal static let storyboardName = "CadastroContato"
-
-    internal static let viewControllerCadastroContato = SceneType<AgendaDeContatos.ViewControllerCadastroContato>(storyboard: CadastroContato.self, identifier: "ViewControllerCadastroContato")
-  }
   internal enum Contato: StoryboardType {
     internal static let storyboardName = "Contato"
 
+    internal static let atualizarViewController = SceneType<AgendaDeContatos.AtualizarViewController>(storyboard: Contato.self, identifier: "AtualizarViewController")
+
+    internal static let cadastroContatoViewController = SceneType<AgendaDeContatos.CadastroContatoViewController>(storyboard: Contato.self, identifier: "CadastroContatoViewController")
+
+    internal static let contatoViewController = SceneType<AgendaDeContatos.ContatoViewController>(storyboard: Contato.self, identifier: "ContatoViewController")
+
     internal static let detalhesViewController = SceneType<AgendaDeContatos.DetalhesViewController>(storyboard: Contato.self, identifier: "DetalhesViewController")
-
-    internal static let viewControllerAtualizar = SceneType<AgendaDeContatos.ViewControllerAtualizar>(storyboard: Contato.self, identifier: "ViewControllerAtualizar")
-
-    internal static let viewControllerCadastroContato = SceneType<AgendaDeContatos.ViewControllerCadastroContato>(storyboard: Contato.self, identifier: "ViewControllerCadastroContato")
-
-    internal static let viewControllerContato = SceneType<AgendaDeContatos.ViewControllerContato>(storyboard: Contato.self, identifier: "ViewControllerContato")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
@@ -47,16 +39,6 @@ internal enum StoryboardScene {
     internal static let storyboardName = "Main"
 
     internal static let initialScene = InitialSceneType<AgendaDeContatos.ViewController>(storyboard: Main.self)
-  }
-  internal enum Atualizar: StoryboardType {
-    internal static let storyboardName = "atualizar"
-
-    internal static let viewControllerAtualizar = SceneType<AgendaDeContatos.ViewControllerAtualizar>(storyboard: Atualizar.self, identifier: "ViewControllerAtualizar")
-  }
-  internal enum Detalhes: StoryboardType {
-    internal static let storyboardName = "detalhes"
-
-    internal static let detalhesViewController = SceneType<AgendaDeContatos.DetalhesViewController>(storyboard: Detalhes.self, identifier: "DetalhesViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

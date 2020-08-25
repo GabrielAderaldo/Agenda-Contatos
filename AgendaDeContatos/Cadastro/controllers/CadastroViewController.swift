@@ -28,149 +28,65 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     
     
     @IBAction func bntCadastrar(_ sender: Any) {
-        let avisoValidacaoEmail = UIAlertController(title: "Verificar dados...", message: "Confira o Email digitado", preferredStyle: .alert)
+
+            //Basicamente estou re-formulando toda a tela, deixando mais legivel e simples...
         
-        
-        
-        let avisoCadastroSucesso = UIAlertController(title: "Sucesso!", message: "Seu cadastro foi efetuado com Sucesso!", preferredStyle: .alert)
-        
-        
-        
-        var senhaValida:Bool!
-        var emailValida:Bool!
-        
-        
-        //Fazendo as validacoes, do front...
-        /*
-         var localNome:String? = ""
-         var localEmail:String? = ""
-         var confirmaEmailLocal:String? = ""
-         var localSenha:String? = ""
-         var confirmaSenhaLocal:String? = ""
-         
-         */
-        
-        
-        //criando a funcao de validacao de email
+            //chamando as variaveis
+        if  let localNome = nomeTxt.text,
+            let localEmail = emailTxt.text,
+            let localEmailConfirmado = confirmacaoEmailTxt.text,
+            let localSenha = senhaTxt.text,
+            let localSenhaConfirma = confirmacaoSenhaTxt.text,
+            let localImagem = imgCadastro.text{
+             
+            //criando as validacoes: Email.
+            let strgEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+            let valiEmail = NSPredicate(format: "SELF MATCHES %@",strgEmail)
+            let respostaValidacaoEmail = valiEmail.evaluate(with: localEmail)
+            //criando as validacoes: Senha
+            let strgSenha = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}"
+            let valiSenha = NSPredicate(format: "SELF MATCHES %@", strgSenha)
+            let respostaValidacaoSenha = valiSenha.evaluate(with: localSenha)
             
-           
-        
-        
-        
-        if let localNome = self.nomeTxt.text,
-            let localEmail = self.emailTxt.text,
-            let confirmaEmailLocal = self.confirmacaoEmailTxt.text,
-            let localSenha = self.senhaTxt.text,
-            let confirmaSenhaLocal = self.confirmacaoSenhaTxt.text,
-            let localfotoUrl = imgCadastro.text{
+            //vericando se o email é igual...
+            func emailIgual(email:String,novoEmail:String) -> Bool{
+                if email != novoEmail {return false}
+                else{return true}
+            }
             
-           
+            //verificando se a senha é igual...
+            func senhaIgual(senha:String,senhaNova:String) -> Bool{
+                if senha != senhaNova {return false}
+                else{return true}
+            }
             
-            //FIXME: Acho que deve ter opções melhores pra fazer essas validações, mas deixa isso um pouco de lado, faz as outras coisas e ai se sobrar tempo a gente ve essas validacoes.
-            //FIXME: Copia esse codigo de validação e guarda em um outro arquivo e tenta dar uma organizada nessa classe
-            //Fazendo as validacoes...
-            //Validacao email...
-            var resultadoEmail = localEmail.contains("@")
-            var resultadoEmail2 = localEmail.contains(".")
-            var controleValidaEmail:String = "defalt"
-            //validacao da senha manual...
-            var resultadoSenhaArroba = localSenha.contains("@")
-            var resultadoSenhaEsclama = localSenha.contains("!")
-            var resultadoSenhaJogo = localSenha.contains("#")
-            var resultadoSenhaSif = localSenha.contains("$")
-            var resultadoSenhaPor = localSenha.contains("%")
-            var resultadoSenhaElev = localSenha.contains("ˆ")
-            var resultadoSenhaEcome = localSenha.contains("&")
-            var resultadoSenhaCoisinha = localSenha.contains("*")
-            var controleValidaSenha:String = "defaut" //FIXME: Em vez de utilizar string voce pode utilizar (Bool?) com optional sendo o nil o default ou criar um enum com para esse tratamento
-            var controleNumero = localEmail.count
-            
-            
-            if resultadoSenhaCoisinha || resultadoSenhaPor || resultadoSenhaEcome || resultadoSenhaSif || resultadoSenhaJogo || resultadoSenhaArroba || resultadoSenhaEsclama || resultadoSenhaElev == true{
-                controleValidaSenha = "true"
+            //criar agora a maior parte...
+            if emailIgual(email: localEmail, novoEmail: localEmailConfirmado) != true {
+                //aviso de erro:
+                let telaFalha = UIAlertController(title:L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Cadastro.email, preferredStyle: .alert)
+                telaFalha.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default))
+                present(telaFalha, animated: true)
+                
+            }else if senhaIgual(senha: localSenha, senhaNova: localSenhaConfirma) != true {
+                let telaFalha = UIAlertController(title:L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Cadastro.senha, preferredStyle: .alert)
+                telaFalha.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default))
+                present(telaFalha, animated: true)
+            }else if respostaValidacaoEmail != true {
+                let telaFalha = UIAlertController(title:L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Cadastro.emailInvalido, preferredStyle: .alert)
+                telaFalha.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default))
+                present(telaFalha, animated: true)
+            }else if respostaValidacaoSenha != true{
+                let telaFalha = UIAlertController(title:L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Cadastro.senhaInvalido, preferredStyle: .alert)
+                telaFalha.addAction(UIAlertAction(title:L10n.Msg.ok, style: .default))
+                present(telaFalha, animated: true)
+                
             }else{
-                controleValidaSenha = "false"
+               
+                //A confirmacao para o login é passar para a proxima tela...
+                auth.cadastro(nome: localNome, foto: localImagem, email: localEmail, senha: localSenha)
+             
             }
-            
-            
-            
-            
-            
-            if resultadoEmail && resultadoEmail2 == true{
-                controleValidaEmail = "true"
-            }else{
-                controleValidaEmail = "false"
-                
-            }
-            
-            
-            //Ultilizando uma validacao mais simples...
-            
-            //criando as variaveis para fazer as verificacoes...
-            
-            
-            //DFIXME: Sugestões:
-            //emailValida = localEmail == confirmaEmailLocal
-            //senhaValida = localSenha == confirmaSenhaLocal
-            // if emailValida && senhaValida {
-            //     self.auth.cadastro...
-            // }
-            print(controleNumero)
-            
-            //FIXME: Melhoria -> Colocar essas Strings no arquivo de Strings no seguinte
-            // "AgendaDeContatos/Application/Supporting Files/Generators/Localizable.strings"
-            // - OBS:
-            // - Como acessar?
-            // - Ex: L10n.Common.ok
-            // - O codigo do exemplo acima irá retornar a string que você colocar no valor
-            if localEmail != confirmaEmailLocal {
-                emailValida = false
-                
-                
-                
-            }else if localSenha != confirmaSenhaLocal{
-                senhaValida = false
-                
-                let password = NSPredicate(format: "SELF MATCHES %@", "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}")
-                var senhaValida:Bool? = password.evaluate(with:localSenha)
-                
-            }else if controleValidaEmail != "true"{
-                let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "seu email, não é um email Valido: EX: chocolate@xxxx.com", preferredStyle: .alert)
-                telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(telaAvisoEmailvalidacao, animated: true)
-                
-            }else if senhaValida != true /*controleValidaSenha != "true" /*&&  controleNumero  > 5*/*/{
-               print("A senha é: ",senhaValida)
-                let telaAvisoEmailvalidacao = UIAlertController(title: "Aviso", message: "Sua senha não é forte o bastante,Use uma senha forte... EX: Gabriel@987", preferredStyle: .alert)
-                telaAvisoEmailvalidacao.addAction(UIAlertAction(title: "Ok", style: .default))
-                present(telaAvisoEmailvalidacao, animated: true)
-                
-                
-                }else{
-               print("A senha é: ",senhaValida)
-                /*self.auth.cadastro(nome: localNome, foto:localfotoUrl , email: localEmail, senha: localSenha)*/
-            }
-            
         }
-        
-        
-        
-        
-        /*
-         localNome = nomeTxt.text
-         localEmail = emailTxt.text
-         confirmaEmailLocal = confirmacaoEmailTxt.text
-         localSenha = senhaTxt.text
-         confirmaSenhaLocal = confirmacaoSenhaTxt.text
-         */
-        
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -183,15 +99,10 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     
     func success(type: ResponseType) {
         
-        /*
-         Comentei aqui por que, se der erro que vou notificar ao usuario... a mensagem de sucesso vai ser logar...
-         avisoCadastroSucesso.addAction(UIAlertAction(title:"OK",style:.default,handler:nil))
-         self.present(avisoCadastroSucesso,animated: true)
-         
-         */
-        let telaContato = StoryboardScene.Contato.viewControllerContato.instantiate()
-        telaContato.modalPresentationStyle = .fullScreen
+        let telaContato = StoryboardScene.Contato.contatoViewController.instantiate()
         present(telaContato, animated: true)
+       
+        
     }
     
     func failure(type: ResponseType, error: String) {

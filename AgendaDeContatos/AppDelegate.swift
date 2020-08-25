@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-//FIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
+//DFIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
 // - OBS:
 // - Fazer isso com as Controllers (
 //    - ViewControllerCadastro
