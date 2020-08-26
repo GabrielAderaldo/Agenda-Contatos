@@ -135,8 +135,8 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-HO-bKz">
-                                <rect key="frame" x="149" y="688" width="85" height="51"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <rect key="frame" x="149" y="688" width="91" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Salvar">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
@@ -374,7 +374,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="ZA1-oE-E86"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Atualizar o contato">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>

@@ -13,8 +13,7 @@ import RealmSwift
 //TODO: Depois vou ensinar a utilizar NavigationController. utiliza esse recurso pode ajudar bastante.
 //TODO: Depois que resolver todos os FIXME's me chamar para consertarmos as constraints das telas.
 
-//Sugestões:
-//FIXME: Sugestão de funcionalidade: Tentar separar contatos em uma matriz por Letra inicial e na tableView separa-los em sections.
+
 //FIXME: Revisar as telas, tentar manter padrão em tamanho e cores de botões.
 
 var uiRealm: Realm!

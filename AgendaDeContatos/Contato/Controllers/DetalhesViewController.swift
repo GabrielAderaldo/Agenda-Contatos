@@ -24,8 +24,14 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     @IBOutlet weak var txtTelefone: UITextField!
     @IBOutlet weak var txtFoto: UITextField!
     
+   
     var auth:  ContatoService! //FIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
     var contact: ContatoView?
+
+    //criando a funcao do menu bonitinho...
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -106,3 +112,4 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     
     
 }
+
