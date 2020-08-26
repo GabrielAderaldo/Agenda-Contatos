@@ -29,7 +29,10 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     var contact: ContatoView?
 
     //criando a funcao do menu bonitinho...
-    
+    func setupNavegationItens(){
+        let bntAtualizar = UIBarButtonItem(title:"Atualizar", style: .done, target: self, action: #selector(self.bntAtualizar))
+        self.navigationItem.rightBarButtonItems = [bntAtualizar]
+    }
     
     
     
@@ -37,6 +40,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         super.viewDidLoad()
         
         self.auth = ContatoService(delegate: self)
+        setupNavegationItens()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,10 +65,15 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         self.dismiss(animated: true)
     }
     
-    @IBAction func bntAtualizar(_ sender: Any) {
+    @objc func bntAtualizar() {
+        
         let telaAtualizar = StoryboardScene.Contato.atualizarViewController.instantiate()
+        
+        
         telaAtualizar.contact = contact
-        present(telaAtualizar, animated: true)
+       
+        self.navigationController?.pushViewController(telaAtualizar, animated: true)
+        
         
     }
     

@@ -10,11 +10,7 @@ import UIKit
 import RealmSwift
 
 
-//TODO: Depois vou ensinar a utilizar NavigationController. utiliza esse recurso pode ajudar bastante.
-//TODO: Depois que resolver todos os FIXME's me chamar para consertarmos as constraints das telas.
 
-
-//FIXME: Revisar as telas, tentar manter padrão em tamanho e cores de botões.
 
 var uiRealm: Realm!
 

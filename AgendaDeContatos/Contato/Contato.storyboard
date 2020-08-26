@@ -15,90 +15,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="96" translatesAutoresizingMaskIntoConstraints="NO" id="UOs-PR-TLk" userLabel="mainHeader">
-                                <rect key="frame" x="24" y="68" width="366" height="60"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contatos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taq-0v-d8f">
-                                        <rect key="frame" x="0.0" y="17" width="141" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="D8P-n0-DyH" userLabel="bntHeader">
-                                        <rect key="frame" x="237" y="0.0" width="129" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufk-E7-YKD">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <state key="normal" title="-">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="bntAtualizar:" destination="6aK-Qd-hlV" eventType="touchUpInside" id="K55-kZ-UIz"/>
-                                                    <action selector="bntLogout:" destination="E1r-VT-iM9" eventType="touchUpInside" id="gfe-ez-YOn"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yws-Nx-GFW">
-                                                <rect key="frame" x="99" y="0.0" width="30" height="60"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                <state key="normal" title="+">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="bntContatoCadastrar:" destination="E1r-VT-iM9" eventType="touchUpInside" id="tPc-Oh-BFE"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="bottom" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="hbl-5m-uFs" userLabel="modeloContato">
-                                <rect key="frame" x="24" y="164" width="366" height="236"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="R6n-7R-7mF">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="236"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOM-hN-EDN">
-                                        <rect key="frame" x="201" y="20" width="165" height="216"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="fOM-hN-EDN" firstAttribute="top" secondItem="hbl-5m-uFs" secondAttribute="top" constant="20" symbolic="YES" id="r86-9N-CaR"/>
-                                </constraints>
-                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2v6-VD-a23">
-                                <rect key="frame" x="0.0" y="410" width="414" height="463"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="829"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="hbl-5m-uFs" firstAttribute="leading" secondItem="nLh-Hs-5kc" secondAttribute="leading" constant="24" id="1cN-Ku-clC"/>
-                            <constraint firstItem="hbl-5m-uFs" firstAttribute="top" secondItem="UOs-PR-TLk" secondAttribute="bottom" constant="36" id="1gT-zj-Sak"/>
-                            <constraint firstItem="nLh-Hs-5kc" firstAttribute="trailing" secondItem="hbl-5m-uFs" secondAttribute="trailing" constant="24" id="2iJ-PM-HVj"/>
-                            <constraint firstItem="2v6-VD-a23" firstAttribute="top" secondItem="hbl-5m-uFs" secondAttribute="bottom" constant="10" id="32w-9z-eCt"/>
-                            <constraint firstItem="UOs-PR-TLk" firstAttribute="leading" secondItem="nLh-Hs-5kc" secondAttribute="leading" constant="24" id="4EA-KK-nKP"/>
-                            <constraint firstItem="nLh-Hs-5kc" firstAttribute="trailing" secondItem="UOs-PR-TLk" secondAttribute="trailing" constant="24" id="9O3-hh-FIH"/>
-                            <constraint firstItem="2v6-VD-a23" firstAttribute="centerX" secondItem="hbl-5m-uFs" secondAttribute="centerX" id="AxU-et-50n"/>
-                            <constraint firstItem="UOs-PR-TLk" firstAttribute="top" secondItem="nLh-Hs-5kc" secondAttribute="top" constant="24" id="Day-zd-woa"/>
+                            <constraint firstItem="2v6-VD-a23" firstAttribute="top" secondItem="nLh-Hs-5kc" secondAttribute="top" id="78j-vr-ich"/>
                             <constraint firstAttribute="bottomMargin" secondItem="2v6-VD-a23" secondAttribute="bottom" constant="-11" id="G0X-hf-exk"/>
                             <constraint firstItem="2v6-VD-a23" firstAttribute="leading" secondItem="tlE-Cq-izr" secondAttribute="leading" id="hJQ-th-oel"/>
+                            <constraint firstItem="2v6-VD-a23" firstAttribute="trailing" secondItem="nLh-Hs-5kc" secondAttribute="trailing" id="mhd-mP-wyv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nLh-Hs-5kc"/>
                     </view>
                     <connections>
-                        <outlet property="imagemContatos" destination="R6n-7R-7mF" id="AMy-uO-BCg"/>
-                        <outlet property="imgFotoContato" destination="R6n-7R-7mF" id="AP7-8e-hL9"/>
-                        <outlet property="lbNomeLogin" destination="fOM-hN-EDN" id="2cs-5f-e3d"/>
-                        <outlet property="nomeHeaderContatos" destination="fOM-hN-EDN" id="wjD-p7-TvD"/>
                         <outlet property="tableViewContatos" destination="2v6-VD-a23" id="cLm-VF-ZnG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8R-00-L7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="6aK-Qd-hlV" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-858" y="-17"/>
         </scene>
@@ -233,31 +168,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="243" translatesAutoresizingMaskIntoConstraints="NO" id="ZwE-3y-UoN">
-                                <rect key="frame" x="24" y="68" width="366" height="51"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PQ-6B-n8A">
-                                        <rect key="frame" x="0.0" y="0.0" width="49" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                        <state key="normal" image="arrowshape.turn.up.left" catalog="system">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="bntVoltar:" destination="P3C-bU-UwX" eventType="touchUpInside" id="Jh0-ZB-Jx9"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3t-Pf-SUp">
-                                        <rect key="frame" x="292" y="0.0" width="74" height="51"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                        <state key="normal" title="Atualizar">
-                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="bntAtualizar:" destination="P3C-bU-UwX" eventType="touchUpInside" id="16p-jX-lm7"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="envelope" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="1Da-dL-g03">
                                 <rect key="frame" x="48" y="758.5" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -271,7 +181,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zpF-Rx-Rkp">
-                                <rect key="frame" x="24" y="151" width="366" height="216"/>
+                                <rect key="frame" x="24" y="108" width="366" height="259"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="36" translatesAutoresizingMaskIntoConstraints="NO" id="uuL-6L-rQ6">
                                 <rect key="frame" x="24" y="487" width="366" height="172.5"/>
@@ -333,18 +243,15 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="sYj-EA-nJr" firstAttribute="trailing" secondItem="ZwE-3y-UoN" secondAttribute="trailing" constant="24" id="2bD-ym-1vD"/>
                             <constraint firstItem="sYj-EA-nJr" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TNe-OH-8hW" secondAttribute="bottom" constant="30" id="Ait-aw-bbD"/>
-                            <constraint firstItem="ZwE-3y-UoN" firstAttribute="top" secondItem="sYj-EA-nJr" secondAttribute="top" constant="24" id="JV2-Ha-mqe"/>
                             <constraint firstItem="sYj-EA-nJr" firstAttribute="trailing" secondItem="zpF-Rx-Rkp" secondAttribute="trailing" constant="24" id="MBK-1g-wGL"/>
                             <constraint firstItem="sYj-EA-nJr" firstAttribute="trailing" secondItem="TNe-OH-8hW" secondAttribute="trailing" constant="64" id="RRj-b1-xaI"/>
                             <constraint firstItem="TNe-OH-8hW" firstAttribute="top" secondItem="uuL-6L-rQ6" secondAttribute="bottom" constant="74" id="TQ0-mK-8wn"/>
                             <constraint firstItem="uuL-6L-rQ6" firstAttribute="leading" secondItem="sYj-EA-nJr" secondAttribute="leading" constant="24" id="Wis-eU-OX0"/>
                             <constraint firstItem="uuL-6L-rQ6" firstAttribute="centerY" secondItem="sYj-EA-nJr" secondAttribute="centerY" constant="120" id="YBW-Eb-P5t"/>
                             <constraint firstItem="zpF-Rx-Rkp" firstAttribute="leading" secondItem="sYj-EA-nJr" secondAttribute="leading" constant="24" id="Zf4-bR-RWq"/>
+                            <constraint firstItem="zpF-Rx-Rkp" firstAttribute="top" secondItem="sYj-EA-nJr" secondAttribute="top" constant="64" id="nyR-fm-fL2"/>
                             <constraint firstItem="TNe-OH-8hW" firstAttribute="leading" secondItem="sYj-EA-nJr" secondAttribute="leading" constant="64" id="pgz-Gl-Fuh"/>
-                            <constraint firstItem="ZwE-3y-UoN" firstAttribute="leading" secondItem="sYj-EA-nJr" secondAttribute="leading" constant="24" id="qKI-JH-mWe"/>
-                            <constraint firstItem="zpF-Rx-Rkp" firstAttribute="top" secondItem="ZwE-3y-UoN" secondAttribute="bottom" constant="32" id="wd7-Hr-9vW"/>
                             <constraint firstItem="sYj-EA-nJr" firstAttribute="trailing" secondItem="uuL-6L-rQ6" secondAttribute="trailing" constant="24" id="xnd-wO-rUk"/>
                             <constraint firstItem="uuL-6L-rQ6" firstAttribute="top" secondItem="zpF-Rx-Rkp" secondAttribute="bottom" constant="120" id="xvS-hK-L8P"/>
                         </constraints>
@@ -445,27 +352,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diL-RQ-sUj">
-                                <rect key="frame" x="20" y="56" width="34" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" image="arrowshape.turn.up.left" catalog="system">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="bntVoltar:" destination="UBk-pf-6vI" eventType="touchUpInside" id="cgr-ZG-DAK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="diL-RQ-sUj" firstAttribute="leading" secondItem="LeA-sZ-reL" secondAttribute="leading" constant="20" id="50X-YE-vd3"/>
                             <constraint firstItem="LeA-sZ-reL" firstAttribute="trailing" secondItem="afh-4G-E26" secondAttribute="trailing" constant="24" id="7X8-2F-TEa"/>
                             <constraint firstItem="AuH-9h-dMS" firstAttribute="leading" secondItem="LeA-sZ-reL" secondAttribute="leading" constant="47" id="FLi-Ua-S8q"/>
-                            <constraint firstItem="LeA-sZ-reL" firstAttribute="top" secondItem="diL-RQ-sUj" secondAttribute="top" constant="12" id="OLL-mQ-zpR"/>
                             <constraint firstItem="LeA-sZ-reL" firstAttribute="trailing" secondItem="AuH-9h-dMS" secondAttribute="trailing" constant="47" id="TNg-kK-yZX"/>
                             <constraint firstItem="0Em-vq-IFH" firstAttribute="top" secondItem="AuH-9h-dMS" secondAttribute="bottom" constant="64" id="Tpz-WF-65c"/>
                             <constraint firstItem="afh-4G-E26" firstAttribute="leading" secondItem="LeA-sZ-reL" secondAttribute="leading" constant="24" id="Y5X-L8-tEK"/>
-                            <constraint firstItem="AuH-9h-dMS" firstAttribute="top" secondItem="diL-RQ-sUj" secondAttribute="bottom" constant="8" id="aCe-Q1-KNQ"/>
                             <constraint firstItem="LeA-sZ-reL" firstAttribute="trailing" secondItem="0Em-vq-IFH" secondAttribute="trailing" constant="24" id="ksd-Uf-WSU"/>
                             <constraint firstItem="afh-4G-E26" firstAttribute="top" secondItem="0Em-vq-IFH" secondAttribute="bottom" constant="64" id="qDu-8P-FE9"/>
                             <constraint firstItem="LeA-sZ-reL" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="afh-4G-E26" secondAttribute="bottom" constant="16" id="y2T-Tm-xZ9"/>
@@ -488,7 +382,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="236" height="236"/>
         <image name="arrowshape.turn.up.left" catalog="system" width="64" height="52"/>
         <image name="envelope" catalog="system" width="64" height="46"/>
         <image name="person" catalog="system" width="64" height="58"/>
