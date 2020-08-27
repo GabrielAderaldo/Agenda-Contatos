@@ -41,13 +41,19 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         self.auth = ContatoService(delegate: self)
         setupNavegationItens()
+        atualizar()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        //FIXME: Atualizar tela com as informacoes atualizadas.
         
+        let id = contact?.id
+        self.auth.listarAtualizado(id: id ?? "")
+    }
+    
+    func atualizar(){
         
         
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
@@ -93,12 +99,17 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     func success(type: ResponseType) {
         
         switch type {
+        case .buscaContato:
+            self.contact = ContatoViewModel.get(by: contact?.id ?? "")
+            
+            atualizar()
+            
         case .deleteContato:
            
             let telaAvisoSucesso = UIAlertController(title: L10n.Msg.sucesso, message: L10n.Msg.Sucesso.Contato.deletar, preferredStyle: .alert)
             
             telaAvisoSucesso.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: { (_) in
-                self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }))
             
             
@@ -113,6 +124,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     
     func failure(type: ResponseType, error: String) {
         switch type{
+        case.buscaContato:
+            print("Busca falhou!")
         case .deleteContato:
             
             let telaAviso  = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Contato.deletar, preferredStyle: .alert)

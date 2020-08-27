@@ -62,7 +62,7 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
         
         let avisoSucesso = UIAlertController(title: L10n.Msg.sucesso, message: L10n.Msg.Sucesso.Contato.atualizar, preferredStyle: .alert)
         avisoSucesso.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: { (_) in
-            self.dismiss(animated: true)
+            self.navigationController?.popViewController(animated: true)
         }))
         
         present(avisoSucesso, animated: true, completion: nil)

@@ -71,7 +71,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         
         
         
-        
         let bntCadastro = UIBarButtonItem(image: Asset.bntAdicionar.image, style: .done, target: self, action: #selector(self.bntContatoCadastrar))
         let bntLogout = UIBarButtonItem(image:Asset.bntDeslogar.image, style: .plain, target: self, action: #selector(self.bntLogout))
         self.navigationItem.rightBarButtonItems = [bntCadastro, bntLogout]

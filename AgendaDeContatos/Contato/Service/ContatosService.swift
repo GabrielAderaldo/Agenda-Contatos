@@ -49,6 +49,31 @@ class ContatoService {
     }
     
     
+    func listarAtualizado(id:String){
+        self.contatoRequest?.cancel()
+        
+        self.contatoRequest = AuthenticationRequestFactoryContatos.buscarId(id: id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+            print("Busca deu certo...")
+            
+            switch response.result{
+            case.success:
+                if let contato = response.value{
+                    ContatoViewModel.save(contato)
+                }
+                
+                
+                self.delegate?.success(type: .buscaContato)
+                
+            case.failure(let error):
+                self.delegate?.failure(type: .cadastroContato, error: error.localizedDescription)
+            }
+            
+        })
+        
+        
+        
+    }
+    
     func listarContato() {
         
         self.contatoRequest?.cancel()
