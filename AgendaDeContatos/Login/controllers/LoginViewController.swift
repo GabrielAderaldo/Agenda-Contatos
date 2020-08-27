@@ -40,9 +40,7 @@ class LoginViewController: UIViewController, ServiceDelegate{
 
     func success(type: ResponseType) {
 
-        let telaContato = StoryboardScene.Contato.contatoViewController.instantiate()
-        telaContato.modalPresentationStyle = .fullScreen
-        present(telaContato, animated: true)
+        ScreenManager.setupInitialViewController()
     }
     
     func failure(type: ResponseType, error: String) {

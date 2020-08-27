@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DsG-DK-NPb">
-                    <rect key="frame" x="24" y="58" width="144" height="144"/>
+                    <rect key="frame" x="24" y="55" width="144" height="144"/>
                     <constraints>
                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="72" id="9us-qe-rtX"/>
                         <constraint firstAttribute="width" constant="144" id="NTE-Rr-k11"/>
@@ -27,7 +27,7 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Br4-zS-GVg">
-                    <rect key="frame" x="198" y="119.5" width="412" height="21"/>
+                    <rect key="frame" x="198" y="116.5" width="412" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -40,7 +40,8 @@
                 <constraint firstItem="Br4-zS-GVg" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="L3V-BO-WUO"/>
                 <constraint firstItem="Br4-zS-GVg" firstAttribute="centerY" secondItem="DsG-DK-NPb" secondAttribute="centerY" id="U54-lP-tcz"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Br4-zS-GVg" secondAttribute="trailing" constant="16" id="dPX-UK-ev0"/>
-                <constraint firstItem="DsG-DK-NPb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="58" id="wxZ-4K-kws"/>
+                <constraint firstItem="DsG-DK-NPb" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="i5i-gD-ud8"/>
+                <constraint firstItem="DsG-DK-NPb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="24" id="wxZ-4K-kws"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Br4-zS-GVg" secondAttribute="bottom" constant="16" id="zYJ-qI-Asy"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

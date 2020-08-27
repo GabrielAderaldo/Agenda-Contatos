@@ -15,7 +15,6 @@ import Kingfisher
 
 class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
     
-
     @IBOutlet weak var tableViewContatos: UITableView!
     
     var authContatos:  ContatoService! //DFIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
@@ -23,8 +22,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     
     var contact: [[ContatoView]] = []
     var usuario: UsuarioViewModel! //DFIXME: remover variaveis que nao estao sendo utilizadas.
-    
-    
     
     let myRefreshControll: UIRefreshControl = {
         let refreshcontroll = UIRefreshControl()
@@ -84,19 +81,28 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         self.tableViewContatos.delegate = self
         self.tableViewContatos.dataSource = self
         self.tableViewContatos.register(cellType: ContatoTableViewCell.self)
-        self.tableViewContatos.refreshControl = myRefreshControll
         
-        let header = UserHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 250))
+        let header = UserHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 200))
         header.bind(user: SessionControll.shared.usuario)
         self.tableViewContatos.tableHeaderView = header
+        
+//        self.tableViewContatos.refreshControl = myRefreshControll
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel()
-        label.text = "\(self.contact[section].first?.nome.first ?? Character(" "))"
-        label.backgroundColor = UIColor.white
-        label.adjustsFontForContentSizeCategory = true
-        return label
+        /*
+        let header = UserHeaderView(frame: .zero)
+        header.bind(letra: "\(self.contact[section].first?.nome.first ?? Character(" "))")
+        return header
+        */
+        
+        let headerLetra = LetraHeaderView(frame: .zero)
+        headerLetra.bind(letra: "\(self.contact[section].first?.nome.first ?? Character(" "))")
+        return headerLetra
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -146,6 +152,7 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     @objc func bntContatoCadastrar() {
         
         let telaCadastro = StoryboardScene.Contato.cadastroContatoViewController.instantiate()
+        telaCadastro.modalPresentationStyle = .fullScreen
         present(telaCadastro, animated: true)
         
     }

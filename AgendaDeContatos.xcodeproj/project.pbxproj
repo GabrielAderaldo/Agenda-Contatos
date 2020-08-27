@@ -10,6 +10,8 @@
 		320230C224E48F29000A2B83 /* CadastroContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */; };
 		32202A4D24E1B2A200CCB245 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */; };
 		32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5124E1D0FC00CCB245 /* LoginViewController.swift */; };
+		3235A06E24F81DCB004CB0FF /* LetraHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3235A06D24F81DCB004CB0FF /* LetraHeaderView.xib */; };
+		3235A07224F82049004CB0FF /* LetraHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A07124F82049004CB0FF /* LetraHeaderView.swift */; };
 		324DB76524F6E7C10036E816 /* ContatoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DB76424F6E7C10036E816 /* ContatoTableViewCell.swift */; };
 		324DB76724F6E7DB0036E816 /* ContatoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 324DB76624F6E7DB0036E816 /* ContatoTableViewCell.xib */; };
 		324DB76A24F6EB190036E816 /* UserHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DB76924F6EB190036E816 /* UserHeaderView.swift */; };
@@ -52,6 +54,8 @@
 		320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroContatoViewController.swift; sourceTree = "<group>"; };
 		32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		32202A5124E1D0FC00CCB245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3235A06D24F81DCB004CB0FF /* LetraHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetraHeaderView.xib; sourceTree = "<group>"; };
+		3235A07124F82049004CB0FF /* LetraHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetraHeaderView.swift; sourceTree = "<group>"; };
 		324DB76424F6E7C10036E816 /* ContatoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoTableViewCell.swift; sourceTree = "<group>"; };
 		324DB76624F6E7DB0036E816 /* ContatoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContatoTableViewCell.xib; sourceTree = "<group>"; };
 		324DB76924F6EB190036E816 /* UserHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHeaderView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,8 @@
 			children = (
 				324DB76924F6EB190036E816 /* UserHeaderView.swift */,
 				324DB76B24F6EB270036E816 /* UserHeaderView.xib */,
+				3235A06D24F81DCB004CB0FF /* LetraHeaderView.xib */,
+				3235A07124F82049004CB0FF /* LetraHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				324DB76724F6E7DB0036E816 /* ContatoTableViewCell.xib in Resources */,
 				32C05DF524DDC9E500D2F3A5 /* LaunchScreen.storyboard in Resources */,
 				32E0605D24E332EB00DB7E9B /* Contato.storyboard in Resources */,
+				3235A06E24F81DCB004CB0FF /* LetraHeaderView.xib in Resources */,
 				32C05E0B24DDCCFC00D2F3A5 /* Localizable.strings in Resources */,
 				32C05DF224DDC9E500D2F3A5 /* Assets.xcassets in Resources */,
 				32E8571F24E1D96B009FADC4 /* Login.storyboard in Resources */,
@@ -496,6 +503,7 @@
 				324DB76524F6E7C10036E816 /* ContatoTableViewCell.swift in Sources */,
 				32C8013624E471A600E338D9 /* ContatosService.swift in Sources */,
 				32C05E1424DDD2DB00D2F3A5 /* Localizable.swift in Sources */,
+				3235A07224F82049004CB0FF /* LetraHeaderView.swift in Sources */,
 				32C05DEB24DDC9E400D2F3A5 /* SceneDelegate.swift in Sources */,
 				32C05E2324DDDCCD00D2F3A5 /* UsuarioViewModel.swift in Sources */,
 				32C05E2024DDD99500D2F3A5 /* Usuario.swift in Sources */,

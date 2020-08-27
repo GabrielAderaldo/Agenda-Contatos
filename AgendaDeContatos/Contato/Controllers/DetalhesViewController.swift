@@ -48,6 +48,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         
         //FIXME: Atualizar tela com as informacoes atualizadas.
         
+        
+        
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
         
         imagemDetalhes.layer.cornerRadius = 100
@@ -56,6 +58,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         lbNome.text = contact?.nome
         lbEmail.text = contact?.email
         lbTelefone.text = contact?.fone
+        
+        
     }
     
     
@@ -96,6 +100,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
             telaAvisoSucesso.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: { (_) in
                 self.dismiss(animated: true)
             }))
+            
+            
             present(telaAvisoSucesso, animated: true)
             default:
             

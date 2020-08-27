@@ -23,6 +23,6 @@ class ContatoTableViewCell: UITableViewCell, NibReusable {
     
     func bind(contato: ContatoView) {
         self.contatoNomeLabel.text = contato.nome.capitalized
-        self.contatoImage.kf.setImage(with: contato.fotoUrl)
+        self.contatoImage.kf.setImage(with: contato.fotoUrl, placeholder: Asset.placeHolder.image)
     }
 }

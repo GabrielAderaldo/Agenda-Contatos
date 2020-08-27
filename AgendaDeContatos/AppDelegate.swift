@@ -40,19 +40,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
-
-//DFIXME: Buscar manter o padrão: <Nome>ViewController. Ex: LoginViewController.
-// - OBS:
-// - Fazer isso com as Controllers (
-//    - ViewControllerCadastro
-//    - ViewControllerContato
-//    - ViewControllerCadastroContato
-//    - ViewControllerAtualizar
-//)
-// - Como renomear uma classe ou variavel?
-// 1. Segure o botão "command".
-// 2. Clique no nome da classe ou variavel.
-// 3. Selecione a opção "Rename".
-// 4. Escreva o novo nome da classe ou variável.
-// 5. Clique na opção "Rename".
-//Feito...

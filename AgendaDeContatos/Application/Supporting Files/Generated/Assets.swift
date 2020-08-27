@@ -22,6 +22,7 @@ internal enum Asset {
   internal static let image = ImageAsset(name: "Image")
   internal static let bntAdicionar = ImageAsset(name: "bntAdicionar")
   internal static let bntDeslogar = ImageAsset(name: "bntDeslogar")
+  internal static let placeHolder = ImageAsset(name: "placeHolder")
 }
 // swiftlint:enable identifier_name line_length nesting type_body_length type_name
 
