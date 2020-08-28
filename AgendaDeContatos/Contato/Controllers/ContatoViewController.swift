@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
+class ContatoViewController: UIViewController {
     
     @IBOutlet weak var tableViewContatos: UITableView!
     
@@ -23,10 +23,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         refreshcontroll.addTarget(self, action: #selector(ContatoViewController.refresh), for: .valueChanged)
         return refreshcontroll
     }()
-    
-    @objc private func refresh(){
-        self.authContatos.listarContato()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,15 +47,39 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        setupNavegationItens()
+        self.setupNavegationItens()
     }
-
+    
     func setupNavegationItens(){
         
         let bntCadastro = UIBarButtonItem(image: Asset.bntAdicionar.image, style: .done, target: self, action: #selector(self.bntContatoCadastrar))
         let bntLogout = UIBarButtonItem(image:Asset.bntDeslogar.image, style: .plain, target: self, action: #selector(self.bntLogout))
         self.navigationItem.rightBarButtonItems = [bntCadastro, bntLogout]
     }
+}
+
+//MARK: Actions
+extension ContatoViewController {
+    
+    @objc private func refresh(){
+        self.authContatos.listarContato()
+    }
+    
+    @objc func bntLogout() {
+        
+        self.autorizacaoLogin.logout()
+    }
+    
+    @objc func bntContatoCadastrar() {
+        
+        let telaCadastro = StoryboardScene.Contato.cadastroContatoViewController.instantiate()
+        telaCadastro.modalPresentationStyle = .fullScreen
+        present(telaCadastro, animated: true)
+    }
+}
+
+//MARK: TableView Functions
+extension ContatoViewController: UITableViewDataSource, UITableViewDelegate {
     
     func setupTableView() {
         self.tableViewContatos.delegate = self
@@ -70,7 +90,7 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         header.bind(user: SessionControll.shared.usuario)
         self.tableViewContatos.tableHeaderView = header
         
-//        self.tableViewContatos.refreshControl = myRefreshControll
+        //        self.tableViewContatos.refreshControl = myRefreshControll
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -94,7 +114,7 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(for: indexPath) as ContatoTableViewCell
         
         cell.bind(contato: contact[indexPath.section][indexPath.row])
@@ -112,23 +132,14 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         let telaDetalhes = StoryboardScene.Contato.detalhesViewController.instantiate()
         telaDetalhes.modalPresentationStyle = .fullScreen
         telaDetalhes.contact = contact[indexPath.section][indexPath.row]
-
+        
         self.navigationController?.pushViewController(telaDetalhes, animated: true)
         
         tableView.deselectRow(at: indexPath, animated: true)
     }
-     
-    @objc func bntLogout() {
-        
-        self.autorizacaoLogin.logout()
-    }
-    
-    @objc func bntContatoCadastrar() {
-        
-        let telaCadastro = StoryboardScene.Contato.cadastroContatoViewController.instantiate()
-        telaCadastro.modalPresentationStyle = .fullScreen
-        present(telaCadastro, animated: true)
-    }
+}
+//MARK: ServiceDelegate functions
+extension ContatoViewController: ServiceDelegate {
     
     func success(type: ResponseType) {
         

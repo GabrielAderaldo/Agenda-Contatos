@@ -25,7 +25,16 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         
         self.auth = AuthenticationService(delegate: self)
     }
-    
+      //vericando se o email é igual...
+    func emailIgual(email:String,novoEmail:String) -> Bool{
+        if email != novoEmail {return false}
+        else{return true}
+    }
+    //verificando se a senha é igual...
+    func senhaIgual(senha:String,senhaNova:String) -> Bool{
+                   if senha != senhaNova {return false}
+                   else{return true}
+               }
     
     @IBAction func bntCadastrar(_ sender: Any) {
 
@@ -48,17 +57,11 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             let valiSenha = NSPredicate(format: "SELF MATCHES %@", strgSenha)
             let respostaValidacaoSenha = valiSenha.evaluate(with: localSenha)
             
-            //vericando se o email é igual...
-            func emailIgual(email:String,novoEmail:String) -> Bool{ //FIXME: Cria essa função fora da funcao bntCadastrar
-                if email != novoEmail {return false}                        //Eu nem sabia que era possivel criar funcao dentro de funcao
-                else{return true}
-            }
+          
+           
             
-            //verificando se a senha é igual...
-            func senhaIgual(senha:String,senhaNova:String) -> Bool{ //FIXME: Cria essa função fora da funcao bntCadastrar
-                if senha != senhaNova {return false}
-                else{return true}
-            }
+            
+           
             
             //criar agora a maior parte...
             if emailIgual(email: localEmail, novoEmail: localEmailConfirmado) != true {

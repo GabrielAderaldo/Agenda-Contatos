@@ -23,17 +23,20 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
         super.viewDidLoad()
         
         self.authContatos = ContatoService(delegate: self)
-        uivImgFotoHeader.kf.setImage(with: contact.fotoUrl)
+       
+        uivImgFotoHeader.kf.setImage(with: contact.fotoUrl,placeholder: Asset.placeHolder.image)
+        
         
         //arrendondando a imagem...
         uivImgFotoHeader.layer.cornerRadius = 100
         uivImgFotoHeader.clipsToBounds = true
         
         //Iniciando já os valores anteriores...
-        //FIXME: Coloca pra preencher o link da foto tbm
         idNome.text = contact?.nome
         idTelefone.text = contact?.fone
         idEmail.text = contact?.email
+        idFoto.text = contact?.foto
+        
     }
     
     @IBAction func bntVoltar(_ sender: Any) {
@@ -47,7 +50,9 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
            let localTelefone = self.idTelefone.text,
            let localFoto = self.idFoto.text {
             
-            self.authContatos.atualizarContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone, id: contact.id)
+            let newContato = ContatoView(id: contact.id, nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone)
+            
+            self.authContatos.atualizarContato(contato: ContatoViewModel.getAsModel(newContato))
         }
     }
     
@@ -62,7 +67,11 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
     }
     
     func failure(type: ResponseType, error: String) {
-        let avisoFalha = UIAlertController(title: L10n.Msg.sucesso, message: L10n.Msg.Fracasso.Contato.atualizar, preferredStyle: .alert)
+        let avisoFalha = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Contato.atualizar, preferredStyle: .alert)
+        avisoFalha.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: { (_) in
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
         present(avisoFalha, animated: true)
     }
     

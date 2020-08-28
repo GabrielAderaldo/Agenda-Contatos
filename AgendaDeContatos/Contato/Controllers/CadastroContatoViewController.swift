@@ -45,9 +45,7 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
         }
     }
     
-    @IBAction func bntVoltarContatoCadastro(_ sender: Any) {
-        self.dismiss(animated: true)
-    }
+   
     
     func success(type: ResponseType) {
        
@@ -68,3 +66,4 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
         present(telaAvisoFalhaContato, animated: true)
     }
 }
+

@@ -35,13 +35,13 @@ class AuthenticationRequestFactoryContatos{
                                  headers: SessionControll.shared.headers)
     }
     
-    static func atualizar(nome:String,foto:String,email:String,fone:String,id:String) -> DataRequest{
+    static func atualizar(contato: Contato) -> DataRequest{
         
-        let parameters: Parameters = ["name":nome,"photo":foto,"email":email,"phone":fone];
+      //  let parameters: Parameters = ["name":nome,"photo":foto,"email":email,"phone":fone];
         
-        return Alamofire.request("http://contatosapi.herokuapp.com/api/contacts/\(id)",
+        return Alamofire.request("http://contatosapi.herokuapp.com/api/contacts/\(contato.id ?? "")",
                                  method: .put,
-                                 parameters: parameters,
+                                 parameters: contato.toJSON(),
                                  encoding: JSONEncoding.default,headers:SessionControll.shared.headers)
     }
     

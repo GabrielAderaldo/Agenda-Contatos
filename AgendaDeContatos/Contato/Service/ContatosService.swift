@@ -93,12 +93,11 @@ class ContatoService {
         })
     }
     
-    //FIMXE: Fazer aquela mesma correcao feita na funcao cadastroContato() enviando o contato em vez de cada atributo dele separado.
-    func atualizarContato(nome:String,foto:String,email:String,fone:String,id:String){
+    func atualizarContato(contato: Contato){
         
         self.contatoRequest?.cancel()
         
-        self.contatoRequest = AuthenticationRequestFactoryContatos.atualizar(nome: nome, foto: foto, email: email, fone: fone, id:id).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
+        self.contatoRequest = AuthenticationRequestFactoryContatos.atualizar(contato: contato).validate().responseObject(completionHandler: { (response: DataResponse<Contato>) in
             
             print("A conecxao foi um sucesso! :) ")
             
