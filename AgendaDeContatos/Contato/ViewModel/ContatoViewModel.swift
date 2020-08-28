@@ -50,7 +50,7 @@ class ContatoViewModel{
         
         let contato = Contato()
         
-        contato.id = contatoView.id
+        contato.id = contatoView.id.isEmpty ? nil : contatoView.id
         contato.nome = contatoView.nome
         contato.foto = contatoView.foto
         contato.email = contatoView.email
