@@ -98,8 +98,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
     
     func success(type: ResponseType) {
         
-        let telaContato = StoryboardScene.Contato.contatoViewController.instantiate()
-        present(telaContato, animated: true)
+        ScreenManager.setupInitialViewController()
     }
     
     func failure(type: ResponseType, error: String) {

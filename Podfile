@@ -14,6 +14,6 @@ target 'AgendaDeContatos' do
   pod 'Kingfisher'
   pod 'SpringIndicator'
   pod 'Hero'
-  pod 'SVProgressHUD', '= 2.2.5'
+  pod 'SVProgressHUD', '= 2.2'
 
 end

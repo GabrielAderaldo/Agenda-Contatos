@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class LoginViewController: UIViewController, ServiceDelegate{
 
@@ -24,6 +25,7 @@ class LoginViewController: UIViewController, ServiceDelegate{
     @IBAction func bntLogarValidacao(_ sender: Any) {
         
         if let localLogin = self.txtLogin.text, let localSenha = self.txtSenha.text {
+            
             self.auth.login(email: localLogin, senha: localSenha)
         }
     }
@@ -34,7 +36,7 @@ class LoginViewController: UIViewController, ServiceDelegate{
     }
 
     func success(type: ResponseType) {
-
+        
         ScreenManager.setupInitialViewController()
     }
     
@@ -45,5 +47,6 @@ class LoginViewController: UIViewController, ServiceDelegate{
         erroLogin.addAction(UIAlertAction(title: L10n.f, style: .default, handler: nil))
         
         self.present(erroLogin, animated: true)
+    
     }
 }
