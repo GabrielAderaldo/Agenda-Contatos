@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//DFIXME: Lembrar de remover excesso de espaços em branco, tentar deixar no maximo 1 linha de espaço entre as linhas de codigo.
+
 class CadastroViewController: UIViewController ,ServiceDelegate{
     
     @IBOutlet weak var nomeTxt: UITextField!
@@ -41,7 +41,7 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
              
             //criando as validacoes: Email.
             let strgEmail = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-            let valiEmail = NSPredicate(format: "SELF MATCHES %@",strgEmail)
+            let valiEmail = NSPredicate(format: "SELF MATCHES %@", strgEmail)
             let respostaValidacaoEmail = valiEmail.evaluate(with: localEmail)
             //criando as validacoes: Senha
             let strgSenha = "(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}"
@@ -49,13 +49,13 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
             let respostaValidacaoSenha = valiSenha.evaluate(with: localSenha)
             
             //vericando se o email é igual...
-            func emailIgual(email:String,novoEmail:String) -> Bool{
-                if email != novoEmail {return false}
+            func emailIgual(email:String,novoEmail:String) -> Bool{ //FIXME: Cria essa função fora da funcao bntCadastrar
+                if email != novoEmail {return false}                        //Eu nem sabia que era possivel criar funcao dentro de funcao
                 else{return true}
             }
             
             //verificando se a senha é igual...
-            func senhaIgual(senha:String,senhaNova:String) -> Bool{
+            func senhaIgual(senha:String,senhaNova:String) -> Bool{ //FIXME: Cria essa função fora da funcao bntCadastrar
                 if senha != senhaNova {return false}
                 else{return true}
             }
@@ -89,10 +89,6 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         }
     }
     
-    
-    
-    
-    
     @IBAction func bntVoltarCadastro(_ sender: Any) {
         self.dismiss(animated: true)
     }
@@ -101,8 +97,6 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         
         let telaContato = StoryboardScene.Contato.contatoViewController.instantiate()
         present(telaContato, animated: true)
-       
-        
     }
     
     func failure(type: ResponseType, error: String) {
@@ -111,6 +105,5 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         
         avisoValidacaoSenha.addAction(UIAlertAction(title: "Fechar", style: .default, handler: nil))
         self.present(avisoValidacaoSenha,animated: true)
-        
     }
 }

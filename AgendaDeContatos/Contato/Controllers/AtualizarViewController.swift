@@ -10,36 +10,30 @@ import UIKit
 
 class AtualizarViewController: UIViewController,ServiceDelegate {
     
-    @IBOutlet weak var idTxt: UITextField! //FIXME: Remover variaveis que nao estao sendo utilizadas.
-    
     @IBOutlet weak var idNome: UITextField!
     @IBOutlet weak var idEmail: UITextField!
     @IBOutlet weak var idTelefone: UITextField!
     @IBOutlet weak var idFoto: UITextField!
-    @IBOutlet weak var uivImgFotoHeader: UIImageView! //FIXME: Renomear variaveis, sempre iniciar variaveis e funcoes com letra minuscula.
+    @IBOutlet weak var uivImgFotoHeader: UIImageView!
     
-    var authContatos: ContatoService! //DFIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
+    var authContatos: ContatoService!
     var contact: ContatoView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.authContatos = ContatoService(delegate: self)
         uivImgFotoHeader.kf.setImage(with: contact.fotoUrl)
-        
-        
         
         //arrendondando a imagem...
         uivImgFotoHeader.layer.cornerRadius = 100
         uivImgFotoHeader.clipsToBounds = true
         
         //Iniciando já os valores anteriores...
+        //FIXME: Coloca pra preencher o link da foto tbm
         idNome.text = contact?.nome
         idTelefone.text = contact?.fone
         idEmail.text = contact?.email
-        
-        
     }
     
     @IBAction func bntVoltar(_ sender: Any) {
@@ -55,7 +49,6 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
             
             self.authContatos.atualizarContato(nome: localNome, foto: localFoto, email: localEmail, fone: localTelefone, id: contact.id)
         }
-        
     }
     
     func success(type: ResponseType) {

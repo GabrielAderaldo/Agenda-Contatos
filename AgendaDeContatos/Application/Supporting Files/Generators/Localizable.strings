@@ -25,3 +25,5 @@
 "Msg.fracasso.contato.atualizar" = "Falha ao atualizar um contato, por favor repetir mais tarde";
 "Msg.sucesso.contato.deletar" = "Sucesso ao deletar o contato";
 "Msg.fracasso.contato.deletar" = "Falha a deletar esse contato, por favor repetir mais tarde";
+
+"Contatos.title" = "Contatos";

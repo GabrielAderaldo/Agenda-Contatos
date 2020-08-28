@@ -12,18 +12,10 @@ class LetraHeaderView: UIView, NibOwnerLoadable {
 
     @IBOutlet weak var letraLb: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     override init(frame: CGRect) {
         super.init(frame:frame)
         self.loadNibContent()
-        self.awakeFromNib()
     }
-    
     
     required init?(coder: NSCoder) {
         super.init(coder:coder)
@@ -32,5 +24,4 @@ class LetraHeaderView: UIView, NibOwnerLoadable {
     func bind(letra: String){
         self.letraLb.text = letra.uppercased()
     }
-
 }

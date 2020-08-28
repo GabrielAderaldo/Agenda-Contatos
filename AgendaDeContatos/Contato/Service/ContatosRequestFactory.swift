@@ -12,8 +12,6 @@ import Alamofire
 class AuthenticationRequestFactoryContatos{
     static func cadastro(contato: Contato) -> DataRequest{
         
-        
-        
         return Alamofire.request("http://contatosapi.herokuapp.com/api/contacts",
                                  method: .post,
                                  parameters: contato.toJSON(),

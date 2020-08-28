@@ -18,9 +18,7 @@ class UserHeaderView: UIView, NibOwnerLoadable {
         super.awakeFromNib()
         self.userImage.layer.cornerRadius = 75
         self.userImage.clipsToBounds = true
-        
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,7 +31,7 @@ class UserHeaderView: UIView, NibOwnerLoadable {
     }
     
     func bind(user: UsuarioView) {
-        self.userImage.kf.setImage(with: user.photoUrl)
+        self.userImage.kf.setImage(with: user.photoUrl, placeholder: Asset.placeHolder.image)
         self.userNameLabel.text = user.name.capitalized
     }
 }

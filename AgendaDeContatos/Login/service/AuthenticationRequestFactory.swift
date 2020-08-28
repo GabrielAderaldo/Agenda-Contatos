@@ -22,7 +22,6 @@ class AuthenticationRequestFactory{
                                  encoding: JSONEncoding.default)
     }
     
-    
     static func cadastro(nome: String, foto: String, email: String, senha: String) -> DataRequest {
         
         let params:Parameters = ["name": nome,

@@ -33,28 +33,22 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         let bntAtualizar = UIBarButtonItem(title:"Atualizar", style: .done, target: self, action: #selector(self.bntAtualizar))
         self.navigationItem.rightBarButtonItems = [bntAtualizar]
     }
-    
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.auth = ContatoService(delegate: self)
-        setupNavegationItens()
-        atualizar()
-        
+        self.setupNavegationItens()
+        self.atualizar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        
-        let id = contact?.id
-        self.auth.listarAtualizado(id: id ?? "")
+        self.auth.listarAtualizado(id: contact?.id ?? "")
     }
     
     func atualizar(){
-        
         
         imagemDetalhes.kf.setImage(with: contact?.fotoUrl)
         
@@ -64,8 +58,6 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         lbNome.text = contact?.nome
         lbEmail.text = contact?.email
         lbTelefone.text = contact?.fone
-        
-        
     }
     
     
@@ -78,17 +70,11 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     @objc func bntAtualizar() {
         
         let telaAtualizar = StoryboardScene.Contato.atualizarViewController.instantiate()
-        
-        
         telaAtualizar.contact = contact
        
         self.navigationController?.pushViewController(telaAtualizar, animated: true)
-        
-        
     }
-    
-    
-    
+
     @IBAction func bntDelete(_ sender: Any) {
         
         if let localId = contact?.id {
@@ -102,7 +88,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         case .buscaContato:
             self.contact = ContatoViewModel.get(by: contact?.id ?? "")
             
-            atualizar()
+            self.atualizar()
             
         case .deleteContato:
            
@@ -112,11 +98,10 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
                 self.navigationController?.popViewController(animated: true)
             }))
             
-            
             present(telaAvisoSucesso, animated: true)
-            default:
             
-            print("Algo aconteceu...")
+            default:
+                break
         }
         
         
@@ -125,7 +110,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
     func failure(type: ResponseType, error: String) {
         switch type{
         case.buscaContato:
-            print("Busca falhou!")
+            print("Busca falhou!") //FIXME: Coloca um alerta aqui tbm 
         case .deleteContato:
             
             let telaAviso  = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.Contato.deletar, preferredStyle: .alert)

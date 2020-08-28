@@ -22,7 +22,6 @@ class ContatoService {
         self.delegate = delegate
     }
     
-    
     func cadastroContato(contato: Contato){
         
         self.contatoRequest?.cancel()
@@ -48,7 +47,6 @@ class ContatoService {
         })
     }
     
-    
     func listarAtualizado(id:String){
         self.contatoRequest?.cancel()
         
@@ -61,17 +59,12 @@ class ContatoService {
                     ContatoViewModel.save(contato)
                 }
                 
-                
                 self.delegate?.success(type: .buscaContato)
                 
             case.failure(let error):
                 self.delegate?.failure(type: .cadastroContato, error: error.localizedDescription)
             }
-            
         })
-        
-        
-        
     }
     
     func listarContato() {

@@ -21,21 +21,16 @@ class LoginViewController: UIViewController, ServiceDelegate{
         self.auth = AuthenticationService(delegate: self)
     }
     
-    
     @IBAction func bntLogarValidacao(_ sender: Any) {
         
         if let localLogin = self.txtLogin.text, let localSenha = self.txtSenha.text {
             self.auth.login(email: localLogin, senha: localSenha)
         }
-        
-       
     }
     
     @IBAction func bntCadastro(_ sender: Any) {
         let telaCadastro = StoryboardScene.Login.viewControllerCadastro.instantiate()
         present(telaCadastro, animated: true)
-        
-       
     }
 
     func success(type: ResponseType) {
@@ -50,7 +45,5 @@ class LoginViewController: UIViewController, ServiceDelegate{
         erroLogin.addAction(UIAlertAction(title: L10n.f, style: .default, handler: nil))
         
         self.present(erroLogin, animated: true)
-        
     }
-    
 }

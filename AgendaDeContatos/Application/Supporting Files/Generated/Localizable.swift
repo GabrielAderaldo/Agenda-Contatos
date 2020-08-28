@@ -20,6 +20,11 @@ internal enum L10n {
     internal static let ok = L10n.tr("Localizable", "Common.ok")
   }
 
+  internal enum Contatos {
+    /// Contatos
+    internal static let title = L10n.tr("Localizable", "Contatos.title")
+  }
+
   internal enum Msg {
     /// FALHA!
     internal static let fracasso = L10n.tr("Localizable", "Msg.fracasso")

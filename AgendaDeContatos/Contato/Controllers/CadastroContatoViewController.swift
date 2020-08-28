@@ -15,7 +15,7 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
     @IBOutlet weak var telefoneTxt: UITextField!
     @IBOutlet weak var fotoTxt: UITextField!
     
-    var  authContatos: ContatoService! //FIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
+    var  authContatos: ContatoService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
         self.authContatos = ContatoService(delegate: self)
     }
     
-    @IBAction func bntVoltar(_ sender: Any) { //FIXME: Renomear funcao 
+    @IBAction func bntVoltar(_ sender: Any) {
         
         self.dismiss(animated: true)
     }
@@ -67,6 +67,4 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
         telaAvisoFalhaContato.addAction(UIAlertAction(title: L10n.Msg.ok, style: .default, handler: nil))
         present(telaAvisoFalhaContato, animated: true)
     }
-    
-    
 }

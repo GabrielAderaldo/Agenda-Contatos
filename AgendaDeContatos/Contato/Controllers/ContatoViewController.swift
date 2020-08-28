@@ -9,19 +9,14 @@
 import UIKit
 import Kingfisher
 
-//DFIXME: É recomendado utilizar uma celular costumizada. Depois posso te ensinar isso tambem.
-//DFIXME: utilizar funções da tableView comoo heightForRow, heightForHeader, heightForFooter para costumiza-la melhor
-
-
 class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableViewContatos: UITableView!
     
-    var authContatos:  ContatoService! //DFIXME: Renomear essa variavel auth pois ela é referente ao service de contatos.
+    var authContatos:  ContatoService!
     var autorizacaoLogin: AuthenticationService!
     
     var contact: [[ContatoView]] = []
-    var usuario: UsuarioViewModel! //DFIXME: remover variaveis que nao estao sendo utilizadas.
     
     let myRefreshControll: UIRefreshControl = {
         let refreshcontroll = UIRefreshControl()
@@ -41,14 +36,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         
         self.autorizacaoLogin = AuthenticationService(delegate: self)
         self.authContatos = ContatoService(delegate: self)
-        
-        
-        
-//FIXME: Sugestão - Voce pode criar uma função separada pra fazer a configuração abaixo e chamá-la aqui:
-//      {
-//      }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +46,7 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     
     func setupNavigationController() {
         
-        self.title = "Contatos"
+        self.title = L10n.Contatos.title
         
         self.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -68,8 +55,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     }
 
     func setupNavegationItens(){
-        
-        
         
         let bntCadastro = UIBarButtonItem(image: Asset.bntAdicionar.image, style: .done, target: self, action: #selector(self.bntContatoCadastrar))
         let bntLogout = UIBarButtonItem(image:Asset.bntDeslogar.image, style: .plain, target: self, action: #selector(self.bntLogout))
@@ -81,7 +66,7 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         self.tableViewContatos.dataSource = self
         self.tableViewContatos.register(cellType: ContatoTableViewCell.self)
         
-        let header = UserHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 200))
+        let header = UserHeaderView(frame: CGRect(x: 0, y: 0, width: 0, height: 180))
         header.bind(user: SessionControll.shared.usuario)
         self.tableViewContatos.tableHeaderView = header
         
@@ -89,11 +74,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        /*
-        let header = UserHeaderView(frame: .zero)
-        header.bind(letra: "\(self.contact[section].first?.nome.first ?? Character(" "))")
-        return header
-        */
         
         let headerLetra = LetraHeaderView(frame: .zero)
         headerLetra.bind(letra: "\(self.contact[section].first?.nome.first ?? Character(" "))")
@@ -120,12 +100,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         cell.bind(contato: contact[indexPath.section][indexPath.row])
         
         return cell
-        
-//        let celulat = UITableViewCell(style: .default, reuseIdentifier: nil)
-//
-//        celulat.textLabel?.text = contact[indexPath.section][indexPath.row].nome
-//        celulat.imageView?.kf.setImage(with: contact[indexPath.section][indexPath.row].fotoUrl)
-//        return celulat
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -138,9 +112,10 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         let telaDetalhes = StoryboardScene.Contato.detalhesViewController.instantiate()
         telaDetalhes.modalPresentationStyle = .fullScreen
         telaDetalhes.contact = contact[indexPath.section][indexPath.row]
-        
-//        self.present(telaDetalhes, animated: true)
+
         self.navigationController?.pushViewController(telaDetalhes, animated: true)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
      
     @objc func bntLogout() {
@@ -153,7 +128,6 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         let telaCadastro = StoryboardScene.Contato.cadastroContatoViewController.instantiate()
         telaCadastro.modalPresentationStyle = .fullScreen
         present(telaCadastro, animated: true)
-        
     }
     
     func success(type: ResponseType) {
@@ -189,5 +163,4 @@ class ContatoViewController: UIViewController, ServiceDelegate, UITableViewDataS
         
         self.myRefreshControll.endRefreshing()
     }
-    
 }
