@@ -10,6 +10,7 @@ import UIKit
 
 class AtualizarViewController: UIViewController,ServiceDelegate {
     
+    @IBOutlet weak var bntAtt: UIButton!
     @IBOutlet weak var idNome: UITextField!
     @IBOutlet weak var idEmail: UITextField!
     @IBOutlet weak var idTelefone: UITextField!
@@ -36,6 +37,8 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
         idTelefone.text = contact?.fone
         idEmail.text = contact?.email
         idFoto.text = contact?.foto
+        
+        bntAtt.layer.cornerRadius = 10.0
         
     }
     

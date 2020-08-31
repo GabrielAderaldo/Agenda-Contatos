@@ -12,6 +12,7 @@ import Kingfisher
 
 class DetalhesViewController: UIViewController, ServiceDelegate{
     
+    @IBOutlet weak var bntDeletar: UIButton!
     @IBOutlet weak var lbNome: UILabel!
     @IBOutlet weak var lbEmail: UILabel!
     @IBOutlet weak var lbTelefone: UILabel!
@@ -32,6 +33,7 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         self.authContatos = ContatoService(delegate: self)
         self.setupNavegationItens()
         self.atualizar()
+        bntDeletar.layer.cornerRadius = 10.0
     }
     
     override func viewWillAppear(_ animated: Bool) {

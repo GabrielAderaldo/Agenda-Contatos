@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -48,7 +48,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-uL-Ui6">
                                 <rect key="frame" x="20" y="74" width="49" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" image="arrowshape.turn.up.left" catalog="system">
+                                <state key="normal" image="bntBack">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -70,10 +70,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wvH-HO-bKz">
-                                <rect key="frame" x="149" y="688" width="91" height="53"/>
+                                <rect key="frame" x="80" y="688" width="254" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Salvar">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="bntSalvarContato:" destination="79W-3f-Nca" eventType="touchUpInside" id="aXq-nQ-WSS"/>
@@ -129,12 +130,13 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="wvH-HO-bKz" firstAttribute="leading" secondItem="XQq-Ai-V7r" secondAttribute="leading" constant="149" id="689-lY-g21"/>
+                            <constraint firstItem="wvH-HO-bKz" firstAttribute="leading" secondItem="XQq-Ai-V7r" secondAttribute="leading" constant="80" id="689-lY-g21"/>
                             <constraint firstItem="Kna-bv-1MQ" firstAttribute="leading" secondItem="XQq-Ai-V7r" secondAttribute="leading" constant="24" id="Lre-eK-jB6"/>
                             <constraint firstItem="IWK-P4-BYu" firstAttribute="top" secondItem="XQq-Ai-V7r" secondAttribute="top" constant="107" id="Mn4-rS-UwF"/>
                             <constraint firstItem="XQq-Ai-V7r" firstAttribute="trailing" secondItem="Kna-bv-1MQ" secondAttribute="trailing" constant="24" id="OdB-QI-1OZ"/>
                             <constraint firstItem="XQq-Ai-V7r" firstAttribute="trailing" secondItem="OJv-pW-bFF" secondAttribute="trailing" constant="24" id="Smg-Na-Gep"/>
                             <constraint firstItem="Kna-bv-1MQ" firstAttribute="centerX" secondItem="XQq-Ai-V7r" secondAttribute="centerX" id="YMn-4o-6A3"/>
+                            <constraint firstItem="XQq-Ai-V7r" firstAttribute="trailing" secondItem="wvH-HO-bKz" secondAttribute="trailing" constant="80" id="ajb-LQ-pfQ"/>
                             <constraint firstItem="OJv-pW-bFF" firstAttribute="leading" secondItem="XQq-Ai-V7r" secondAttribute="leading" constant="24" id="cuQ-B1-Dr2"/>
                             <constraint firstItem="5kL-OT-bbd" firstAttribute="top" secondItem="IWK-P4-BYu" secondAttribute="bottom" constant="36" id="e6D-7F-6a4"/>
                             <constraint firstItem="XQq-Ai-V7r" firstAttribute="trailing" secondItem="IWK-P4-BYu" secondAttribute="trailing" constant="77" id="hNs-YV-IYy"/>
@@ -149,6 +151,7 @@
                         <viewLayoutGuide key="safeArea" id="XQq-Ai-V7r"/>
                     </view>
                     <connections>
+                        <outlet property="bntSalvar" destination="wvH-HO-bKz" id="8qW-vN-OO2"/>
                         <outlet property="emailTxt" destination="CuH-ly-n3P" id="sSC-pm-6aL"/>
                         <outlet property="fotoTxt" destination="5kL-OT-bbd" id="err-JE-WQc"/>
                         <outlet property="nomeTxt" destination="7IA-9g-2Uk" id="u6X-C9-QB5"/>
@@ -158,7 +161,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J3G-S5-0gT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="83D-UQ-2z2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="12" y="-17"/>
+            <point key="canvasLocation" x="11.594202898550726" y="-17.410714285714285"/>
         </scene>
         <!--Detalhes View Controller-->
         <scene sceneID="ZGU-bD-X5n">
@@ -232,9 +235,10 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNe-OH-8hW">
                                 <rect key="frame" x="64" y="733.5" width="286" height="53"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Deletar contato">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="bntDelete:" destination="P3C-bU-UwX" eventType="touchUpInside" id="iJe-0T-xMm"/>
@@ -258,6 +262,7 @@
                         <viewLayoutGuide key="safeArea" id="sYj-EA-nJr"/>
                     </view>
                     <connections>
+                        <outlet property="bntDeletar" destination="TNe-OH-8hW" id="Mgv-cX-3Lv"/>
                         <outlet property="imagemDetalhes" destination="zpF-Rx-Rkp" id="3Z4-od-fnR"/>
                         <outlet property="lbEmail" destination="iOl-90-JuN" id="uYg-Zp-IUT"/>
                         <outlet property="lbNome" destination="Edj-AW-GNP" id="Ntr-m5-bwZ"/>
@@ -278,12 +283,14 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afh-4G-E26">
                                 <rect key="frame" x="24" y="709" width="366" height="61"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="61" id="ZA1-oE-E86"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Atualizar o contato">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="bntAtualizar:" destination="UBk-pf-6vI" eventType="touchUpInside" id="jsf-ig-aH8"/>
@@ -369,6 +376,7 @@
                         <viewLayoutGuide key="safeArea" id="LeA-sZ-reL"/>
                     </view>
                     <connections>
+                        <outlet property="bntAtt" destination="afh-4G-E26" id="5VW-Yy-DSU"/>
                         <outlet property="idEmail" destination="o2F-LA-yfJ" id="ARJ-kG-Knz"/>
                         <outlet property="idFoto" destination="6xn-a3-iFE" id="gha-Ks-aei"/>
                         <outlet property="idNome" destination="Ty6-uA-U8y" id="YfL-HG-CVh"/>
@@ -382,11 +390,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowshape.turn.up.left" catalog="system" width="128" height="106"/>
-        <image name="envelope" catalog="system" width="128" height="93"/>
-        <image name="person" catalog="system" width="128" height="117"/>
-        <image name="person.circle" catalog="system" width="128" height="121"/>
-        <image name="phone" catalog="system" width="128" height="115"/>
-        <image name="pin" catalog="system" width="119" height="128"/>
+        <image name="bntBack" width="32" height="32"/>
+        <image name="envelope" catalog="system" width="64" height="46"/>
+        <image name="person" catalog="system" width="64" height="58"/>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
+        <image name="phone" catalog="system" width="64" height="56"/>
+        <image name="pin" catalog="system" width="58" height="64"/>
     </resources>
 </document>

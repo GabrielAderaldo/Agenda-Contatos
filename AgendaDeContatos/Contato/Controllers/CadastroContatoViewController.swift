@@ -10,6 +10,7 @@ import UIKit
 
 class CadastroContatoViewController: UIViewController, ServiceDelegate {
     
+    @IBOutlet weak var bntSalvar: UIButton!
     @IBOutlet weak var nomeTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var telefoneTxt: UITextField!
@@ -21,6 +22,7 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
         super.viewDidLoad()
         
         self.authContatos = ContatoService(delegate: self)
+        bntSalvar.layer.cornerRadius = 10.0
     }
     
     @IBAction func bntVoltar(_ sender: Any) {
