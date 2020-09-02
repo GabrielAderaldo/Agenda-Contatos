@@ -31,6 +31,8 @@ internal enum StoryboardScene {
   internal enum Login: StoryboardType {
     internal static let storyboardName = "Login"
 
+    internal static let splashViewController = SceneType<AgendaDeContatos.SplashViewController>(storyboard: Login.self, identifier: "SplashViewController")
+
     internal static let viewControllerCadastro = SceneType<AgendaDeContatos.CadastroViewController>(storyboard: Login.self, identifier: "ViewControllerCadastro")
 
     internal static let viewControllerLogin = SceneType<AgendaDeContatos.LoginViewController>(storyboard: Login.self, identifier: "ViewControllerLogin")

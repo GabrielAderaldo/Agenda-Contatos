@@ -27,7 +27,10 @@ class LoginViewController: UIViewController, ServiceDelegate{
         if let localLogin = self.txtLogin.text, let localSenha = self.txtSenha.text {
             
             self.auth.login(email: localLogin, senha: localSenha)
+            let telaSplash = StoryboardScene.Login.splashViewController.instantiate()
+            present(telaSplash, animated: true, completion: nil)
         }
+        
     }
     
     @IBAction func bntCadastro(_ sender: Any) {
@@ -36,8 +39,10 @@ class LoginViewController: UIViewController, ServiceDelegate{
     }
 
     func success(type: ResponseType) {
-        
+        let telaSplash = StoryboardScene.Login.splashViewController.instantiate()
+        telaSplash.dismiss(animated: true, completion: nil)
         ScreenManager.setupInitialViewController()
+        
     }
     
     func failure(type: ResponseType, error: String) {

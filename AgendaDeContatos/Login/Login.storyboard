@@ -103,6 +103,39 @@
             </objects>
             <point key="canvasLocation" x="-84.057971014492765" y="-98.4375"/>
         </scene>
+        <!--Splash View Controller-->
+        <scene sceneID="z4J-4v-bkJ">
+            <objects>
+                <viewController storyboardIdentifier="SplashViewController" id="55c-hq-6Mq" customClass="SplashViewController" customModule="AgendaDeContatos" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tKm-t8-EsJ">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="400"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XjI-4j-auV">
+                                <rect key="frame" x="20" y="44" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CARREGANDO..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJg-XA-NeX">
+                                <rect key="frame" x="49" y="275" width="331" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="iVe-EX-Nr2"/>
+                    </view>
+                    <size key="freeformSize" width="400" height="400"/>
+                    <connections>
+                        <outlet property="imagemLoading" destination="XjI-4j-auV" id="3C0-bY-Q6L"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rNP-1C-Lpr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="744" y="-99"/>
+        </scene>
         <!--Cadastro View Controller-->
         <scene sceneID="ymX-qg-SNh">
             <objects>
@@ -282,7 +315,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GId-AG-ehb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="-98"/>
+            <point key="canvasLocation" x="1610" y="-99"/>
         </scene>
     </scenes>
     <resources>

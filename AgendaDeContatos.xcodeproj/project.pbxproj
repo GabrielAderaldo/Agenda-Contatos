@@ -10,6 +10,7 @@
 		320230C224E48F29000A2B83 /* CadastroContatoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */; };
 		32202A4D24E1B2A200CCB245 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */; };
 		32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32202A5124E1D0FC00CCB245 /* LoginViewController.swift */; };
+		3229D4E4250002200006FD1B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3229D4E3250002200006FD1B /* SplashViewController.swift */; };
 		3235A06E24F81DCB004CB0FF /* LetraHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3235A06D24F81DCB004CB0FF /* LetraHeaderView.xib */; };
 		3235A07224F82049004CB0FF /* LetraHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A07124F82049004CB0FF /* LetraHeaderView.swift */; };
 		324DB76524F6E7C10036E816 /* ContatoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DB76424F6E7C10036E816 /* ContatoTableViewCell.swift */; };
@@ -54,6 +55,7 @@
 		320230C124E48F29000A2B83 /* CadastroContatoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroContatoViewController.swift; sourceTree = "<group>"; };
 		32202A4C24E1B2A200CCB245 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		32202A5124E1D0FC00CCB245 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3229D4E3250002200006FD1B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3235A06D24F81DCB004CB0FF /* LetraHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetraHeaderView.xib; sourceTree = "<group>"; };
 		3235A07124F82049004CB0FF /* LetraHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetraHeaderView.swift; sourceTree = "<group>"; };
 		324DB76424F6E7C10036E816 /* ContatoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContatoTableViewCell.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				32202A5124E1D0FC00CCB245 /* LoginViewController.swift */,
+				3229D4E3250002200006FD1B /* SplashViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				32C05DED24DDC9E400D2F3A5 /* ViewController.swift in Sources */,
 				32C8013224E462E600E338D9 /* ContatosRequestFactory.swift in Sources */,
 				32C05E1924DDD7CA00D2F3A5 /* ResponseType.swift in Sources */,
+				3229D4E4250002200006FD1B /* SplashViewController.swift in Sources */,
 				32202A5324E1D0FC00CCB245 /* LoginViewController.swift in Sources */,
 				32EA5A3B24EC75E0002FFD1A /* SessionControll.swift in Sources */,
 				32C05E2624DDEF4600D2F3A5 /* AuthenticationRequestFactory.swift in Sources */,
