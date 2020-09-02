@@ -20,9 +20,10 @@ class CadastroContatoViewController: UIViewController, ServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configDismiss()
         self.authContatos = ContatoService(delegate: self)
         bntSalvar.layer.cornerRadius = 10.0
+        
     }
     
     @IBAction func bntVoltar(_ sender: Any) {

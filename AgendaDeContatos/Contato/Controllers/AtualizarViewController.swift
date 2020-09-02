@@ -22,7 +22,7 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.configDismiss()
         self.authContatos = ContatoService(delegate: self)
        
         uivImgFotoHeader.kf.setImage(with: contact.fotoUrl,placeholder: Asset.placeHolder.image)

@@ -32,6 +32,7 @@ class ContatoViewController: UIViewController {
         
         self.autorizacaoLogin = AuthenticationService(delegate: self)
         self.authContatos = ContatoService(delegate: self)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -175,3 +176,5 @@ extension ContatoViewController: ServiceDelegate {
         self.myRefreshControll.endRefreshing()
     }
 }
+
+

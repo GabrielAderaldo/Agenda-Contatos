@@ -8,11 +8,14 @@
 
 import UIKit
 import SVProgressHUD
-
+import IHKeyboardAvoiding
 class LoginViewController: UIViewController, ServiceDelegate{
 
+    @IBOutlet weak var bntLOGAR: UIButton!
+    @IBOutlet weak var bntCARREGAR: UIButton!
     @IBOutlet weak var txtLogin: UITextField!
     @IBOutlet weak var txtSenha: UITextField!
+    @IBOutlet weak var stackView: UIStackView!
     
     var auth: AuthenticationService!
     
@@ -20,6 +23,14 @@ class LoginViewController: UIViewController, ServiceDelegate{
         super.viewDidLoad()
         
         self.auth = AuthenticationService(delegate: self)
+        bntCARREGAR.layer.cornerRadius = 8
+        bntCARREGAR.clipsToBounds = true
+        bntLOGAR.layer.cornerRadius = 8
+        bntLOGAR.clipsToBounds = true
+        
+        KeyboardAvoiding.avoidingView = self.view
+        
+        self.configDismiss()
     }
     
     @IBAction func bntLogarValidacao(_ sender: Any) {
@@ -55,3 +66,18 @@ class LoginViewController: UIViewController, ServiceDelegate{
     
     }
 }
+
+extension UIViewController  {
+    
+    func configDismiss() {
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.closeKeyBoard)))
+    }
+    
+    @objc func closeKeyBoard() {
+        self.view.endEditing(true)
+    }
+}
+
+
+
+

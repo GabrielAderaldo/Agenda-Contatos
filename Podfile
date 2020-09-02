@@ -15,5 +15,6 @@ target 'AgendaDeContatos' do
   pod 'SpringIndicator'
   pod 'Hero'
   pod 'SVProgressHUD', '= 2.2'
-
+  pod 'IHKeyboardAvoiding'
+  
 end

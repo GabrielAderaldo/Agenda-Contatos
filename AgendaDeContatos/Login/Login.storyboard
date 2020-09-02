@@ -95,6 +95,9 @@
                         <viewLayoutGuide key="safeArea" id="TWd-5E-zaK"/>
                     </view>
                     <connections>
+                        <outlet property="bntCARREGAR" destination="UCl-wt-6p7" id="XtT-L0-uxF"/>
+                        <outlet property="bntLOGAR" destination="dc6-yP-kgG" id="dsH-FJ-qUe"/>
+                        <outlet property="stackView" destination="0Y2-Ju-F0S" id="lJY-Bz-IK7"/>
                         <outlet property="txtLogin" destination="IY0-s2-NPn" id="wlJ-am-rJl"/>
                         <outlet property="txtSenha" destination="Bij-HF-BaB" id="Ahv-oF-ogd"/>
                     </connections>
@@ -117,7 +120,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CARREGANDO..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJg-XA-NeX">
-                                <rect key="frame" x="49" y="275" width="331" height="21"/>
+                                <rect key="frame" x="35" y="345" width="331" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -305,6 +308,8 @@
                         <viewLayoutGuide key="safeArea" id="nZw-gZ-iuF"/>
                     </view>
                     <connections>
+                        <outlet property="bntCADASTRAR" destination="gv0-4G-q9s" id="1bC-Xr-62y"/>
+                        <outlet property="bntVOLTAR" destination="5ME-aV-S0u" id="XZN-n2-7Vy"/>
                         <outlet property="confirmacaoEmailTxt" destination="S9l-7h-kYe" id="kp1-Y6-O0X"/>
                         <outlet property="confirmacaoSenhaTxt" destination="VOn-xF-dZT" id="zVB-aL-RKj"/>
                         <outlet property="emailTxt" destination="CpB-3i-MeA" id="oAd-M0-CY7"/>

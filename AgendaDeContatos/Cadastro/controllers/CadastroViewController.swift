@@ -10,6 +10,8 @@ import UIKit
 
 class CadastroViewController: UIViewController ,ServiceDelegate{
     
+    @IBOutlet weak var bntCADASTRAR: UIButton!
+    @IBOutlet weak var bntVOLTAR: UIButton!
     @IBOutlet weak var nomeTxt: UITextField!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var confirmacaoEmailTxt: UITextField!
@@ -24,6 +26,11 @@ class CadastroViewController: UIViewController ,ServiceDelegate{
         super.viewDidLoad()
         
         self.auth = AuthenticationService(delegate: self)
+        bntCADASTRAR.layer.cornerRadius = 8
+        bntCADASTRAR.clipsToBounds = true
+        bntVOLTAR.layer.cornerRadius = 8
+        bntVOLTAR.clipsToBounds = true
+        self.configDismiss()
     }
       //vericando se o email é igual...
     func emailIgual(email:String,novoEmail:String) -> Bool{

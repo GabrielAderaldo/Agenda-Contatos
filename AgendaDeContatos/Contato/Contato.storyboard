@@ -48,7 +48,7 @@
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSR-uL-Ui6">
                                 <rect key="frame" x="20" y="74" width="49" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" image="bntBack">
+                                <state key="normal" image="bntClose">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
@@ -390,7 +390,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bntBack" width="32" height="32"/>
+        <image name="bntClose" width="32" height="32"/>
         <image name="envelope" catalog="system" width="64" height="46"/>
         <image name="person" catalog="system" width="64" height="58"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
