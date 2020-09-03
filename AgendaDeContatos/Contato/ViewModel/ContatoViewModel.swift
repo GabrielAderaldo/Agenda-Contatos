@@ -116,10 +116,38 @@ class ContatoViewModel{
         return self.getAsView(self.getContato())
     }
     
-    static func getAsMatriz() -> [[ContatoView]] {
+    
+    static func getAsMatrizFilter(by filtro:String) -> [[ContatoView]] {
+        //let contatos = self.getViews().sorted(by: { return $0.nome == filtro})
+        
+        if filtro.isEmpty {
+            return self.getAsMatriz()
+        }
+        
+        let contatos = self.getViews().filter { (contato) -> Bool in
+            contato.nome.uppercased().contains(filtro.uppercased())
+        }
+        
+        return self.getAsMatriz(array: contatos)
+    }
+    
+    
+    static func getAsMatriz(array: [ContatoView]? = nil) -> [[ContatoView]] {
         
         var matriz: [[ContatoView]] = []
-        let contatos = self.getViews().sorted(by: { return $0.nome < $1.nome})
+        var contatos: [ContatoView] = []
+        if array == nil {
+            contatos = self.getViews().map({ (contato) -> ContatoView in
+                var contact = contato
+                contact.nome = contact.nome.uppercased()
+                
+                return contact
+                
+            }).sorted(by: { return $0.nome < $1.nome})
+        } else {
+            contatos = array ?? []
+        }
+        
         var letra: Character = Character(" ")
         var j = -1
         for i in 0..<contatos.count {

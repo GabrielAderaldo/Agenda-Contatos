@@ -8,6 +8,7 @@
 
 import UIKit
 import Kingfisher
+import MessageUI
 
 class ContatoViewController: UIViewController {
     
@@ -32,6 +33,7 @@ class ContatoViewController: UIViewController {
         
         self.autorizacaoLogin = AuthenticationService(delegate: self)
         self.authContatos = ContatoService(delegate: self)
+        self.mostrarBusca()
         
     }
     
@@ -174,6 +176,20 @@ extension ContatoViewController: ServiceDelegate {
         }
         
         self.myRefreshControll.endRefreshing()
+    }
+}
+//MARK: Search
+extension ContatoViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+        contact =  ContatoViewModel.getAsMatrizFilter(by: searchController.searchBar.text ?? "")
+        tableViewContatos.reloadData()
+    }
+    
+    func mostrarBusca(){
+        let busca = UISearchController(searchResultsController: nil)
+        busca.searchResultsUpdater = self
+        self.navigationItem.searchController = busca
     }
 }
 

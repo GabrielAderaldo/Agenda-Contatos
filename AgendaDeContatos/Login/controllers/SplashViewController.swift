@@ -38,28 +38,28 @@ class SplashViewController: UIViewController {
     
     func anima1(){
         UIView.animate(withDuration: 1/2, animations: {
-            self.imagemLoading.frame = CGRect(x: self.xPRIMEIRO, y: self.yPRIMERIO, width: 100, height: 100)
+            self.imagemLoading.frame = CGRect(x: self.xPRIMEIRO, y: self.yPRIMERIO, width: 50, height: 50)
         }) { (_) in
             self.anima2()
         }
     }
     func anima2(){
         UIView.animate(withDuration: 1/2, animations: {
-            self.imagemLoading.frame = CGRect(x: self.xSEGUNDO, y: self.ySEGUNDO, width: 100, height: 100)
+            self.imagemLoading.frame = CGRect(x: self.xSEGUNDO, y: self.ySEGUNDO, width: 50, height: 50)
         }) { (_) in
             self.anima3()
         }
     }
     func anima3(){
         UIView.animate(withDuration: 1/2, animations: {
-            self.imagemLoading.frame = CGRect(x: self.xTERCEIRO, y: self.yTERCEIRO, width: 100, height: 100)
+            self.imagemLoading.frame = CGRect(x: self.xTERCEIRO, y: self.yTERCEIRO, width: 50, height: 50)
         }) { (_) in
             self.anima4()
         }
     }
     func anima4(){
         UIView.animate(withDuration: 1/2, animations: {
-            self.imagemLoading.frame = CGRect(x: self.xQUARTO, y: self.yQUARTO, width: 100, height: 100)
+            self.imagemLoading.frame = CGRect(x: self.xQUARTO, y: self.yQUARTO, width: 50, height: 50)
         }) { (_) in
             self.anima1()
         }
