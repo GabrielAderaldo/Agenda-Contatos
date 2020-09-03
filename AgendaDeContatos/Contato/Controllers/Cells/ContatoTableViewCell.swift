@@ -19,7 +19,7 @@ class ContatoTableViewCell: UITableViewCell, NibReusable {
         
         self.contatoImage.layer.cornerRadius = self.contatoImage.frame.height/2
         self.contatoImage.clipsToBounds = true
-    }
+    } 
     
     func bind(contato: ContatoView) {
         self.contatoNomeLabel.text = contato.nome.capitalized

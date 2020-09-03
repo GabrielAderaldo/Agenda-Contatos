@@ -16,20 +16,20 @@ class SplashViewController: UIViewController {
     let  xPRIMEIRO = 20.0
     let  yPRIMERIO = 44.0
     //
-    let  xSEGUNDO = 280.0
+    let  xSEGUNDO = Double(UIScreen.main.bounds.width - 70)
     let  ySEGUNDO = 44.0
     //
-    let  xTERCEIRO = 280
-    let  yTERCEIRO = 150
+    let  xTERCEIRO = Double(UIScreen.main.bounds.width - 70)
+    let  yTERCEIRO = 150.0
     //
-    let  xQUARTO = 20
-    let  yQUARTO = 150
+    let  xQUARTO = 20.0
+    let  yQUARTO = 150.0
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagemLoading.layer.cornerRadius = 50
+        imagemLoading.layer.cornerRadius = 50/2
         imagemLoading.clipsToBounds = true
         
         anima1()

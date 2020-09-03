@@ -658,6 +658,7 @@
 			baseConfigurationReference = F6FC0834E1F07C2C74A16362 /* Pods-AgendaDeContatos.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77QLG4Y4P8;
 				INFOPLIST_FILE = AgendaDeContatos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -675,6 +676,7 @@
 			baseConfigurationReference = 1AA0A3AD6716F3BEB253D02A /* Pods-AgendaDeContatos.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 77QLG4Y4P8;
 				INFOPLIST_FILE = AgendaDeContatos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

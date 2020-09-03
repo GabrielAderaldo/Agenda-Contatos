@@ -17,6 +17,8 @@ class LoginViewController: UIViewController, ServiceDelegate{
     @IBOutlet weak var txtSenha: UITextField!
     @IBOutlet weak var stackView: UIStackView!
     
+    var telaSplash = StoryboardScene.Login.splashViewController.instantiate()
+    
     var auth: AuthenticationService!
     
     override func viewDidLoad() {
@@ -35,10 +37,17 @@ class LoginViewController: UIViewController, ServiceDelegate{
     
     @IBAction func bntLogarValidacao(_ sender: Any) {
         
+        
         if let localLogin = self.txtLogin.text, let localSenha = self.txtSenha.text {
             
+            if localLogin.isEmpty || localSenha.isEmpty{
+                failure(type: .login, error: "")
+                return
+            }
+                
             self.auth.login(email: localLogin, senha: localSenha)
-            let telaSplash = StoryboardScene.Login.splashViewController.instantiate()
+            
+            telaSplash.modalPresentationStyle = .fullScreen
             present(telaSplash, animated: true, completion: nil)
         }
         
@@ -50,20 +59,21 @@ class LoginViewController: UIViewController, ServiceDelegate{
     }
 
     func success(type: ResponseType) {
-        let telaSplash = StoryboardScene.Login.splashViewController.instantiate()
         telaSplash.dismiss(animated: true, completion: nil)
         ScreenManager.setupInitialViewController()
         
     }
     
     func failure(type: ResponseType, error: String) {
- 
-        let erroLogin = UIAlertController(title: L10n.Msg.fracasso, message: L10n.Msg.Fracasso.login, preferredStyle: .alert)
         
-        erroLogin.addAction(UIAlertAction(title: L10n.f, style: .default, handler: nil))
-        
-        self.present(erroLogin, animated: true)
-    
+        telaSplash.dismiss(animated: true) {
+            let erroLogin = UIAlertController(title: L10n.Msg.fracasso, message: SessionControll.shared.isConnected ? L10n.Msg.Fracasso.login : "Falha na conexão", preferredStyle: .alert)
+            
+            erroLogin.addAction(UIAlertAction(title: L10n.f, style: .default, handler: nil))
+            
+            self.present(erroLogin, animated: true)
+        }
+        telaSplash.dismiss(animated: true, completion: nil)
     }
 }
 
@@ -77,7 +87,3 @@ extension UIViewController  {
         self.view.endEditing(true)
     }
 }
-
-
-
-

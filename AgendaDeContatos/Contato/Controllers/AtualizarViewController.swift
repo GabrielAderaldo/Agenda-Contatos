@@ -22,14 +22,16 @@ class AtualizarViewController: UIViewController,ServiceDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.configDismiss()
+        
         self.authContatos = ContatoService(delegate: self)
        
         uivImgFotoHeader.kf.setImage(with: contact.fotoUrl,placeholder: Asset.placeHolder.image)
         
         
         //arrendondando a imagem...
-        uivImgFotoHeader.layer.cornerRadius = 100
+        uivImgFotoHeader.layer.cornerRadius = uivImgFotoHeader.frame.height/2
         uivImgFotoHeader.clipsToBounds = true
         
         //Iniciando já os valores anteriores...

@@ -28,6 +28,10 @@ class SessionControll {
         return usuarioModel != nil
     }
     
+    var isConnected: Bool {
+        return NetworkReachabilityManager()?.isReachable ?? true
+    }
+    
     init(){}
     
     func setupInvalidheader() {
@@ -39,4 +43,6 @@ class SessionControll {
             self.headers["token"] = token
         }
     }
+    
+    
 }
