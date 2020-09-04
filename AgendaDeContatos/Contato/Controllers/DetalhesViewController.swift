@@ -8,10 +8,16 @@
 
 import UIKit
 import Kingfisher
+import MessageUI
 
 
-class DetalhesViewController: UIViewController, ServiceDelegate{
+class DetalhesViewController: UIViewController, ServiceDelegate, MFMessageComposeViewControllerDelegate{
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
+    
+    @IBOutlet weak var bntTelefone: UIButton!
     @IBOutlet weak var bntDeletar: UIButton!
     @IBOutlet weak var lbNome: UILabel!
     @IBOutlet weak var lbEmail: UILabel!
@@ -67,13 +73,34 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
        
         self.navigationController?.pushViewController(telaAtualizar, animated: true)
     }
-
+    
+    
+    
+    @IBAction func bntSMSPhone(_ sender: Any) {
+    
+        let menu = menuTelefoneMensagem { (opcao) in
+            
+            switch opcao{
+            case.sms:
+                self.sendNewMensage("")
+            case .phone:
+                self.phoneCall()
+            }
+            
+            
+        }
+        present(menu, animated: true, completion: nil)
+    }
+    
     @IBAction func bntDelete(_ sender: Any) {
         
         if let localId = contact?.id {
             self.authContatos.deletarContato(id: localId)
         }
     }
+    
+    
+   
     
     func success(type: ResponseType) {
         
@@ -117,7 +144,51 @@ class DetalhesViewController: UIViewController, ServiceDelegate{
         }
     }
     
+    /*O ideal é para ficar em uma extension, mas to com problema em chamar... entao jaja pergunto ao jbson como fazer*/
+       enum  MenuActionSheetAluno {
+             case sms
+             case phone
+         }
+         
+         
+         func menuTelefoneMensagem(completion:@escaping(_ opcap: MenuActionSheetAluno)-> Void) -> UIAlertController{
+             let menu = UIAlertController(title: "Escolha", message: "Deseja qual?", preferredStyle: .actionSheet)
+             let sms = UIAlertAction(title: "Enviar SMS", style: .default) { (action) in
+                 completion(.sms)
+               
+             }
+           let phone = UIAlertAction(title: "Ligar", style: .default) { (action) in
+               completion(.phone)
+           }
+             
+             menu.addAction(sms)
+           menu.addAction(phone)
+               
+           menu.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: nil))
+           
+             return menu
+         }
     
+    
+    //MARK: Mensagem e Telefone
+    @IBAction func sendNewMensage(_ sender:Any){
+        let msgController = MFMessageComposeViewController()
+        msgController.body = "digite algo aqui"
+        msgController.recipients = [contact?.fone ?? ""]
+        msgController.messageComposeDelegate = self
+        self.present(msgController, animated: true, completion: nil)
+    }
+        
+    
+    func phoneCall(){
+        let numero = contact?.fone ?? " "
+        if let url = URL(string: "tel://\(numero)"), UIApplication.shared.canOpenURL(url){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+        
+    }
     
 }
+
+
 

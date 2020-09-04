@@ -12,4 +12,6 @@ enum ResponseType{
     case atualizarContato
     case listagemContato
     case buscaContato
+
+
 }

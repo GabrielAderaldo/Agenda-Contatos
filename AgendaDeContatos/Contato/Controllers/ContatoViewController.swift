@@ -193,4 +193,10 @@ extension ContatoViewController: UISearchResultsUpdating {
     }
 }
 
+//MARK:Email
+extension ContatoViewController{
+    //TODO: criar uma funcao que mande email para o usuario...
+}
+
+
 
