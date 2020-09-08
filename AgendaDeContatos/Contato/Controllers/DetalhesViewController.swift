@@ -30,11 +30,15 @@ class DetalhesViewController: UIViewController, ServiceDelegate, MFMessageCompos
     //criando a funcao do menu bonitinho...
     func setupNavegationItens(){
         let bntAtualizar = UIBarButtonItem(title:"Atualizar", style: .done, target: self, action: #selector(self.bntAtualizar))
-        self.navigationItem.rightBarButtonItems = [bntAtualizar]
+        let bntshare = UIBarButtonItem(image: Asset.bntShare.image, style: .plain, target: self, action: #selector(self.bntShare))
+        self.navigationItem.rightBarButtonItems = [bntAtualizar,bntshare]
+       
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.authContatos = ContatoService(delegate: self)
         self.setupNavegationItens()
@@ -47,6 +51,8 @@ class DetalhesViewController: UIViewController, ServiceDelegate, MFMessageCompos
         
         self.authContatos.listarAtualizado(id: contact?.id ?? "")
     }
+    
+    
     
     func atualizar(){
         
@@ -98,9 +104,23 @@ class DetalhesViewController: UIViewController, ServiceDelegate, MFMessageCompos
             self.authContatos.deletarContato(id: localId)
         }
     }
-    
-    
    
+    @objc func bntShare(){
+        
+        let nomeShare = "Nome: \(contact?.nome ?? "")"
+        let phoneShare = "Telefone: \(contact?.fone ?? "")"
+        let emailShare = "Email: \(contact?.email ?? "")"
+        let cabecalhoShare = "Compartilhar contato..."
+        
+        let linkToShare = [nomeShare,phoneShare,emailShare,cabecalhoShare]
+
+        let activityController = UIActivityViewController(activityItems: linkToShare, applicationActivities: nil)
+
+        self.present(activityController, animated: true, completion: nil)
+        
+        
+    }
+    
     
     func success(type: ResponseType) {
         
